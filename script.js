@@ -51,4 +51,36 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Theme Toggle Logic
+  const themeToggle = document.getElementById('theme-toggle');
+  const sunIcon = document.querySelector('.sun-icon');
+  const moonIcon = document.querySelector('.moon-icon');
+
+  // Check for saved theme preference or system preference
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+    document.documentElement.setAttribute('data-theme', 'light');
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    });
+  }
 });

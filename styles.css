@@ -24,6 +24,20 @@
   --glass-blur: blur(24px) saturate(180%);
 }
 
+/* Light Theme Variables */
+[data-theme="light"] {
+  --bg-color: #f5f5f7;
+  --bg-gradient: radial-gradient(circle at top center, #ffffff 0%, #f5f5f7 100%);
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent: #d32f2f; 
+  --accent-light: #e53935;
+  
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.05);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -42,6 +56,8 @@ body {
   line-height: 1.6;
   font-size: var(--step-0);
   overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 h1, h2, h3, h4, .nav-brand {
@@ -127,6 +143,28 @@ a:hover {
 
 .nav-links a:hover {
   color: var(--accent-light);
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--accent);
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 /* Hero Section */
@@ -305,12 +343,52 @@ a:hover {
   color: #fff;
 }
 
-/* Alternating Experience Layout */
+/* Alternating/* Experience Section / Timeline */
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 100px; 
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--glass-border);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: var(--bg-color);
+  border: 4px solid var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 15px var(--accent-light);
+  transition: background 0.5s ease;
+}
+
+[data-theme="light"] .timeline-dot {
+  background: #fff;
+}
+
 .experience-block {
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: center;
-  gap: 3rem;
   margin-bottom: 6rem;
+  z-index: 1;
 }
 
 .experience-block.reverse {
@@ -419,9 +497,26 @@ a:hover {
 }
 
 @media (max-width: 900px) {
-  .double-col, .experience-block, .experience-block.reverse {
+  .double-col {
     flex-direction: column;
     grid-template-columns: 1fr;
+  }
+  
+  .timeline-container::before {
+    left: 20px;
+    transform: none;
+  }
+  
+  .timeline-dot {
+    left: 20px;
+    top: 60px; /* Aligned with the title of the card roughly */
+    transform: translateX(-50%);
+  }
+
+  .experience-block, .experience-block.reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-left: 45px; /* Make room for the line on the left */
   }
 }
 
@@ -444,6 +539,50 @@ a:hover {
 
 .education-details {
   margin-bottom: 2rem;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: var(--step--1);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: var(--step--1);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Footer */
