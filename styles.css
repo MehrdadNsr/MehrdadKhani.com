@@ -504,20 +504,17 @@ a:hover {
   }
   
   .timeline-container::before {
-    left: 20px;
-    transform: none;
+    display: none;
   }
   
   .timeline-dot {
-    left: 20px;
-    top: 60px; /* Aligned with the title of the card roughly */
-    transform: translateX(-50%);
+    display: none;
   }
 
   .experience-block, .experience-block.reverse {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding-left: 45px; /* Make room for the line on the left */
+    padding-left: 0;
   }
 }
 
