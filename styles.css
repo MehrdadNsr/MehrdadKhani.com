@@ -689,6 +689,15 @@ footer p {
 }
 
 @media (max-width: 768px) {
+  .nav-brand {
+    display: none;
+  }
+  .navbar {
+    justify-content: center;
+  }
+  .nav-links {
+    gap: 1.5rem;
+  }
   .scroll-top-btn {
     bottom: 20px;
     right: 20px;
