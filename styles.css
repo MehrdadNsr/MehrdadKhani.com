@@ -205,15 +205,43 @@ a:hover {
 }
 
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   background: var(--accent);
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 30px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+  overflow: hidden;
+}
+
+.resume-btn .btn-text-short {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resume-btn .btn-text-full {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resume-btn:hover .btn-text-short {
+  max-width: 0;
+  opacity: 0;
+  margin-right: -0.5rem; /* collapse gap */
+}
+
+.resume-btn:hover .btn-text-full {
+  max-width: 250px;
+  opacity: 1;
 }
 
 .btn-primary:hover {
