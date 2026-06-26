@@ -141,8 +141,13 @@ a:hover {
   color: var(--text-primary);
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--accent-light);
+}
+
+.nav-links a.active {
+  font-weight: 700;
 }
 
 .theme-toggle-btn {
@@ -694,9 +699,14 @@ footer p {
   }
   .navbar {
     justify-content: center;
+    padding: 1rem;
+    width: 95%;
   }
   .nav-links {
-    gap: 1.5rem;
+    gap: 1rem;
+  }
+  .nav-links a {
+    font-size: calc(var(--step--1) * 0.9);
   }
   .scroll-top-btn {
     bottom: 20px;

@@ -83,4 +83,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ScrollSpy Logic for Navbar
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        let currentId = entry.target.id;
+        // Keep 'Experience' highlighted even when scrolling through 'Earlier Experience'
+        if (currentId === 'earlier-experience') {
+          currentId = 'experience';
+        }
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${currentId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(section => {
+    scrollSpyObserver.observe(section);
+  });
 });
