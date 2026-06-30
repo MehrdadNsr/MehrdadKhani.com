@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advances in Analytical Methods for HCP Detection | Mehrdad Khani</title>
+  <meta name="description" content="Going beyond ELISA to mass spectrometry (LC-MS) for host cell protein characterization.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding-top: 100px; }
+    .article-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .article-meta {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .article-cover {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    .article-content h2 {
+      color: var(--text-primary);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">Mer Khani</a>
+    <ul class="nav-links">
+      <li><a href="blog.html" class="active">← Back to Blog</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main style="padding-bottom: 5rem;">
+    <div class="container scroll-reveal">
+      <div class="article-header">
+        <span class="article-meta">Sep 18, 2025 • Quality Control & Analytics</span>
+        <h1 class="section-title">Advances in Analytical Methods for HCP Detection</h1>
+      </div>
+      
+      <img src="images/blog_hcp.jpg" alt="Mass Spectrometer for HCP" class="article-cover">
+      
+      <div class="article-content">
+        <p>Host Cell Proteins (HCPs) are a complex mixture of endogenous proteins produced by the host expression system (such as CHO cells) during the biomanufacturing of therapeutic proteins. If not adequately cleared during downstream processing, trace HCPs can cause severe immunogenic reactions in patients or degrade the drug product via proteolytic activity.</p>
+        
+        <h2>The Limitations of ELISA</h2>
+        <p>Historically, the detection and quantification of HCPs have relied almost exclusively on Enzyme-Linked Immunosorbent Assays (ELISA). While ELISAs are highly sensitive, high-throughput, and relatively easy to validate for lot-release testing, they suffer from a significant drawback: they only detect HCPs that elicit an immune response in the animal immunized to create the assay antibodies. This creates "blind spots" where potentially harmful, non-immunoreactive HCPs go completely undetected.</p>
+        
+        <h2>The Shift to LC-MS/MS</h2>
+        <p>To bridge this gap, the biopharmaceutical industry is increasingly turning to Liquid Chromatography-Mass Spectrometry (LC-MS/MS) as an orthogonal analytical method. LC-MS/MS does not rely on immunoreactivity; instead, it provides comprehensive identification and quantification of individual HCP species based on their mass-to-charge ratios.</p>
+        
+        <p>By integrating LC-MS/MS during process development, downstream scientists can pinpoint exactly which specific HCPs are co-purifying with the product (often due to protein-protein interactions). This level of granular data allows for the targeted optimization of wash buffers and chromatography gradients, ensuring a cleaner, safer final product.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+      <p>&copy; 2026 Mehrdad Khani. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

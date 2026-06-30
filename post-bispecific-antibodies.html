@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rise of Bispecific Antibodies | Mehrdad Khani</title>
+  <meta name="description" content="How modifying downstream steps is necessary to purify complex bispecifics.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding-top: 100px; }
+    .article-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .article-meta {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .article-cover {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    .article-content h2 {
+      color: var(--text-primary);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">Mer Khani</a>
+    <ul class="nav-links">
+      <li><a href="blog.html" class="active">← Back to Blog</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main style="padding-bottom: 5rem;">
+    <div class="container scroll-reveal">
+      <div class="article-header">
+        <span class="article-meta">Nov 05, 2025 • Next-Gen Biologics</span>
+        <h1 class="section-title">The Rise of Bispecific Antibodies</h1>
+      </div>
+      
+      <img src="images/blog_bispecific.jpg" alt="Bispecific Antibody" class="article-cover">
+      
+      <div class="article-content">
+        <p>The biopharmaceutical landscape is rapidly evolving beyond standard monoclonal antibodies (mAbs) towards more complex modalities, with bispecific antibodies (bsAbs) leading the charge. By engineered design, bsAbs can bind to two different epitopes simultaneously, opening up revolutionary therapeutic possibilities—most notably in oncology, where they can physically bridge a T-cell to a tumor cell.</p>
+        
+        <h2>The Downstream Challenge</h2>
+        <p>However, the structural complexity that makes bsAbs so effective clinically also makes them notoriously difficult to manufacture and purify. Unlike standard mAbs, the expression of bsAbs in mammalian cells often leads to a high percentage of mispaired byproducts, such as homodimers (where two identical heavy chains pair) or half-antibodies.</p>
+        
+        <h2>Moving Beyond Standard Protein A</h2>
+        <p>Standard Protein A chromatography, while excellent for capturing intact mAbs, struggles to differentiate between the desired heterodimeric bsAb and product-related homodimer impurities, as both often contain the required Fc region for binding.</p>
+        <p>To overcome this, downstream processing scientists must deploy more sophisticated purification strategies. This includes using mixed-mode chromatography, highly optimized ion exchange (IEX) gradients, and specialized affinity resins designed to selectively bind only one specific arm of the bispecific molecule. As pipeline focus shifts towards these next-generation molecules, mastering their unique downstream challenges is becoming the defining skill for modern purification engineers.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+      <p>&copy; 2026 Mehrdad Khani. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
