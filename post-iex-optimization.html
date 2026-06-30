@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advances in Analytical Methods for HCP Detection | Mehrdad Khani</title>
-  <meta name="description" content="Going beyond ELISA to mass spectrometry (LC-MS) for host cell protein characterization.">
+  <title>Optimizing Ion Exchange (IEX) Chromatography in Downstream Processing | Mehrdad Khani</title>
+  <meta name="description" content="Strategies for effective aggregate removal and scale-up in IEX chromatography.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,28 +69,26 @@
   <main style="padding-bottom: 5rem;">
     <div class="container scroll-reveal">
       <div class="article-header">
-        <span class="article-meta">Sep 18, 2025 • Quality Control & Analytics</span>
-        <h1 class="section-title">Advances in Analytical Methods for HCP Detection</h1>
+        <span class="article-meta">Sep 18, 2025 • Downstream Processing</span>
+        <h1 class="section-title">Optimizing Ion Exchange (IEX) Chromatography</h1>
       </div>
       
-      <img src="images/blog_hcp.jpg" alt="Mass Spectrometer for HCP" class="article-cover">
+      <img src="images/blog_iex.jpg" alt="Ion Exchange Chromatography Column" class="article-cover">
       
       <div class="article-content">
-        <p>Host Cell Proteins (HCPs) are a complex mixture of endogenous proteins produced by the host expression system (such as CHO cells) during the biomanufacturing of therapeutic proteins. If not adequately cleared during downstream processing, trace HCPs can cause severe immunogenic reactions in patients or degrade the drug product via proteolytic activity.</p>
+        <p>Ion Exchange (IEX) chromatography remains the workhorse of downstream polishing for monoclonal antibodies and recombinant proteins. Whether operating in bind-and-elute mode (typically Cation Exchange, CEX) to clear product-related impurities like high molecular weight (HMW) aggregates, or in flow-through mode (typically Anion Exchange, AEX) to clear process-related impurities like host cell DNA and endotoxins, IEX is critical for meeting final GMP quality specifications.</p>
         
-        <h2>The Limitations of ELISA</h2>
-        <p>Historically, the detection and quantification of HCPs have relied almost exclusively on Enzyme-Linked Immunosorbent Assays (ELISA). While ELISAs are highly sensitive, high-throughput, and relatively easy to validate for lot-release testing, they suffer from a significant drawback: they only detect HCPs that elicit an immune response in the animal immunized to create the assay antibodies. This creates "blind spots" where potentially harmful, non-immunoreactive HCPs go completely undetected.</p>
+        <h2>Buffer Preparation and Conductivity Control</h2>
+        <p>However, scaling up IEX from bench-top to commercial manufacturing presents significant engineering challenges. A major hurdle is the precise preparation of large volumes of buffers. IEX resins are exquisitely sensitive to slight variations in conductivity and pH. In a commercial setting, formulating thousands of liters of buffer—often using in-line dilution—requires highly accurate mass flow meters and rigorous mixing validation. Even a 0.5 mS/cm deviation in elution buffer conductivity can drastically shift the elution profile, leading to the co-elution of aggregates or significant product loss.</p>
         
-        <h2>The Shift to LC-MS/MS</h2>
-        <p>To bridge this gap, the biopharmaceutical industry is increasingly turning to Liquid Chromatography-Mass Spectrometry (LC-MS/MS) as an orthogonal analytical method. LC-MS/MS does not rely on immunoreactivity; instead, it provides comprehensive identification and quantification of individual HCP species based on their mass-to-charge ratios.</p>
-        
-        <p>By integrating LC-MS/MS during process development, downstream scientists can pinpoint exactly which specific HCPs are co-purifying with the product (often due to protein-protein interactions). This level of granular data allows for the targeted optimization of wash buffers and chromatography gradients, ensuring a cleaner, safer final product.</p>
+        <h2>Scale-up and Column Packing</h2>
+        <p>Furthermore, column packing at scale dictates process success. Maintaining the correct compression factor and understanding the pressure-flow curve of the resin are essential to prevent bed channeling or premature pressure over-shoot. Modern downstream engineers must leverage high-throughput screening (HTS) to optimize gradients and step elutions in scale-down models, ensuring that the transition to large-scale GMP manufacturing is both seamless and robust.</p>
         
         <div class="references" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
           <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-primary);">References</h3>
           <ul style="list-style-type: none; padding-left: 0; font-size: 0.95rem; color: var(--text-secondary);">
-            <li style="margin-bottom: 0.5rem;">Doneanu, C. E., et al. (2023). Technical advancement and practical considerations of LC-MS/MS-based methods for host cell protein identification and quantitation. <em>mAbs</em>. <a href="https://doi.org/10.1080/19420862.2023.2213365" target="_blank" style="color: var(--accent); text-decoration: none;">doi:10.1080/19420862.2023.2213365</a></li>
-            <li style="margin-bottom: 0.5rem;">Chen, I. H., et al. (2026). Application of a novel LC–MS-based proteomic workflow for host cell protein monitoring and risk control in biotherapeutics. <em>Antibody Therapeutics</em>. <a href="https://doi.org/10.1093/abt/tbag013" target="_blank" style="color: var(--accent); text-decoration: none;">doi:10.1093/abt/tbag013</a></li>
+            <li style="margin-bottom: 0.5rem;">Fekete, S., et al. (2015). Ion-exchange chromatography for the characterization of biopharmaceuticals. <em>Journal of Pharmaceutical and Biomedical Analysis</em>. <a href="https://doi.org/10.1016/j.jpba.2015.02.037" target="_blank" style="color: var(--accent); text-decoration: none;">doi:10.1016/j.jpba.2015.02.037</a></li>
+            <li style="margin-bottom: 0.5rem;">Staby, A., et al. (2006). Comparison of chromatographic ion-exchange resins. <em>Journal of Chromatography A</em>. <a href="https://doi.org/10.1016/j.chroma.2006.02.060" target="_blank" style="color: var(--accent); text-decoration: none;">doi:10.1016/j.chroma.2006.02.060</a></li>
           </ul>
         </div>
       </div>
