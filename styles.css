@@ -346,12 +346,12 @@ a:hover {
 }
 
 .profile-pic {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 20px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--glass-border);
+  border: 4px solid var(--accent);
   transition: transform 0.4s ease;
 }
 
