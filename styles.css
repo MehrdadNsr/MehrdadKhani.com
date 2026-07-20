@@ -329,6 +329,49 @@ a:hover {
   letter-spacing: 1px;
 }
 
+.custom-tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.custom-tooltip .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: rgba(15, 23, 42, 0.95);
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  z-index: 100;
+  bottom: 110%; /* Position above the item */
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+}
+
+.custom-tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.95) transparent transparent transparent;
+}
+
+.custom-tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 .hero-box {
   text-align: center;
   width: 90%;
