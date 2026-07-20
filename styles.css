@@ -260,11 +260,73 @@ a:hover {
   -webkit-text-fill-color: transparent;
 }
 
+.hero-subtitle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
 .hero-subtitle {
   font-size: var(--step-2);
   color: var(--text-secondary);
   font-weight: 400;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+}
+
+.bioready-badge-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.bioready-badge-link:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.bioready-badge {
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.metrics-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metric-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .hero-box {
@@ -294,9 +356,14 @@ a:hover {
   color: var(--text-secondary);
 }
 .hero-contact a {
-  color: var(--text-primary);
+  color: #fff;
   text-decoration: underline;
-  text-decoration-color: var(--glass-border);
+  text-underline-offset: 4px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.hero-contact a:hover {
+  color: var(--accent);
 }
 
 /* Sections */
