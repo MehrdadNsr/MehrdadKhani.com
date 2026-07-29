@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eceadf">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="PTE Email">
+<meta name="description" content="تمرین تعاملی Write Email آزمون PTE Core">
+<title>تمرین ایمیل PTE Core</title>
+<link rel="canonical" href="https://mehrdadkhani.com/pte-email-trainer.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eceadf; --card:#fffdf7; --ink:#1b2430; --muted:#6f7885; --line:#d8d3c4;
+  --red:#c0402f; --blue:#2b4a8b; --ok:#1d7a4c; --okbg:#e7f3ec;
+  --err:#c0402f; --errbg:#fbeceb; --gold:#a8760f; --goldbg:#fbf3e0;
+  --fa:'Vazirmatn','Segoe UI',Tahoma,sans-serif;
+  --en:'Newsreader',Georgia,serif;
+  --mono:'Courier Prime',ui-monospace,'Courier New',monospace;
+  --r:13px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;direction:rtl;font-family:var(--fa);color:var(--ink);
+  background:
+    radial-gradient(circle at 12% 8%, #f6f4ea 0%, transparent 42%),
+    radial-gradient(circle at 88% 92%, #f2efe2 0%, transparent 46%),
+    var(--paper);
+  background-attachment:fixed;
+  min-height:100vh;line-height:1.9;
+  font-size:clamp(14.5px,3.4vw,15.5px);
+  padding:0 max(14px,env(safe-area-inset-left)) calc(70px + env(safe-area-inset-bottom));
+}
+.wrap{max-width:860px;margin:0 auto}
+.en-txt,.en-line{font-family:var(--en);direction:ltr;text-align:left;unicode-bidi:isolate}
+.mono{font-family:var(--mono);direction:ltr;unicode-bidi:isolate}
+
+/* ---------- airmail signature ---------- */
+.airmail{
+  height:7px;border-radius:99px;
+  background:repeating-linear-gradient(-45deg,
+    var(--red) 0 9px, transparent 9px 18px,
+    var(--blue) 18px 27px, transparent 27px 36px);
+  opacity:.85;
+}
+
+/* ---------- header ---------- */
+header{padding:22px 0 6px}
+.masthead{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.env{flex:0 0 auto;width:48px;height:34px;position:relative;animation:float 5s ease-in-out infinite}
+.env svg{width:100%;height:100%;display:block}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-5px) rotate(2deg)}}
+.masthead h1{font-size:clamp(17px,4.6vw,21px);margin:0;font-weight:700;letter-spacing:-.01em}
+.masthead .sub{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;display:block;font-weight:700}
+.postmark{
+  margin-inline-start:auto;flex:0 0 auto;width:82px;height:82px;border:2px dashed var(--red);
+  border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--red);transform:rotate(-11deg);opacity:.9;line-height:1.15;text-align:center;
+}
+.postmark b{font-family:var(--mono);font-size:21px;display:block}
+.postmark span{font-size:9.5px;letter-spacing:.06em}
+@media (max-width:520px){ .postmark{width:66px;height:66px} .postmark b{font-size:17px} }
+
+/* ---------- nav ---------- */
+nav{
+  display:flex;gap:6px;overflow-x:auto;padding:14px 0 6px;margin-bottom:12px;
+  scrollbar-width:none;-ms-overflow-style:none;
+  -webkit-overflow-scrolling:touch;
+}
+nav::-webkit-scrollbar{display:none}
+nav button{
+  flex:0 0 auto;min-width:112px;min-height:46px;background:var(--card);border:1px solid var(--line);
+  border-radius:11px;padding:7px 13px;cursor:pointer;text-align:right;font-family:var(--fa);
+  font-size:13px;color:var(--muted);transition:transform .16s,background .16s,border-color .16s;line-height:1.4
+}
+nav button b{display:block;color:var(--ink);font-size:13.5px;font-weight:700}
+nav button .n{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em}
+nav button:hover{border-color:var(--blue);transform:translateY(-2px)}
+nav button.on{background:var(--ink);border-color:var(--ink);color:#ffffffaa}
+nav button.on b{color:#fff}
+nav button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* ---------- cards ---------- */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:18px 20px;margin-bottom:12px;
+  box-shadow:0 1px 0 #fff inset, 0 2px 10px rgba(27,36,48,.045);
+}
+.card.stamped{position:relative;overflow:hidden}
+.card.stamped::before{content:"";position:absolute;top:0;inset-inline:0;height:6px;
+  background:repeating-linear-gradient(-45deg,var(--red) 0 8px,transparent 8px 16px,var(--blue) 16px 24px,transparent 24px 32px);opacity:.8}
+.card.stamped{padding-top:24px}
+.card h2{font-size:16px;margin:0 0 4px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.hint{color:var(--muted);font-size:13.5px;margin:0 0 14px}
+.hint .e{font-family:var(--en);direction:ltr;unicode-bidi:isolate;font-style:italic}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* ---------- mail surface ---------- */
+.mail{
+  background:#fffef9;border:1px solid var(--line);border-radius:11px;padding:16px 18px;
+  font-family:var(--en);direction:ltr;text-align:left;font-size:clamp(15px,3.9vw,16.5px);
+  line-height:2.02;white-space:pre-wrap;unicode-bidi:isolate;
+  background-image:linear-gradient(transparent 97%, #ece7d8 97%);background-size:100% 2.02em;
+}
+.slot{display:inline-block;background:#e5ebf6;color:var(--blue);border-radius:5px;padding:0 6px;
+  font-family:var(--mono);font-size:.72em;font-weight:700;vertical-align:middle}
+.blank{display:inline-block;min-width:68px;border-bottom:2px solid var(--line);height:1.05em;vertical-align:baseline;margin:0 3px;transition:border-color .2s}
+.blank.cur{border-bottom-color:var(--blue);border-bottom-width:3px;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ---------- word bank ---------- */
+.bank{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;direction:ltr;justify-content:flex-start}
+.word,.chunk{
+  font-family:var(--mono);font-size:13.5px;padding:9px 13px;min-height:42px;border:1px solid var(--line);
+  background:var(--card);border-radius:9px;cursor:pointer;color:var(--ink);
+  transition:transform .13s,border-color .13s,background .13s;
+}
+.chunk{font-family:var(--en);font-size:15px;text-align:left}
+.word:hover,.chunk:hover{border-color:var(--blue);background:#f2f5fb;transform:translateY(-2px)}
+.word:active,.chunk:active{transform:translateY(0)}
+.word.used{opacity:.22;pointer-events:none}
+.chunk.ok{border-color:#b9dcc8;background:var(--okbg)}
+.chunk.bad{border-color:#eec9c5;background:var(--errbg)}
+.word:focus-visible,.chunk:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.pop{animation:pop .3s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{0%{transform:scale(.86)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
+.shake{animation:shake .34s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+/* ---------- forms ---------- */
+textarea,input[type=text]{
+  width:100%;font-family:var(--en);font-size:16px;line-height:1.85;padding:11px 13px;
+  border:1px solid var(--line);border-radius:10px;background:#fffef9;color:var(--ink);
+  direction:ltr;text-align:left;outline:none;resize:vertical;
+}
+textarea:focus,input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2b4a8b1f}
+label.f{display:block;margin:11px 0 4px;font-size:12.5px;color:var(--muted)}
+label.f b{font-family:var(--mono);font-size:11.5px;background:#e5ebf6;color:var(--blue);
+  padding:1px 7px;border-radius:5px;margin-inline-end:7px;font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+
+/* ---------- buttons ---------- */
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.btn{
+  font-family:var(--fa);font-size:14px;padding:10px 19px;min-height:44px;border-radius:10px;
+  border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;
+  transition:transform .14s,filter .14s;
+}
+.btn:hover{filter:brightness(1.22);transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:#e6e3d6;filter:none}
+.btn.mut{background:transparent;color:var(--muted);border-color:var(--line)}
+.btn:disabled{opacity:.32;cursor:not-allowed;transform:none;filter:none}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+kbd{font-family:var(--mono);font-size:10.5px;background:#e6e3d6;border:1px solid var(--line);
+  border-bottom-width:2px;border-radius:4px;padding:1px 5px;color:var(--muted)}
+
+/* ---------- feedback ---------- */
+.fb{margin-top:13px;border-radius:11px;padding:13px 15px;border:1px solid;font-size:14px;animation:slide .3s ease both}
+@keyframes slide{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.fb.good{background:var(--okbg);border-color:#b9dcc8;color:#125c38}
+.fb.bad{background:var(--errbg);border-color:#eec9c5;color:#8e2c20}
+.fb.warn{background:var(--goldbg);border-color:#e6d3a8;color:#78550a}
+.fb .ttl{font-weight:700;display:block;margin-bottom:3px}
+.fb .en-line{font-size:13.5px;margin-top:4px;opacity:.82}
+
+/* ---------- diff ---------- */
+.diff{font-family:var(--mono);direction:ltr;text-align:left;font-size:13.5px;line-height:2.2;
+  background:#fffef9;border:1px solid var(--line);border-radius:10px;padding:13px;margin-top:12px;unicode-bidi:isolate}
+.t-ok{color:var(--ok)}
+.t-miss{color:var(--err);background:var(--errbg);border-radius:4px;padding:1px 4px;font-weight:700}
+.t-extra{color:var(--muted);text-decoration:line-through}
+.t-punc{color:var(--gold);background:var(--goldbg);border-radius:4px;padding:1px 4px}
+.t-wrong{color:var(--err);text-decoration:line-through;opacity:.7}
+
+/* ---------- gauge ---------- */
+.gauge{margin-top:11px}
+.gauge .bar{position:relative;height:10px;background:#e2ddcd;border-radius:99px;overflow:hidden}
+.gauge .fill{position:absolute;inset-inline-start:0;top:0;bottom:0;background:var(--gold);
+  transition:width .3s cubic-bezier(.3,1,.4,1),background .3s;border-radius:99px}
+.gauge .fill.bad{background:var(--err)}
+.gauge .fill.safe{background:var(--ok)}
+.gauge .zone{position:absolute;top:0;bottom:0;background:#1d7a4c1f}
+.gauge .marks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:4px;direction:ltr}
+.count{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.count b{font-size:17px;color:var(--ink)}
+
+/* ---------- timer ---------- */
+.timer{font-family:var(--mono);font-size:clamp(24px,7vw,30px);font-weight:700;letter-spacing:.04em}
+.timer.low{color:var(--red);animation:pulse 1s ease-in-out infinite}
+
+/* ---------- prompt ---------- */
+.prompt{background:#fbf9ef;border:1px solid var(--line);border-inline-start:3px solid var(--blue);
+  border-radius:10px;padding:14px 16px;font-family:var(--en);direction:ltr;text-align:left;
+  font-size:clamp(14.5px,3.8vw,15.5px);line-height:1.8;unicode-bidi:isolate}
+.prompt ul{margin:8px 0 0;padding-inline-start:20px}
+.prompt li{margin:2px 0}
+
+/* ---------- misc ---------- */
+.drop{display:flex;flex-wrap:wrap;gap:7px;min-height:52px;padding:10px;border:1.5px dashed var(--line);
+  border-radius:10px;direction:ltr;align-items:flex-start;background:#fffef9}
+.opts{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+.opt{text-align:right;font-family:var(--fa);font-size:14px;padding:12px 14px;border:1px solid var(--line);
+  background:var(--card);border-radius:10px;cursor:pointer;transition:.13s;line-height:1.6;min-height:48px}
+.opt .e{font-family:var(--en);direction:ltr;display:block;text-align:left;unicode-bidi:isolate}
+.opt:hover{border-color:var(--blue);transform:translateY(-1px)}
+.opt.ok{border-color:#b9dcc8;background:var(--okbg)}
+.opt.bad{border-color:#eec9c5;background:var(--errbg)}
+.opt.dim{opacity:.45}
+.picker{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.pick{font-family:var(--fa);font-size:12.5px;padding:8px 12px;min-height:38px;border:1px solid var(--line);
+  background:var(--card);border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:.13s}
+.pick:hover{border-color:var(--blue)}
+.pick.on{border-color:var(--ink);background:var(--ink);color:#fff;font-weight:700}
+.pick .dots{display:flex;gap:2px}
+.pick .dots i{width:5px;height:5px;border-radius:50%;background:#cfc9b7;display:block;transition:.2s}
+.pick.on .dots i{background:#ffffff44}
+.pick .dots i.f{background:var(--ok)}
+.pick.on .dots i.f{background:#7fe3ab}
+
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.sc{background:#fbf9ef;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.sc .h{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px}
+.sc .h .v{font-family:var(--mono);font-weight:700;font-size:14px}
+.sc p{margin:4px 0 0;font-size:12.5px;color:var(--muted);line-height:1.7}
+
+table.tb{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:10px}
+table.tb td,table.tb th{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right}
+table.tb th{font-size:11.5px;color:var(--muted);font-weight:700}
+table.tb td.m{font-family:var(--mono);direction:ltr;text-align:left;unicode-bidi:isolate}
+
+.prog{height:5px;background:#e2ddcd;border-radius:99px;overflow:hidden;margin-top:12px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--ok));transition:width .45s cubic-bezier(.3,1,.4,1)}
+.budget{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.budget b{color:var(--ink);font-size:14px}
+.budget .over{color:var(--err)}
+
+.bigstamp{
+  position:relative;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  width:118px;height:118px;border:3px solid var(--ok);border-radius:8px;color:var(--ok);
+  transform:rotate(-8deg);font-family:var(--mono);animation:thud .5s cubic-bezier(.2,1.5,.4,1) both;
+  background:#ffffffc9;
+}
+.bigstamp.mid{border-color:var(--gold);color:var(--gold)}
+.bigstamp.low{border-color:var(--red);color:var(--red)}
+.bigstamp b{font-size:31px;line-height:1.1}
+.bigstamp span{font-size:10.5px;letter-spacing:.1em}
+.bigstamp em{font-family:var(--fa);font-style:normal;font-size:11px;margin-top:3px}
+@keyframes thud{0%{transform:scale(2.4) rotate(-20deg);opacity:0}70%{transform:scale(.94) rotate(-8deg);opacity:1}100%{transform:scale(1) rotate(-8deg)}}
+
+.screen{animation:enter .34s ease both}
+@keyframes enter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.screen .card{animation:enter .38s ease both}
+.screen .card:nth-child(2){animation-delay:.05s}
+.screen .card:nth-child(3){animation-delay:.1s}
+.screen .card:nth-child(4){animation-delay:.15s}
+.screen .card:nth-child(5){animation-delay:.2s}
+
+.selfchk{background:#fbf9ef;border:1px solid var(--line);border-radius:10px;padding:13px 15px;margin-top:12px;font-size:13.5px}
+.selfchk b{display:block;margin-bottom:8px}
+.cbx{display:flex;gap:9px;align-items:flex-start;margin:7px 0;cursor:pointer;line-height:1.6}
+.cbx input{width:19px;height:19px;margin:3px 0 0;accent-color:var(--ok);flex:0 0 auto}
+.cbx span{font-family:var(--en);direction:ltr;text-align:left;unicode-bidi:isolate;font-size:14px}
+#cbres{margin-top:9px;font-family:var(--fa);direction:rtl}
+footer{text-align:center;color:var(--muted);font-size:11.5px;padding:26px 0 0}
+
+@media (max-width:640px){
+  .scores,.grid2{grid-template-columns:1fr}
+  .card{padding:15px 15px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="masthead">
+      <div class="env" aria-hidden="true">
+        <svg viewBox="0 0 48 34" fill="none">
+          <rect x="1.5" y="1.5" width="45" height="31" rx="3" fill="#fffdf7" stroke="#1b2430" stroke-width="2"/>
+          <path d="M2 3l22 16L46 3" stroke="#c0402f" stroke-width="2" fill="none"/>
+          <path d="M2 31l16-12M46 31L30 19" stroke="#2b4a8b" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <span class="sub">Write Email &middot; 9 min &middot; 50&ndash;120 w</span>
+        <h1>تمرین ایمیل PTE Core</h1>
+      </div>
+      <div class="postmark" id="pm">
+        <b id="pmv">0%</b><span>دقت</span>
+      </div>
+    </div>
+    <div class="airmail" style="margin-top:12px"></div>
+    <div class="prog"><i id="progbar" style="width:0%"></i></div>
+  </header>
+
+  <nav id="nav"></nav>
+  <noscript>
+    <div class="card stamped" style="border-color:var(--red)">
+      <h2>جاوااسکریپت خاموشه</h2>
+      <p class="hint" style="margin:0">این تمرین بدون جاوااسکریپت کار نمی‌کنه. تو تنظیمات مرورگر روشنش کن، یا فایل رو با Chrome یا Safari باز کن نه با نمایشگر فایل.</p>
+    </div>
+  </noscript>
+  <div id="screen" class="screen"><div class="card stamped" id="boot"><h2>در حال بارگذاری</h2><p class="hint" style="margin:0">اگه این پیام موند و چیزی نیومد، یعنی جاوااسکریپت اجرا نشده. فایل رو مستقیم با مرورگر باز کن.</p></div></div>
+
+  <footer>
+    یک فایل، بدون نصب، بدون اینترنت. پیشرفتت روی همین دستگاه ذخیره می‌شه.
+  </footer>
+</div>
+
+<script>
+/* =================== FRAMES =================== */
+var FRAMES = {
+A:{id:"A",fa:"استاندارد",en:"Standard",use:"گزارش، بازخورد، پیشنهاد، موضوع اداری",
+lines:[
+{id:"greet",fa:"خطاب",br:2,text:"Dear Manager,",keys:["Dear"],chunks:["Dear Manager,"]},
+{id:"intro",fa:"مقدمه",br:2,text:"I am writing to discuss [MP] and to provide some details.",
+ keys:["writing","discuss","provide","details."],
+ chunks:["I am writing","to discuss [MP]","and to provide","some details."]},
+{id:"b1",fa:"بدنه ۱",br:2,text:"Firstly, considering the significance of [P1] would enhance the overall efficiency of our operations, benefiting [N1], as it ensures our satisfaction.",
+ keys:["Firstly,","considering","significance","enhance","efficiency","benefiting","ensures"],
+ chunks:["Firstly,","considering the significance of [P1]","would enhance the overall efficiency","of our operations,","benefiting [N1],","as it ensures our satisfaction."]},
+{id:"b2",fa:"بدنه ۲",br:2,text:"Secondly, recognizing the importance of [P2] is vital because of its positive impact on [N2], leading to better outcomes.",
+ keys:["Secondly,","recognizing","importance","vital","impact","leading","outcomes."],
+ chunks:["Secondly,","recognizing the importance of [P2]","is vital because of","its positive impact on [N2],","leading to better outcomes."]},
+{id:"b3",fa:"بدنه ۳",br:2,text:"Lastly, [P3], which could be [N3], would not only improve the chance of success in [N4] but also create a positive environment.",
+ keys:["Lastly,","which","improve","chance","success","create","environment."],
+ chunks:["Lastly, [P3],","which could be [N3],","would not only improve","the chance of success in [N4]","but also create","a positive environment."]},
+{id:"close",fa:"پایان",br:1,text:"I am looking forward to hearing from you.",
+ keys:["looking","forward","hearing"],chunks:["I am looking forward","to hearing from you."]},
+{id:"sign",fa:"امضا",br:1,text:"Regards,",keys:["Regards,"],chunks:["Regards,"]}],
+hints:{MP:{fa:"موضوع کلی نامه",ph:"the new weekday closing time"},
+ P1:{fa:"نکته اول، از bullet ۱",ph:"keeping the evening slot open"},
+ N1:{fa:"چه کسی سود می‌بره",ph:"members who work shifts"},
+ P2:{fa:"نکته دوم، از bullet ۲",ph:"the demand after eight o'clock"},
+ N2:{fa:"روی چی اثر می‌ذاره",ph:"your evening attendance"},
+ P3:{fa:"نکته سوم، از bullet ۳",ph:"a reduced-staff late session"},
+ N3:{fa:"توضیح کوتاه نکته سوم",ph:"card access with no front desk"},
+ N4:{fa:"موفقیت در چه زمینه‌ای",ph:"the new schedule"}}},
+
+B:{id:"B",fa:"درخواست",en:"Request",use:"درخواست، پرسش، ثبت‌نام، پیشنهاد جایگزین",
+lines:[
+{id:"greet",fa:"خطاب",br:2,text:"Dear Sir or Madam,",keys:["Dear"],chunks:["Dear Sir or Madam,"]},
+{id:"intro",fa:"مقدمه",br:2,text:"I hope this email finds you well. I am writing to ask about [MP].",
+ keys:["hope","finds","writing","ask"],
+ chunks:["I hope this email","finds you well.","I am writing","to ask about [MP]."]},
+{id:"b1",fa:"بدنه ۱",br:2,text:"To begin with, I would appreciate it if you could consider [P1], since this would make a real difference to [N1].",
+ keys:["begin","appreciate","consider","since","difference"],
+ chunks:["To begin with,","I would appreciate it","if you could consider [P1],","since this would make","a real difference to [N1]."]},
+{id:"b2",fa:"بدنه ۲",br:2,text:"In addition, [P2] is something I would like to arrange, mainly because of [N2].",
+ keys:["addition,","something","arrange,","mainly"],
+ chunks:["In addition,","[P2] is something","I would like to arrange,","mainly because of [N2]."]},
+{id:"b3",fa:"بدنه ۳",br:2,text:"Finally, I would be grateful if [P3] could be confirmed, as [N3] depends on it.",
+ keys:["Finally,","grateful","confirmed,","depends"],
+ chunks:["Finally,","I would be grateful","if [P3] could be confirmed,","as [N3] depends on it."]},
+{id:"close",fa:"پایان",br:1,text:"Please let me know what you think. I would be happy to provide any further details.",
+ keys:["know","think.","happy","further"],
+ chunks:["Please let me know","what you think.","I would be happy","to provide any further details."]},
+{id:"sign",fa:"امضا",br:1,text:"Kind regards,",keys:["Kind"],chunks:["Kind regards,"]}],
+hints:{MP:{fa:"چیزی که درباره‌ش می‌نویسی",ph:"one week of unpaid leave"},
+ P1:{fa:"درخواست اول، از bullet ۱",ph:"approving the leave in advance"},
+ N1:{fa:"روی چی فرق ایجاد می‌کنه",ph:"next month's roster"},
+ P2:{fa:"مورد دوم، از bullet ۲",ph:"the dates from the 12th to the 18th"},
+ N2:{fa:"دلیلش",ph:"a quieter period for the team"},
+ P3:{fa:"مورد سوم، از bullet ۳",ph:"the handover to my colleague"},
+ N3:{fa:"چی بهش وابسته‌ست",ph:"the coverage of my open tasks"}}},
+
+C:{id:"C",fa:"شکایت",en:"Complaint",use:"کالای خراب، سرویس ضعیف، تأخیر، ایراد محل کار",
+lines:[
+{id:"greet",fa:"خطاب",br:2,text:"Dear Sir or Madam,",keys:["Dear"],chunks:["Dear Sir or Madam,"]},
+{id:"intro",fa:"مقدمه",br:2,text:"I am writing to raise a concern regarding [MP].",
+ keys:["writing","raise","concern","regarding"],
+ chunks:["I am writing","to raise a concern","regarding [MP]."]},
+{id:"b1",fa:"بدنه ۱",br:2,text:"The main issue is that [P1], which has caused problems for [N1].",
+ keys:["main","issue","caused","problems"],
+ chunks:["The main issue is","that [P1],","which has caused","problems for [N1]."]},
+{id:"b2",fa:"بدنه ۲",br:2,text:"On top of that, [P2] has made the situation worse, particularly for [N2].",
+ keys:["top","made","situation","worse,","particularly"],
+ chunks:["On top of that,","[P2] has made","the situation worse,","particularly for [N2]."]},
+{id:"b3",fa:"بدنه ۳",br:2,text:"For these reasons, I would like to request [P3], or at least [N3], so that [N4] can be resolved without further delay.",
+ keys:["reasons,","request","least","resolved","delay."],
+ chunks:["For these reasons,","I would like to request [P3],","or at least [N3],","so that [N4] can be resolved","without further delay."]},
+{id:"close",fa:"پایان",br:1,text:"I would appreciate a response at your earliest convenience.",
+ keys:["appreciate","response","earliest","convenience."],
+ chunks:["I would appreciate a response","at your earliest convenience."]},
+{id:"sign",fa:"امضا",br:1,text:"Yours sincerely,",keys:["Yours"],chunks:["Yours sincerely,"]}],
+hints:{MP:{fa:"مشکلی که گزارش می‌کنی",ph:"a damaged item from order 48213"},
+ P1:{fa:"ایراد اصلی، از bullet ۱",ph:"the base arrived cracked"},
+ N1:{fa:"کی آسیب دیده",ph:"my home office setup"},
+ P2:{fa:"مورد دوم، از bullet ۲",ph:"no reply to my first message"},
+ N2:{fa:"کی بیشتر متضرر شده",ph:"customers waiting on a return"},
+ P3:{fa:"چی درخواست می‌کنی، از bullet ۳",ph:"a full replacement"},
+ N3:{fa:"حداقل چیزی که قبول می‌کنی",ph:"a refund of the purchase price"},
+ N4:{fa:"چی باید حل بشه",ph:"this order"}}}
+};
+var FK=["A","B","C"];
+
+/* =================== NOTES =================== */
+var NOTES={
+dear:{fa:"کاما بعد از خطاب الزامیه. Email conventions دقیقاً همینه: خطاب، مقدمه، جمع‌بندی، خداحافظی.",en:"A comma after the salutation is required."},
+writing:{fa:"I am writing to ... استاندارد شروع ایمیل رسمیه و هدف نامه رو مشخص می‌کنه.",en:"The standard opener that states your purpose."},
+discuss:{fa:"discuss حرف اضافه نمی‌خواد. discuss about غلطه.",en:"discuss takes a direct object; discuss about is wrong."},
+provide:{fa:"provide some details وعده‌ی محتوای سه پاراگراف بعدیه.",en:"This sets up the three body paragraphs."},
+"details.":{fa:"details همیشه جمعه. a detail یعنی یک جزء خاص.",en:"details is plural here."},
+"firstly,":{fa:"Firstly و Secondly و Lastly ستون فقرات نمره Organization ن. هر کدوم دقیقاً یک bullet.",en:"These three connectors carry your organization score."},
+considering:{fa:"بعد از Firstly یه gerund میاد که کل عبارت فاعل جمله‌ست. اگه consider بنویسی جمله فاعل نداره.",en:"The gerund phrase is the subject of would enhance."},
+significance:{fa:"عمداً significance اینجا و importance تو جمله بعد. تکرار عین کلمه Vocabulary range رو میاره پایین.",en:"Deliberate synonym variation."},
+enhance:{fa:"enhance رسمی‌تر از improve ه و مفعول مستقیم می‌خواد.",en:"enhance is more formal and needs a direct object."},
+efficiency:{fa:"the overall efficiency of our operations یه هم‌آیی رایج اداریه.",en:"A natural business collocation."},
+benefiting:{fa:"عبارت وصفی ing، نه and می‌خواد نه which.",en:"A participle clause; no and or which needed."},
+ensures:{fa:"فاعلش it هست پس s سوم‌شخص می‌خواد.",en:"Third-person singular s."},
+"secondly,":{fa:"Secondly به bullet دوم وصل می‌شه. یک کانکتور، یک bullet.",en:"Secondly maps to the second bullet."},
+recognizing:{fa:"باز gerund، ولی فعلش عوض شده تا تکراری نشه.",en:"Another gerund with a different verb."},
+importance:{fa:"مترادف significance، عمداً جابه‌جا شده.",en:"Synonym of significance."},
+vital:{fa:"صفت بعد از is. vitally غلطه چون قید نمی‌تونه مکمل فعل ربطی باشه.",en:"Adjective after is; vitally would be wrong."},
+impact:{fa:"impact با on میاد. impact to غلطه.",en:"impact takes on, never to."},
+leading:{fa:"عبارت وصفی ing برای نتیجه‌گیری.",en:"An ing clause showing the result."},
+"outcomes.":{fa:"better outcomes هم‌آیی رایجیه. better results هم درسته.",en:"A standard collocation."},
+"lastly,":{fa:"Lastly یعنی این آخرین bullet ه. اگه چهار نکته داشتی Finally بذار.",en:"Lastly signals the final bullet."},
+which:{fa:"which could be یه بند وصفی غیرتعریفیه بین دو کاما. هر دو کاما لازمه.",en:"A non-defining relative clause needs both commas."},
+improve:{fa:"not only improve ... but also create. هر دو باید فعل ساده باشن تا موازی بمونه.",en:"Keep not only / but also parallel."},
+chance:{fa:"the chance of success in something. حرف اضافه‌ها ثابتن.",en:"Fixed prepositions."},
+success:{fa:"success اینجا غیرقابل‌شمارشه، a نمی‌گیره.",en:"success is uncountable here."},
+create:{fa:"طرف دوم not only ... but also. بدون to و بدون ing.",en:"Bare verb after but also."},
+"environment.":{fa:"a positive environment، چون environment اینجا قابل‌شمارشه.",en:"environment is countable, so it takes a."},
+looking:{fa:"I am looking forward to ... جمع‌بندی استاندارده و جزو Email conventions حساب می‌شه.",en:"The standard formal closing line."},
+forward:{fa:"look forward to، نه look forward for.",en:"look forward to, not for."},
+hearing:{fa:"اینجا to حرف اضافه‌ست نه to مصدری، پس بعدش ing میاد. to hear غلطه.",en:"to is a preposition here, so it takes ing."},
+"regards,":{fa:"خداحافظی جزو Email conventions ه. Kind regards و Best regards هم قبولن.",en:"The farewell is part of email conventions."},
+hope:{fa:"I hope this email finds you well یه شروع نیمه‌رسمی امنه. برای شکایت ازش استفاده نکن.",en:"A safe semi-formal opener; avoid it in complaints."},
+finds:{fa:"finds you well عبارت ثابته. find you good غلطه.",en:"A fixed phrase."},
+appreciate:{fa:"I would appreciate it if ... مودبانه‌ترین شکل درخواسته. it حذف نمی‌شه.",en:"Do not drop the it."},
+consider:{fa:"بعد از could فعل ساده میاد، بدون to.",en:"Bare infinitive after could."},
+since:{fa:"since اینجا یعنی چون، نه از زمانی که.",en:"since here means because."},
+difference:{fa:"make a difference to something. make a difference in هم رایجه ولی to رسمی‌تره.",en:"make a difference to something."},
+"addition,":{fa:"In addition, با کاما. بدون کاما نمره mechanics می‌خوره.",en:"In addition needs a comma."},
+arrange:{fa:"arrange یعنی هماهنگ کردن. arrange for someone to do something هم هست.",en:"arrange means to organise."},
+"finally,":{fa:"Finally برای آخرین نکته. At the end غلطه، In the end معنی دیگه‌ای داره.",en:"Finally, not At the end."},
+grateful:{fa:"I would be grateful if + could. شرطی مودبانه.",en:"A polite conditional."},
+"confirmed,":{fa:"مجهول اینجا مودبانه‌تره چون کسی رو مستقیم متهم نمی‌کنه.",en:"The passive is politer here."},
+depends:{fa:"depend on، نه depend to.",en:"depend on, not to."},
+raise:{fa:"raise a concern از complain رسمی‌تر و حرفه‌ای‌تره.",en:"raise a concern is more professional."},
+concern:{fa:"a concern regarding چیزی. concern about هم درسته، concern of غلطه.",en:"concern regarding or about, never of."},
+regarding:{fa:"regarding یعنی درباره، رسمی‌تر از about.",en:"regarding is the formal about."},
+main:{fa:"the main issue، با the چون داری به مشکل مشخصی اشاره می‌کنی.",en:"Definite article: a specific issue."},
+caused:{fa:"which has caused، حال کامل چون اثرش تا الان ادامه داره.",en:"Present perfect: the effect continues."},
+"worse,":{fa:"made the situation worse هم‌آیی ثابته. more worse غلطه.",en:"made it worse; more worse is wrong."},
+particularly:{fa:"particularly رسمی‌تر از especially تو نوشتار اداریه.",en:"particularly suits formal writing."},
+request:{fa:"request به عنوان فعل حرف اضافه نمی‌خواد.",en:"As a verb, request takes no preposition."},
+least:{fa:"or at least یعنی حداقل. یه راه فرار مودبانه به طرف می‌ده.",en:"or at least offers a fallback."},
+resolved:{fa:"resolve برای مشکل و اختلاف. solve بیشتر برای معما و مسئله ریاضی.",en:"resolve for issues, solve for puzzles."},
+"delay.":{fa:"without further delay عبارت ثابت رسمیه.",en:"A fixed formal phrase."},
+response:{fa:"a response، قابل‌شمارشه. an answer هم درسته ولی response رسمی‌تره.",en:"response is the formal choice."},
+"convenience.":{fa:"at your earliest convenience یعنی هر وقت تونستید، ولی زودتر بهتر.",en:"A fixed formal phrase."},
+"yours":{fa:"Yours sincerely وقتی اسم گیرنده رو می‌دونی، Yours faithfully وقتی نمی‌دونی. تو PTE هر دو قبوله.",en:"Yours sincerely when you know the name."},
+kind:{fa:"Kind regards از Regards گرم‌تره و از Best wishes رسمی‌تر.",en:"Kind regards sits between formal and warm."},
+think:{fa:"what you think، نه what do you think. تو جمله خبری ترتیب سوالی نمی‌آد.",en:"No question word order in an embedded clause."},
+happy:{fa:"happy to do something. happy for doing غلطه.",en:"happy to + verb."},
+further:{fa:"further details یعنی جزئیات بیشتر. farther فقط برای مسافت فیزیکیه.",en:"further for degree, farther for distance."}
+};
+/* =================== TIPS =================== */
+var TIPS=[
+{fa:"تقسیم ۹ دقیقه: ۱ دقیقه خوندن، ۶ دقیقه نوشتن، ۲ دقیقه چک کردن.",en:"1 read, 6 write, 2 check."},
+{fa:"هر bullet دقیقاً یک پاراگراف. Content بیشترین وزن رو داره.",en:"One bullet, one paragraph."},
+{fa:"زیر ۵۰ یا بالای ۱۲۰ کلمه، Form آسیب می‌بینه. هدف امن: ۹۵ تا ۱۱۰.",en:"Stay between 95 and 110 words."},
+{fa:"Subject line لازم نیست، مستقیم با Dear شروع کن.",en:"No subject line needed."},
+{fa:"اگه پرامپت اسم گیرنده رو داده، Dear Mr. Smith بنویس نه Dear Manager.",en:"Use the name from the prompt if given."},
+{fa:"bullet ها رو کلمه‌به‌کلمه کپی نکن. Vocabulary ضربه می‌خوره.",en:"Paraphrase, do not copy."},
+{fa:"اگه بین رسمی و غیررسمی شک داری، رسمی بنویس.",en:"When in doubt, be formal."},
+{fa:"یک غلط املایی مهم نیست، تکرار همون غلط مهمه.",en:"A repeated typo pattern is what costs you."},
+{fa:"اسلات‌ها رو با جزئیات پرامپت پر کن، نه با کلمات کلی.",en:"Fill slots with concrete details."},
+{fa:"هر اسلات P رو ۳ تا ۶ کلمه نگه دار.",en:"Keep each P slot 3 to 6 words."},
+{fa:"تمپلیت رو حفظ باش ولی برده‌ش نباش. اگه bullet جور نشد، جمله رو عوض کن.",en:"Adapt the template when a bullet does not fit."},
+{fa:"حرف بزرگ اول جمله و نقطه آخر، تو نمره mechanics حساب می‌شه.",en:"Capitals and full stops count."},
+{fa:"جمله خیلی بلند ریسک گرامریه. تمپلیت خودش به‌اندازه کافی بلنده.",en:"Long sentences are a grammar risk."},
+{fa:"اسمت رو آخر بنویس. امضا بخشی از Email conventions ه.",en:"Sign your name."},
+{fa:"همیشه با تایمر تمرین کن. سرعت تایپ به‌اندازه گرامر مهمه.",en:"Always practise with the timer."},
+{fa:"جا انداختن یک bullet، Content رو می‌کوبه حتی با انگلیسی بی‌نقص.",en:"Missing a bullet tanks Content."},
+{fa:"very و a lot رو با significant و considerable عوض کن.",en:"Swap very and a lot for stronger words."},
+{fa:"cut و copy و paste تو صفحه امتحان هست، برای جابه‌جایی پاراگراف.",en:"Cut, copy and paste are available."},
+{fa:"دو تا سه تا Write Email میاد. تمپلیت رو عین هم نزن، اسلات‌ها رو عوض کن.",en:"Vary your wording across emails."},
+{fa:"شمارنده کلمه پایین صفحه امتحانه. قبل از اتمام وقت چکش کن.",en:"Check the on-screen word counter."},
+{fa:"اگه اسم گیرنده رو نمی‌دونی، Dear Sir or Madam امن‌ترین گزینه‌ست.",en:"Dear Sir or Madam is the safest default."},
+{fa:"لحن رو از گیرنده بگیر: مدیر و شرکت یعنی رسمی، همکار یعنی نیمه‌رسمی.",en:"Read the tone from who you are writing to."},
+{fa:"از contraction استفاده نکن. don't بنویس do not.",en:"Avoid contractions in formal email."},
+{fa:"هر پاراگراف یه خط خالی فاصله داشته باشه. خواناییش تو نمره organization اثر داره.",en:"Separate paragraphs with a blank line."},
+{fa:"اگه وقت کم آوردی، جمله پایانی و امضا رو بنویس. نداشتنشون نمره قطعی می‌بره.",en:"If time runs out, always write the closing and signature."}
+];
+
+/* =================== COMMON ERROR PATTERNS =================== */
+var ERRPAT=[
+{re:/\bdiscuss(ing|ed)?\s+about\b/i,fix:"discuss",fa:"discuss حرف اضافه نمی‌خواد",k:"gram"},
+{re:/\blook(ing)?\s+forward\s+to\s+(hear|receive|meet|know)\b/i,fix:"look forward to hearing",fa:"بعد از look forward to فعل ing می‌خواد",k:"gram"},
+{re:/\blook(ing)?\s+forward\s+for\b/i,fix:"look forward to",fa:"look forward to، نه for",k:"gram"},
+{re:/\binformations\b/i,fix:"information",fa:"غیرقابل‌شمارش، s نمی‌گیره",k:"gram"},
+{re:/\badvices\b/i,fix:"advice",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bequipments\b/i,fix:"equipment",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bsoftwares\b/i,fix:"software",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bfurnitures\b/i,fix:"furniture",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bknowledges\b/i,fix:"knowledge",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bhomeworks\b/i,fix:"homework",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bluggages\b/i,fix:"luggage",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bevidences\b/i,fix:"evidence",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bfeedbacks\b/i,fix:"feedback",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\bresearches\b/i,fix:"research / studies",fa:"معمولاً غیرقابل‌شمارش",k:"gram"},
+{re:/\bmore\s+(better|worse|easier|faster)\b/i,fix:"better / worse",fa:"تفضیل دوباره نمی‌شه",k:"gram"},
+{re:/\bmost\s+best\b/i,fix:"best",fa:"عالی دوباره نمی‌شه",k:"gram"},
+{re:/\bin\s+other\s+hand\b/i,fix:"on the other hand",fa:"حرف اضافه و the",k:"gram"},
+{re:/\bi\s+am\s+agree\b/i,fix:"I agree",fa:"agree خودش فعله",k:"gram"},
+{re:/\bexplain\s+me\b/i,fix:"explain to me",fa:"explain to somebody",k:"gram"},
+{re:/\baccording\s+to\s+me\b/i,fix:"in my opinion",fa:"according to برای خود آدم به کار نمی‌ره",k:"gram"},
+{re:/\bsince\s+\d+\s+(year|month|week|day)s?\b/i,fix:"for X years",fa:"مدت زمان با for میاد",k:"gram"},
+{re:/\ban\s+(uni|user|usual|unique|useful|one)\b/i,fix:"a university / a user",fa:"an فقط قبل از صدای مصوت",k:"gram"},
+{re:/\bwant\s+that\s+you\b/i,fix:"want you to",fa:"want somebody to do",k:"gram"},
+{re:/\bthe\s+both\b/i,fix:"both",fa:"both خودش the نمی‌گیره",k:"gram"},
+{re:/\bdepend\s+(to|of)\b/i,fix:"depend on",fa:"depend on",k:"gram"},
+{re:/\bimpact\s+to\b/i,fix:"impact on",fa:"impact on",k:"gram"},
+{re:/\bconcern\s+of\b/i,fix:"concern about / regarding",fa:"حرف اضافه غلط",k:"gram"},
+{re:/\bin\s+the\s+last\s+time\b/i,fix:"last time",fa:"عبارت اضافه",k:"gram"},
+{re:/\ba\s+lot\s+of\s+informations\b/i,fix:"a lot of information",fa:"غیرقابل‌شمارش",k:"gram"},
+{re:/\balot\b/i,fix:"a lot",fa:"دو کلمه‌ست",k:"spell"},
+{re:/\brecieve/i,fix:"receive",fa:"املا",k:"spell"},
+{re:/\bseperate/i,fix:"separate",fa:"املا",k:"spell"},
+{re:/\bdefinat/i,fix:"definitely",fa:"املا",k:"spell"},
+{re:/\boccured\b/i,fix:"occurred",fa:"املا",k:"spell"},
+{re:/\buntill\b/i,fix:"until",fa:"املا",k:"spell"},
+{re:/\bwich\b/i,fix:"which",fa:"املا",k:"spell"},
+{re:/\b(beacuse|becuase|becasue|becuse|beacause)\b/i,fix:"because",fa:"املا",k:"spell"},
+{re:/\bgoverment\b/i,fix:"government",fa:"املا",k:"spell"},
+{re:/\benviroment\b/i,fix:"environment",fa:"املا",k:"spell"},
+{re:/\bsincerly\b/i,fix:"sincerely",fa:"املا",k:"spell"},
+{re:/\brecomend/i,fix:"recommend",fa:"املا",k:"spell"},
+{re:/\b(acomodation|accomodation|acommodation)\b/i,fix:"accommodation",fa:"دو تا c و دو تا m",k:"spell"},
+{re:/\badress\b/i,fix:"address",fa:"املا",k:"spell"},
+{re:/\bconvinient|convinience/i,fix:"convenient / convenience",fa:"املا",k:"spell"},
+{re:/\bapreciate|appriciate/i,fix:"appreciate",fa:"املا",k:"spell"},
+{re:/\bregard\s*,\s*$/im,fix:"Regards,",fa:"جمع بسته می‌شه",k:"conv"},
+{re:/\b[Dd]ear\s+[a-z]/,fix:"Dear Manager,",fa:"بعد از Dear حرف بزرگ",k:"conv"},
+{re:/\b(don't|can't|won't|isn't|it's|I'm|didn't|doesn't)\b/,fix:"do not / cannot / I am",fa:"تو ایمیل رسمی مخفف نزن",k:"conv"}
+];
+/* =================== PROMPTS =================== */
+var PROMPTS=[
+{id:1,fa:"بازخورد به مدیر ساختمان",tone:"formal",frame:"A",
+ situation:"You recently moved into a new apartment building. The building manager has emailed all new tenants asking for feedback about the move-in process. Write an email to the manager.",
+ bullets:["Say what went well during your move-in","Describe one problem you experienced","Suggest one improvement for future tenants"],
+ mp:"my recent move-in experience",mpWrong:["some things about the building","the lift on the third floor","Say what went well during your move-in"],
+ sample:{MP:"my recent move-in experience",P1:"your team's clear instructions",N1:"new tenants",P2:"reserving the service elevator in advance",N2:"everyone moving on the same day",P3:"a short welcome guide",N3:"a one-page contact sheet",N4:"future move-ins"}},
+
+{id:2,fa:"تغییر ساعت باشگاه",tone:"formal",frame:"B",
+ situation:"Your local gym has announced that it will close two hours earlier on weekdays starting next month. Write an email to the gym manager.",
+ bullets:["Explain how the change affects you","Give a reason why the current hours are important","Suggest an alternative arrangement"],
+ mp:"the new weekday closing time",mpWrong:["my gym membership in general","how much I pay every month","Explain how the change affects you"],
+ sample:{MP:"the new weekday closing time",P1:"keeping the evening slot open",N1:"members who work shifts",P2:"the demand after eight",N2:"your attendance figures",P3:"a reduced-staff late session",N3:"card access only",N4:"the new schedule"}},
+
+{id:3,fa:"کالای آسیب‌دیده",tone:"formal",frame:"C",
+ situation:"You ordered a desk lamp online and it arrived with a cracked base. Write an email to the customer service team of the online store.",
+ bullets:["Describe the problem with the item","Explain what you have already done about it","Say what you would like the company to do"],
+ mp:"a damaged item from my recent order",mpWrong:["shopping on your website","the colour of the lamp shade","Describe the problem with the item"],
+ sample:{MP:"a damaged item from order 48213",P1:"the base arrived with a deep crack",N1:"my home office setup",P2:"no reply to the photographs I uploaded",N2:"customers waiting on a return",P3:"a replacement of the same model",N3:"a full refund of the purchase price",N4:"this order"}},
+
+{id:4,fa:"روز تیم‌سازی",tone:"semi",frame:"A",
+ situation:"Your workplace is planning a team-building day next month and your supervisor has asked staff for their input. Write an email to your supervisor.",
+ bullets:["Say which activity you would prefer","Suggest a suitable date","Mention something the organisers should consider"],
+ mp:"the upcoming team-building day",mpWrong:["work in general this month","the cost of hiring a venue","Say which activity you would prefer"],
+ sample:{MP:"the upcoming team-building day",P1:"choosing an outdoor group activity",N1:"desk-based colleagues",P2:"a Friday afternoon slot",N2:"attendance across both shifts",P3:"an indoor backup option",N3:"a booked indoor hall",N4:"the whole event"}},
+
+{id:5,fa:"درخواست مرخصی",tone:"formal",frame:"B",
+ situation:"You need to take one week of unpaid leave for a family matter. Write an email to your manager.",
+ bullets:["Explain the reason for your request","State the dates you need","Say how your work will be covered"],
+ mp:"one week of unpaid leave",mpWrong:["my family situation at home","how tired I have been lately","State the dates you need"],
+ sample:{MP:"one week of unpaid leave",P1:"early approval",N1:"next month's roster",P2:"the 12th to the 18th",N2:"a quieter period for the department",P3:"a handover to my colleague",N3:"my open tasks"}},
+
+{id:6,fa:"مشکل پارکینگ",tone:"formal",frame:"C",
+ situation:"Parking at your workplace has become very difficult since a nearby building started construction. Write an email to the facilities team.",
+ bullets:["Describe the parking problem","Explain how it affects staff","Propose a possible solution"],
+ mp:"the ongoing parking shortage on site",mpWrong:["the construction next door","my own car and where I park it","Describe the parking problem"],
+ sample:{MP:"the ongoing parking shortage on site",P1:"half the spaces are now blocked off",N1:"staff on the early shift",P2:"drivers circling for twenty minutes",N2:"punctuality across the department",P3:"a temporary permit system",N3:"assigned spaces rotated weekly",N4:"the construction period"}},
+
+{id:7,fa:"تعطیلی کتابخانه",tone:"formal",frame:"B",
+ situation:"Your local library has announced it will close on weekends due to budget cuts. Write an email to the city council.",
+ bullets:["Explain how you use the library","Say who else will be affected","Propose what the council should do"],
+ mp:"the proposed weekend closure of the library",mpWrong:["the council budget in general","the books I borrowed last month","Explain how you use the library"],
+ sample:{MP:"the proposed weekend closure",P1:"keeping at least Saturday open",N1:"residents who work full time",P2:"the quiet study space",N2:"students preparing for exams",P3:"shorter hours instead of closure",N3:"a four-hour Saturday session"}},
+
+{id:8,fa:"بازخورد دوره آموزشی",tone:"semi",frame:"A",
+ situation:"You attended a two-day training session at work and the organiser has asked participants for written feedback. Write an email to the organiser.",
+ bullets:["Say which part was most useful","Mention something that was unclear","Make one suggestion for next time"],
+ mp:"the two-day training session held last week",mpWrong:["training at this company overall","the lunch that was provided","Say which part was most useful"],
+ sample:{MP:"last week's training session",P1:"the afternoon hands-on practice",N1:"participants with limited experience",P2:"clearer notes on module two",N2:"anyone reviewing the material later",P3:"three shorter days instead",N3:"two hours each morning",N4:"future training"}},
+
+{id:9,fa:"اینترنت پرنوسان",tone:"formal",frame:"C",
+ situation:"Your home internet connection has been dropping several times a day for the past two weeks. Write an email to your internet service provider.",
+ bullets:["Describe when the problem happens","Explain how it affects you","Say what action you expect"],
+ mp:"repeated connection drops at my address",mpWrong:["my monthly bill","internet speeds in this country","Describe when the problem happens"],
+ sample:{MP:"repeated connection drops at my address",P1:"the line fails every afternoon",N1:"my remote work",P2:"two support calls with no result",N2:"scheduled video meetings",P3:"an on-site engineer visit",N3:"a full check of the line and router",N4:"this recurring fault"}},
+
+{id:10,fa:"برنامه داوطلبی",tone:"formal",frame:"B",
+ situation:"You have seen an advertisement for a community volunteer program in your area. Write an email to the program coordinator.",
+ bullets:["Explain why you are interested","State when you are available","Mention any relevant experience"],
+ mp:"joining the community volunteer program",mpWrong:["volunteering in general","the design of the advertisement","State when you are available"],
+ sample:{MP:"joining the community volunteer program",P1:"contributing to a local project",N1:"residents in my neighbourhood",P2:"my availability on weekends",N2:"your Saturday sessions",P3:"my previous volunteering at a food bank",N3:"two years of weekly shifts"}},
+
+{id:11,fa:"تأخیر در سفارش",tone:"formal",frame:"C",
+ situation:"A delivery your department ordered has been delayed by three weeks. Write an email to the supplier.",
+ bullets:["Give the details of the order","Explain the impact of the delay","Say what you need from them"],
+ mp:"the delayed delivery of purchase order 7742",mpWrong:["our business relationship","the price we agreed on","Explain the impact of the delay"],
+ sample:{MP:"the delayed delivery of purchase order 7742",P1:"the shipment is three weeks overdue",N1:"our planning team",P2:"no revised date has been confirmed",N2:"work that is currently on hold",P3:"a partial shipment this week",N3:"the items already in stock",N4:"our deadline"}},
+
+{id:12,fa:"سیستم زمان‌بندی جدید",tone:"semi",frame:"A",
+ situation:"Your company has introduced a new online scheduling system and staff have been asked to report any issues. Write an email to the IT manager.",
+ bullets:["Describe an issue you have noticed","Explain how it affects your shift","Request something that would help"],
+ mp:"an issue with the new scheduling system",mpWrong:["computers at work","my shift preferences","Describe an issue you have noticed"],
+ sample:{MP:"an issue with the new scheduling system",P1:"reporting the repeated login error",N1:"colleagues on the night shift",P2:"the missing shift-swap function",N2:"anyone covering for a co-worker",P3:"a short training session",N3:"a thirty-minute walkthrough per team",N4:"the rollout"}},
+
+{id:13,fa:"سروصدای همسایه",tone:"formal",frame:"C",
+ situation:"The tenants in the flat above you play loud music late at night and you have not been able to sleep. Write an email to your landlord.",
+ bullets:["Describe the noise problem","Explain what you have already tried","Say what you would like the landlord to do"],
+ mp:"repeated late-night noise from the flat above",mpWrong:["living in this building","the age of the windows","Describe the noise problem"],
+ sample:{MP:"repeated late-night noise from the flat above",P1:"loud music continues past midnight",N1:"my sleep and my working day",P2:"my two polite notes went unanswered",N2:"other tenants on this floor",P3:"a written reminder of the quiet hours",N3:"a short conversation with them",N4:"this situation"}},
+
+{id:14,fa:"درخواست معرفی‌نامه",tone:"formal",frame:"B",
+ situation:"You are applying for a new job and need a reference letter from a manager you worked with two years ago. Write an email to that manager.",
+ bullets:["Remind them who you are and when you worked together","Explain what the reference is for","Say when you need it by"],
+ mp:"a reference letter for a job application",mpWrong:["my career in general","the office we used to share","Explain what the reference is for"],
+ sample:{MP:"a reference letter",P1:"a short reference covering my two years",N1:"my current application",P2:"an operations coordinator role",N2:"the skills you saw daily",P3:"a copy before the 20th",N3:"the posting's closing date"}},
+
+{id:15,fa:"لغو دوره و بازگشت هزینه",tone:"formal",frame:"B",
+ situation:"You signed up for an evening language course but your work schedule has changed and you can no longer attend. Write an email to the course administrator.",
+ bullets:["Explain why you need to withdraw","Ask about the refund policy","Suggest an alternative that would work for you"],
+ mp:"withdrawing from the evening language course",mpWrong:["language learning in general","the classroom temperature","Ask about the refund policy"],
+ sample:{MP:"withdrawing from the evening course",P1:"releasing my place early",N1:"students on the waiting list",P2:"the refund terms",N2:"the fee already paid",P3:"a transfer to weekends",N3:"the Saturday morning group"}},
+
+{id:16,fa:"خرابی ماشین لباسشویی",tone:"formal",frame:"C",
+ situation:"The washing machine in the flat you rent stopped working five days ago. Write an email to the property manager.",
+ bullets:["Describe the fault","Say how long it has been a problem","Explain what you need done"],
+ mp:"a broken washing machine in my flat",mpWrong:["the condition of the whole flat","the colour of the kitchen tiles","Describe the fault"],
+ sample:{MP:"a broken washing machine in my flat",P1:"the drum no longer spins or drains",N1:"a household of four people",P2:"five days have passed with no repair",N2:"the laundry piling up each day",P3:"a repair visit this week",N3:"a temporary replacement unit",N4:"this appliance"}},
+
+{id:17,fa:"پرسش درباره آگهی شغلی",tone:"formal",frame:"B",
+ situation:"You have seen a job advertisement but some details are missing. Write an email to the company's HR department.",
+ bullets:["Say which position you are asking about","Ask about the working hours","Ask about the application deadline"],
+ mp:"the warehouse coordinator position advertised online",mpWrong:["jobs at your company","the font used in the advert","Ask about the working hours"],
+ sample:{MP:"the warehouse coordinator position",P1:"confirming the shift pattern",N1:"my planning around childcare",P2:"whether weekend work is required",N2:"my current commitments",P3:"the application deadline",N3:"time to prepare my documents"}},
+
+{id:18,fa:"بازخورد رستوران",tone:"formal",frame:"C",
+ situation:"You had dinner at a restaurant last weekend and the service was very slow. Write an email to the restaurant manager.",
+ bullets:["Describe what happened","Explain how it affected your evening","Say what you would like the manager to do"],
+ mp:"the service during my visit last Saturday",mpWrong:["restaurants in this city","the music that was playing","Describe what happened"],
+ sample:{MP:"the service during my visit last Saturday",P1:"our main course took over an hour",N1:"a table booked for a birthday",P2:"no staff member explained the delay",N2:"guests who had travelled to join us",P3:"a review of your staffing on weekends",N3:"a short reply explaining what happened",N4:"this experience"}},
+
+{id:19,fa:"پیشنهاد بازیافت در محل کار",tone:"semi",frame:"A",
+ situation:"You would like your workplace to introduce a recycling system. Write an email to your office manager.",
+ bullets:["Explain why recycling would help","Suggest how it could be set up","Offer to help with it"],
+ mp:"introducing a recycling system in the office",mpWrong:["the environment in general","the size of the bins","Explain why recycling would help"],
+ sample:{MP:"an office recycling system",P1:"separating paper and plastic",N1:"our weekly waste volume",P2:"three labelled bins per floor",N2:"staff who sort at home",P3:"running the first month myself",N3:"a short kitchen guide",N4:"the change"}},
+
+{id:20,fa:"تأخیر قطار",tone:"formal",frame:"C",
+ situation:"Your train was delayed by ninety minutes and you missed an important appointment. Write an email to the train company.",
+ bullets:["Give the details of your journey","Explain what the delay cost you","Say what you expect from the company"],
+ mp:"a ninety-minute delay on the 7:15 service",mpWrong:["public transport in this country","the seat I was sitting in","Give the details of your journey"],
+ sample:{MP:"a ninety-minute delay on the 7:15 service",P1:"no announcement was made for an hour",N1:"passengers with connecting travel",P2:"I missed a medical appointment",N2:"a booking made two months earlier",P3:"a refund of the ticket price",N3:"a travel voucher of equal value",N4:"this complaint"}},
+
+{id:21,fa:"جابه‌جایی شیفت با همکار",tone:"semi",frame:"B",
+ situation:"You need to swap a shift with a colleague because of a family event. Write an email to your colleague.",
+ bullets:["Explain why you need the swap","Say which shifts you want to exchange","Offer something in return"],
+ mp:"swapping a shift with you next week",mpWrong:["our work schedule in general","the coffee machine downstairs","Say which shifts you want to exchange"],
+ sample:{MP:"a shift swap next week",P1:"taking Thursday evening off",N1:"a family event",P2:"your Sunday morning shift",N2:"even hours",P3:"covering a shift in return",N3:"any day that suits you"}},
+
+{id:22,fa:"بازخورد به مدرس دوره",tone:"semi",frame:"A",
+ situation:"You are taking an evening course and the instructor has asked for feedback on the schedule. Write an email to the instructor.",
+ bullets:["Say what works well about the current schedule","Mention one difficulty with the timing","Suggest a change"],
+ mp:"the schedule of the evening course",mpWrong:["the course content overall","the whiteboard markers","Mention one difficulty with the timing"],
+ sample:{MP:"the evening course schedule",P1:"the Tuesday two-hour block",N1:"students coming from work",P2:"a later Thursday start",N2:"anyone travelling far",P3:"a mid-session break",N3:"a pause after an hour",N4:"this term"}},
+
+{id:23,fa:"گزارش خطر ایمنی",tone:"formal",frame:"C",
+ situation:"You have noticed a safety hazard at your workplace: a loose handrail on the main staircase. Write an email to the health and safety officer.",
+ bullets:["Describe the hazard and where it is","Explain why it is dangerous","Say what should be done"],
+ mp:"a loose handrail on the main staircase",mpWrong:["safety at work in general","the colour of the stairs","Describe the hazard and where it is"],
+ sample:{MP:"a loose handrail on the main staircase",P1:"the rail moves under any weight",N1:"anyone using the stairs at shift change",P2:"the lighting there is also poor",N2:"staff carrying boxes up and down",P3:"an inspection this week",N3:"a temporary warning sign",N4:"this hazard"}},
+
+{id:24,fa:"قوانین آشپزخانه اداره",tone:"semi",frame:"A",
+ situation:"The shared kitchen at your office is often left messy. Write an email to your colleagues suggesting a simple set of rules.",
+ bullets:["Describe the current situation","Suggest one or two simple rules","Explain how everyone would benefit"],
+ mp:"the state of the shared kitchen",mpWrong:["the office in general","the brand of the kettle","Suggest one or two simple rules"],
+ sample:{MP:"the shared kitchen",P1:"washing your own cup",N1:"whoever arrives first",P2:"a weekly fridge rota",N2:"the smell by Friday",P3:"a short list on the door",N3:"three lines everyone can follow",N4:"the shared space"}}
+];
+
+var DISTRACTORS=["consider","significant","importance","improve","efficiently","benefit","ensure","vitally",
+"recognize","impacts","lead","outcome","creating","hear","Regard","provided","writes","discussed","chances",
+"successful","hopes","appreciated","confirm","raising","concerned","cause","worst","requested","resolve",
+"convenient","begins","finally","mainly of","dependence","problem","situations","respond","earlier"];
+/* =================== UTILS =================== */
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];})}
+function tok(s){s=String(s||"").trim();return s?s.split(/\s+/):[]}
+function norm(w){return String(w||"").toLowerCase().replace(/[\[\]().,!?;:'"]/g,"").trim()}
+function punc(w){var m=String(w||"").match(/[.,!?;:]/g);return m?m.join(""):""}
+function wc(s){return tok(s).length}
+function isSlot(w){return String(w).indexOf("[")>-1}
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function shuffle(a){var c=a.slice(),i,j,t;for(i=c.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=c[i];c[i]=c[j];c[j]=t}return c}
+function noteFor(w){var k=norm(w);return NOTES[k]||NOTES[k+"."]||NOTES[k+","]||null}
+function fmtT(s){return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+
+function diffTokens(exp,got){
+  var a=exp.map(norm),b=got.map(norm),m=a.length,n=b.length,i,j;
+  var dp=[];for(i=0;i<=m;i++){dp.push(new Array(n+1).fill(0))}
+  for(i=m-1;i>=0;i--)for(j=n-1;j>=0;j--)
+    dp[i][j]=a[i]===b[j]?dp[i+1][j+1]+1:Math.max(dp[i+1][j],dp[i][j+1]);
+  var out=[],miss=[],pe=0;i=0;j=0;
+  while(i<m&&j<n){
+    if(a[i]===b[j]){var bad=punc(exp[i])!==punc(got[j]);if(bad)pe++;
+      out.push({t:bad?"punc":"ok",w:got[j],exp:exp[i]});i++;j++;}
+    else if(dp[i+1][j]>=dp[i][j+1]){out.push({t:"miss",w:exp[i]});miss.push(exp[i]);i++;}
+    else{out.push({t:"extra",w:got[j]});j++;}
+  }
+  while(i<m){out.push({t:"miss",w:exp[i]});miss.push(exp[i]);i++}
+  while(j<n){out.push({t:"extra",w:got[j]});j++}
+  var ok=out.filter(function(x){return x.t==="ok"||x.t==="punc"}).length;
+  return {parts:out,acc:m?Math.round(ok/m*100):0,miss:miss,puncErr:pe};
+}
+
+function slotsOf(fr){var s=[];fr.lines.forEach(function(l){
+  (l.text.match(/\[([A-Z0-9]+)\]/g)||[]).forEach(function(x){var k=x.slice(1,-1);if(s.indexOf(k)<0)s.push(k)})});return s}
+
+function skelWords(fr){var n=0;fr.lines.forEach(function(l){
+  n+=tok(l.text).filter(function(w){return !isSlot(w)}).length});return n+2}
+
+function renderFrame(fr,f,name,rec){
+  var out=[];
+  fr.lines.forEach(function(l){
+    var t=l.text;
+    if(l.id==="greet"&&rec&&rec.trim())t="Dear "+rec.trim()+",";
+    t=t.replace(/\[([A-Z0-9]+)\]/g,function(_,k){return (f[k]&&f[k].trim())?f[k].trim():"["+k+"]"});
+    out.push(t); if(l.br===2)out.push("");
+  });
+  out.push(name||"Your Name");
+  return out.join("\n");
+}
+
+function overlap(src,cand){
+  var A={},B=[],i;
+  tok(src).map(norm).forEach(function(w){if(w.length>3)A[w]=1});
+  B=tok(cand).map(norm).filter(function(w){return w.length>3});
+  if(!B.length)return 0;
+  return B.filter(function(w){return A[w]}).length/B.length;
+}
+
+function mailHTML(t){
+  return esc(t).replace(/\[([A-Z0-9]+)\]/g,function(_,k){return '<span class="slot">'+k+'</span>'});
+}
+function diffHTML(parts){
+  return parts.map(function(p){
+    var c=p.t==="ok"?"t-ok":p.t==="miss"?"t-miss":p.t==="punc"?"t-punc":"t-extra";
+    return '<span class="'+c+'">'+esc(p.w)+'</span> ';
+  }).join("");
+}
+function fbHTML(o){
+  var c=o.warn?"warn":o.good?"good":"bad";
+  return '<div class="fb '+c+'"><span class="ttl">'+esc(o.t)+'</span>'+
+    (o.fa?'<div>'+esc(o.fa)+'</div>':'')+
+    (o.en?'<div class="en-line">'+esc(o.en)+'</div>':'')+'</div>';
+}
+
+/* =================== STATE =================== */
+var DEF={v:3,lv:0,fk:"A",idx:1,pIdx:0,name:"Your Name",seen:0,
+  stats:{right:0,wrong:0,streak:0,best:0},boxes:{},errors:{},exams:[]};
+function fresh(){return JSON.parse(JSON.stringify(DEF))}
+var S;
+try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem("pte_email_html")||"{}"))}catch(e){S=fresh()}
+if(!S.stats)S.stats=fresh().stats;
+if(!S.boxes)S.boxes={};if(!S.errors)S.errors={};if(!S.exams)S.exams=[];
+function save(){try{localStorage.setItem("pte_email_html",JSON.stringify(S))}catch(e){}}
+
+function frame(){return FRAMES[S.fk]}
+function line(){return frame().lines[S.idx]||frame().lines[0]}
+function prompt_(){return PROMPTS[S.pIdx%PROMPTS.length]}
+
+function score(good){
+  var l=line(),k=S.fk+":"+l.id;
+  if(S.lv>=1&&S.lv<=3)S.boxes[k]=good?Math.min(5,(S.boxes[k]||0)+1):1;
+  S.stats.streak=good?S.stats.streak+1:0;
+  if(good)S.stats.right++;else S.stats.wrong++;
+  if(S.stats.streak>S.stats.best)S.stats.best=S.stats.streak;
+  save();head();
+}
+function logErr(w,lid){
+  var e=S.errors[w]||{n:0,line:lid};e.n++;e.line=lid;S.errors[w]=e;save();
+}
+function acc(){var t=S.stats.right+S.stats.wrong;return t?Math.round(S.stats.right/t*100):0}
+
+/* =================== SHELL =================== */
+var LV=[["00","Decode","پرامپت‌خوانی"],["01","Skeleton","اسکلت"],["02","Fade","محو تدریجی"],
+  ["03","Scramble","چیدن"],["04","Paraphrase","پارافریز"],["05","Slot fill","پر کردن اسلات"],
+  ["06","Exam","امتحان"],["07","Stats","آمار و غلط‌ها"]];
+
+function head(){
+  $("#pmv").textContent=acc()+"%";
+  $("#progbar").style.width=acc()+"%";
+}
+function nav(){
+  $("#nav").innerHTML=LV.map(function(L,i){
+    return '<button data-lv="'+i+'" class="'+(S.lv===i?"on":"")+'"><span class="n">'+L[0]+' &middot; '+L[1]+'</span><b>'+L[2]+'</b></button>';
+  }).join("");
+  $$("#nav button").forEach(function(b){b.onclick=function(){S.lv=+b.dataset.lv;save();go()}});
+}
+function go(){ try{ go_() }catch(err){ crash(err) } }
+function crash(err){
+  var m=(err&&(err.message||err))+"";
+  var st=(err&&err.stack?String(err.stack).split("\n").slice(0,4).join(" | "):"");
+  try{
+    document.getElementById("screen").innerHTML=
+      '<div class="card stamped" style="border-color:var(--red)"><h2>یه خطا رخ داد</h2>'+
+      '<p class="hint">این پیام رو برام بفرست تا درستش کنم.</p>'+
+      '<div class="diff" style="color:var(--err)">'+esc(m)+'<br><br>'+esc(st)+'</div>'+
+      '<div class="row"><button class="btn" onclick="try{localStorage.removeItem(\'pte_email_html\')}catch(e){};location.reload()">ریست و بارگذاری دوباره</button></div></div>';
+  }catch(e2){
+    document.body.innerHTML='<pre dir="ltr" style="padding:20px;white-space:pre-wrap">ERROR: '+m+'</pre>';
+  }
+}
+function go_(){
+  nav();head();
+  var f=[renderDecode,renderSkeleton,renderFade,renderScramble,renderParaphrase,renderSlots,renderExam,renderStats][S.lv];
+  var sc=$("#screen");sc.classList.remove("screen");void sc.offsetWidth;sc.classList.add("screen");
+  sc.innerHTML=f();bindAll();
+  if(S.lv!==7)sc.insertAdjacentHTML("beforeend",fullCard());
+  bindFull();
+  try{ if("scrollBehavior" in document.documentElement.style) window.scrollTo({top:0,behavior:"smooth"}); else window.scrollTo(0,0); }catch(e){}
+}
+
+function frameBar(id){
+  return '<div class="picker" data-fb="'+id+'">'+FK.map(function(k){
+    return '<button class="pick '+(S.fk===k?"on":"")+'" data-fk="'+k+'"><span class="mono" style="font-size:10px">'+k+'</span>'+FRAMES[k].fa+'</button>';
+  }).join("")+'<span class="count" style="margin-inline-start:auto">'+esc(FRAMES[S.fk].use)+'</span></div>';
+}
+function sentBar(){
+  return '<div class="picker" id="sbar">'+frame().lines.map(function(l,i){
+    var b=S.boxes[S.fk+":"+l.id]||0,d="";
+    for(var k=0;k<5;k++)d+='<i class="'+(k<b?"f":"")+'"></i>';
+    return '<button class="pick '+(S.idx===i?"on":"")+'" data-si="'+i+'">'+l.fa+'<span class="dots">'+d+'</span></button>';
+  }).join("")+'</div>';
+}
+function fullCard(){
+  return '<div class="card stamped"><h2>قالب کامل <span class="tag">'+esc(FRAMES[S.fk].fa)+' &middot; '+skelWords(frame())+' کلمه اسکلت</span></h2>'+
+   frameBar("full")+'<div class="mail">'+mailHTML(renderFrame(frame(),{},S.name,""))+'</div></div>';
+}
+function bindFull(){
+  $$('[data-fb] .pick').forEach(function(b){b.onclick=function(){S.fk=b.dataset.fk;S.idx=Math.min(S.idx,frame().lines.length-1);save();go()}});
+}
+function bindAll(){
+  $$('#sbar .pick').forEach(function(b){b.onclick=function(){S.idx=+b.dataset.si;save();go()}});
+}
+function gaugeHTML(n,id){
+  var p=Math.min(100,n/140*100),c=n===0?"":(n<50||n>120)?"bad":(n>=80&&n<=118)?"safe":"";
+  return '<div class="gauge"><div class="count"><b id="'+id+'n">'+n+'</b> کلمه</div>'+
+   '<div class="bar"><div class="zone" style="inset-inline-start:'+(50/140*100)+'%;width:'+(70/140*100)+'%"></div>'+
+   '<i class="fill '+c+'" id="'+id+'f" style="width:'+p+'%"></i></div>'+
+   '<div class="marks"><span>0</span><span>50</span><span>80</span><span>120</span><span>140</span></div></div>';
+}
+function updGauge(id,n){
+  var e=$("#"+id+"n"),f=$("#"+id+"f");if(!e)return;
+  e.textContent=n;f.style.width=Math.min(100,n/140*100)+"%";
+  f.className="fill "+(n===0?"":(n<50||n>120)?"bad":(n>=80&&n<=118)?"safe":"");
+}
+function promptCard(withBtn){
+  var p=prompt_();
+  return '<div class="card"><h2>پرامپت <span class="tag">'+esc(p.fa)+' &middot; '+(S.pIdx%PROMPTS.length+1)+'/'+PROMPTS.length+'</span></h2>'+
+   '<div class="prompt">'+esc(p.situation)+'<ul>'+p.bullets.map(function(b){return '<li>'+esc(b)+'</li>'}).join("")+'</ul></div>'+
+   (withBtn?'<div class="row"><button class="btn ghost" id="nextp">پرامپت دیگه</button>'+
+    '<button class="btn mut" id="randp">تصادفی</button>'+
+    '<span class="count">قالب پیشنهادی: '+esc(FRAMES[p.frame].fa)+'</span></div>':'')+'</div>';
+}
+function bindPrompt(){
+  var a=$("#nextp"),b=$("#randp");
+  if(a)a.onclick=function(){S.pIdx=(S.pIdx+1)%PROMPTS.length;save();go()};
+  if(b)b.onclick=function(){S.pIdx=Math.floor(Math.random()*PROMPTS.length);save();go()};
+}
+/* =================== L0 DECODE =================== */
+var DEC={};
+var TONES=[["formal","رسمی","Dear Sir or Madam, / Dear Mr. Smith,"],
+           ["semi","نیمه‌رسمی","Dear Sarah, / Dear Manager,"],
+           ["informal","خودمانی","Hi Sam,"]];
+function renderDecode(){
+  var p=prompt_();
+  if(DEC.pid!==p.id){DEC={pid:p.id,a:{},mp:shuffle([p.mp].concat(p.mpWrong)),fr:shuffle(FK)}}
+  function q(qk,n,title,hint,opts){
+    var a=DEC.a[qk];
+    return '<div class="card"><h2><span class="tag">'+n+'</span>'+title+'</h2>'+
+      (hint?'<p class="hint">'+hint+'</p>':'')+
+      '<div class="opts" data-q="'+qk+'">'+opts.map(function(o,i){
+        var cls=!a?"":o.r?" ok":(a.v===o.v?" bad":" dim");
+        return '<button class="opt'+cls+'" data-v="'+esc(o.v)+'" data-r="'+(o.r?1:0)+'" '+(a?"disabled":"")+'>'+o.h+'</button>';
+      }).join("")+'</div>'+
+      (a?fbHTML({good:a.r,t:a.r?"درست":"غلط",fa:a.r?pick(TIPS).fa:opts.filter(function(o){return o.r})[0].why}):'')+
+      '</div>';
+  }
+  var h=promptCard(true)+
+   '<div class="card"><p class="hint" style="margin:0">قبل از نوشتن این سه تا رو تعیین کن. تو امتحان واقعی حدود ۶۰ ثانیه وقت می‌بره و نمره Content رو تعیین می‌کنه.</p></div>'+
+   q("tone","Q1","لحن نامه چیه؟","به گیرنده نگاه کن، نه به موضوع.",
+     TONES.map(function(t){return {v:t[0],r:t[0]===p.tone,
+       h:'<b>'+t[1]+'</b><span class="e">'+esc(t[2])+'</span>',
+       why:"گیرنده این پرامپت "+(p.tone==="formal"?"کسیه که شخصاً نمی‌شناسیش، پس رسمی.":"همکار یا سرپرست مستقیمته، پس نیمه‌رسمی.")}}))+
+   q("mp","Q2","موضوع اصلی نامه (MP) کدومه؟","نه خیلی کلی، نه یک جزئیات ریز، و نه کپی عین یک bullet.",
+     DEC.mp.map(function(m){return {v:m,r:m===p.mp,h:'<span class="e">'+esc(m)+'</span>',
+       why:"جواب درست «"+p.mp+"» ه. بقیه یا خیلی کلی‌ان، یا یه جزئیات ریزن، یا کپی مستقیم یه bullet."}}))+
+   q("frame","Q3","کدوم قالب بهتر جواب می‌ده؟","قالب استاندارد برای همه‌چی خوب نیست. برای شکایت زبونش خیلی نرمه.",
+     DEC.fr.map(function(k){return {v:k,r:k===p.frame,
+       h:'<b>'+FRAMES[k].fa+'</b><span style="font-size:12.5px;color:var(--muted)">'+esc(FRAMES[k].use)+'</span>',
+       why:"این پرامپت "+FRAMES[p.frame].use+" ه، پس قالب «"+FRAMES[p.frame].fa+"» بهتر می‌شینه."}}));
+  var done=DEC.a.tone&&DEC.a.mp&&DEC.a.frame;
+  if(done){
+    var right=["tone","mp","frame"].filter(function(k){return DEC.a[k].r}).length;
+    h+='<div class="card"><div class="row" style="margin-top:0"><button class="btn" id="dnext">پرامپت بعدی</button>'+
+      '<span class="count">'+right+' از ۳ درست</span></div></div>';
+  }
+  setTimeout(function(){
+    bindPrompt();
+    $$('.opts').forEach(function(g){
+      $$('.opt',g).forEach(function(b){b.onclick=function(){
+        var r=b.dataset.r==="1";DEC.a[g.dataset.q]={v:b.dataset.v,r:r};
+        score(r); if(!r)logErr("decode:"+g.dataset.q,"b1");
+        go();
+      }});
+    });
+    var d=$("#dnext");if(d)d.onclick=function(){S.pIdx=(S.pIdx+1)%PROMPTS.length;DEC={};save();go()};
+  },0);
+  return h;
+}
+
+/* =================== L1 SKELETON =================== */
+var SK={};
+function skInit(){
+  var l=line(),w=tok(l.text),used={},bl=[];
+  l.keys.forEach(function(k){
+    for(var i=0;i<w.length;i++){if(!used[i]&&norm(w[i])===norm(k)){used[i]=1;bl.push(i);break}}
+  });
+  bl.sort(function(a,b){return a-b});
+  var corr=bl.map(function(i){return w[i]});
+  var extra=shuffle(DISTRACTORS.filter(function(d){
+    return !corr.some(function(c){return norm(c)===norm(d)})})).slice(0,3);
+  SK={key:S.fk+S.idx,w:w,bl:bl,bank:shuffle(corr.concat(extra)),filled:{},fb:null};
+}
+function renderSkeleton(){
+  if(SK.key!==S.fk+S.idx)skInit();
+  var l=line(),w=SK.w,nx=null,i;
+  for(i=0;i<SK.bl.length;i++){if(SK.filled[SK.bl[i]]===undefined){nx=SK.bl[i];break}}
+  var done=nx===null;
+  var body=w.map(function(x,i){
+    if(isSlot(x)){var m=x.match(/\[([A-Z0-9]+)\]/);return '<span class="slot">'+m[1]+'</span>'+esc(x.replace(/\[[A-Z0-9]+\]/,""))+' '}
+    if(SK.bl.indexOf(i)>-1){
+      if(SK.filled[i]===undefined)return '<span class="blank'+(i===nx?" cur":"")+'"></span> ';
+      return '<span class="t-ok" style="font-weight:500">'+esc(x)+'</span> ';
+    }
+    return esc(x)+' ';
+  }).join("");
+  var bank=SK.bank.map(function(x,bi){
+    var u=Object.keys(SK.filled).some(function(k){return SK.filled[k]===bi});
+    return '<button class="word'+(u?" used":"")+'" data-bi="'+bi+'">'+esc(x)+'</button>';
+  }).join("");
+  var h='<div class="card stamped"><h2>'+l.fa+' <span class="tag">'+FRAMES[S.fk].fa+'</span></h2>'+
+   frameBar("sk")+sentBar()+
+   '<p class="hint">کلمه درست رو انتخاب کن. اگه غلط بزنی جای خالی باز می‌مونه تا خودت درستش کنی. اسلات‌های آبی ثابتن.</p>'+
+   '<div class="mail" id="mail">'+body+'</div>'+
+   '<div class="bank" id="bank">'+bank+'</div>'+
+   '<div id="fb">'+(SK.fb?fbHTML(SK.fb):"")+'</div>'+
+   '<div class="row"><button class="btn" id="nx" '+(done?"":"disabled")+'>جمله بعدی <kbd>Enter</kbd></button>'+
+   '<button class="btn ghost" id="again">دوباره همین</button>'+
+   '<button class="btn mut" id="weak">ضعیف‌ترین جمله‌م</button></div></div>';
+  setTimeout(function(){
+    bindAll();
+    $$('#bank .word').forEach(function(b){b.onclick=function(){
+      if(nx===null)return;
+      var t=w[nx],r=norm(b.textContent)===norm(t),nt=noteFor(t);
+      if(r){
+        SK.filled[nx]=+b.dataset.bi;
+        var tp=pick(TIPS);
+        SK.fb={good:true,t:"درست",fa:nt?nt.fa:tp.fa,en:nt?nt.en:tp.en};
+        score(true);
+      }else{
+        logErr(norm(t),l.id);score(false);
+        SK.fb={good:false,t:"نه، دوباره امتحان کن",fa:nt?nt.fa:"به کلمه قبل و بعدش نگاه کن. معمولاً حرف اضافه یا شکل فعل تعیین‌کننده‌ست.",en:nt?nt.en:""};
+        b.classList.add("shake");
+      }
+      setTimeout(go,r?0:340);
+    }});
+    var n1=$("#nx");if(n1)n1.onclick=function(){S.idx=(S.idx+1)%frame().lines.length;save();go()};
+    $("#again").onclick=function(){skInit();go()};
+    $("#weak").onclick=weakest;
+    KEY=function(e){if(e.key==="Enter"&&done){e.preventDefault();S.idx=(S.idx+1)%frame().lines.length;save();go()}};
+  },0);
+  return h;
+}
+function weakest(){
+  var b=0,bv=99;frame().lines.forEach(function(l,i){var v=S.boxes[S.fk+":"+l.id]||0;if(v<bv){bv=v;b=i}});
+  S.idx=b;save();go();
+}
+
+/* =================== L2 FADE =================== */
+var FD={};
+function renderFade(){
+  var l=line(),w=tok(l.text);
+  if(FD.key!==S.fk+S.idx){FD={key:S.fk+S.idx,stage:0,val:"",res:null}}
+  var ratio=[0.3,0.7,1][FD.stage];
+  var idxs=[],i;for(i=1;i<w.length;i++)if(!isSlot(w[i]))idxs.push(i);
+  var cnt=Math.round(idxs.length*ratio),hid={},step=idxs.length/Math.max(1,cnt);
+  for(i=0;i<cnt;i++)hid[idxs[Math.min(idxs.length-1,Math.floor(i*step))]]=1;
+  var body=w.map(function(x,i){
+    if(isSlot(x)){var m=x.match(/\[([A-Z0-9]+)\]/);return '<span class="slot">'+m[1]+'</span>'+esc(x.replace(/\[[A-Z0-9]+\]/,""))+' '}
+    return hid[i]?'<span style="color:#c9c3b2">'+"_".repeat(Math.max(2,x.length))+'</span> ':esc(x)+' ';
+  }).join("");
+  var r=FD.res,fb="";
+  if(r){
+    var nt=null,fm=r.miss.filter(function(x){return !isSlot(x)})[0];
+    if(fm)nt=noteFor(fm);
+    var good=r.acc>=90&&r.puncErr===0;
+    fb='<div class="diff">'+diffHTML(r.parts)+'</div>'+
+      fbHTML({good:good,warn:r.acc>=90&&r.puncErr>0,
+        t:r.acc>=90?(r.puncErr>0?"دقت "+r.acc+"٪ ولی "+r.puncErr+" تا علامت نگارشی غلطه":"دقت "+r.acc+"٪"):"دقت "+r.acc+"٪",
+        fa:r.puncErr>0?"زردها کلمه‌شون درسته ولی کاما یا نقطه‌شون نه.":nt?nt.fa:good?r.tip.fa:"قرمزها جا افتادن یا اشتباه نوشته شدن.",
+        en:nt?nt.en:(good?r.tip.en:"")});
+  }
+  var h='<div class="card stamped"><h2>'+l.fa+' <span class="tag">Fade '+(FD.stage+1)+'/3 &middot; '+FRAMES[S.fk].fa+'</span></h2>'+
+   frameBar("fd")+sentBar()+
+   '<p class="hint">جمله رو کامل تایپ کن، با کاما و نقطه. اسلات‌ها رو همون‌طور بنویس: <span class="e">MP, P1, N1</span></p>'+
+   '<div class="mail">'+body+'</div>'+
+   '<textarea id="ta" rows="3" placeholder="Type the full sentence, punctuation included...">'+esc(FD.val)+'</textarea>'+
+   '<div class="row"><button class="btn" id="chk">بررسی <kbd>Ctrl+Enter</kbd></button>'+
+   (r&&FD.stage<2?'<button class="btn ghost" id="hard">سخت‌تر</button>':'')+
+   (r&&FD.stage===2?'<button class="btn ghost" id="nx">جمله بعدی</button>':'')+
+   '<button class="btn mut" id="clr">پاک کن</button>'+
+   '<button class="btn mut" id="weak">ضعیف‌ترین</button></div>'+fb+'</div>';
+  setTimeout(function(){
+    bindAll();
+    var ta=$("#ta");ta.oninput=function(){FD.val=ta.value};
+    $("#chk").onclick=function(){
+      if(!ta.value.trim())return;
+      FD.val=ta.value;
+      var d=diffTokens(w,tok(ta.value));
+      d.miss.forEach(function(x){if(!isSlot(x))logErr(norm(x),l.id)});
+      d.tip=pick(TIPS);FD.res=d;
+      score(d.acc>=90&&d.puncErr===0);go();
+    };
+    var hb=$("#hard");if(hb)hb.onclick=function(){FD.stage++;FD.val="";FD.res=null;go()};
+    var nb=$("#nx");if(nb)nb.onclick=function(){S.idx=(S.idx+1)%frame().lines.length;FD={};save();go()};
+    $("#clr").onclick=function(){FD.val="";FD.res=null;go()};
+    $("#weak").onclick=function(){FD={};weakest()};
+    KEY=function(e){if((e.ctrlKey||e.metaKey)&&e.key==="Enter"){e.preventDefault();$("#chk").click()}};
+  },0);
+  return h;
+}
+
+/* =================== L3 SCRAMBLE =================== */
+var SCR={};
+function renderScramble(){
+  var l=line();
+  var items=SCR.mode==="email"?frame().lines.map(function(x){return x.fa+" &middot; "+x.text.slice(0,32)+"..."}):l.chunks;
+  var key=S.fk+S.idx+(SCR.mode||"sentence");
+  if(SCR.key!==key){SCR={key:key,mode:SCR.mode||"sentence",pool:shuffle(items.map(function(c,i){return {c:c,i:i}})),seq:[],res:null};
+    items=SCR.mode==="email"?frame().lines.map(function(x){return x.fa+" &middot; "+x.text.slice(0,32)+"..."}):l.chunks;}
+  var h='<div class="card stamped"><h2>'+(SCR.mode==="email"?"ترتیب کل ایمیل":l.fa)+' <span class="tag">Scramble &middot; '+FRAMES[S.fk].fa+'</span></h2>'+
+   frameBar("sc")+
+   '<div class="picker"><button class="pick '+(SCR.mode==="sentence"?"on":"")+'" data-m="sentence">تکه‌های جمله</button>'+
+   '<button class="pick '+(SCR.mode==="email"?"on":"")+'" data-m="email">ترتیب پاراگراف‌ها</button></div>'+
+   (SCR.mode==="sentence"?sentBar():"")+
+   '<p class="hint">روی هر تکه بزن تا اضافه بشه. روی تکه‌های بالا بزن تا برگرده.</p>'+
+   '<div class="drop">'+(SCR.seq.length?SCR.seq.map(function(x,i){
+      return '<button class="chunk'+(SCR.res?(x.i===i?" ok":" bad"):"")+'" data-s="'+i+'">'+x.c+'</button>'}).join(""):
+      '<span style="color:#b3ac99">اینجا خالیه</span>')+'</div>'+
+   '<div class="bank">'+SCR.pool.map(function(x,i){return '<button class="chunk" data-p="'+i+'">'+x.c+'</button>'}).join("")+'</div>'+
+   '<div class="row"><button class="btn" id="chk" '+(SCR.pool.length?"disabled":"")+'>بررسی <kbd>Enter</kbd></button>'+
+   '<button class="btn ghost" id="re">دوباره بچین</button>'+
+   (SCR.res&&SCR.res.ok&&SCR.mode==="sentence"?'<button class="btn ghost" id="nx">جمله بعدی</button>':'')+'</div>'+
+   (SCR.res?fbHTML({good:SCR.res.ok,t:SCR.res.ok?"ترتیب درسته":"ترتیب غلطه. سبزها سر جاشونن",
+     fa:SCR.res.ok?SCR.res.tip.fa:"اول کانکتور، بعد عبارت gerund یا فاعل، بعد فعل اصلی، آخر عبارت وصفی.",
+     en:SCR.res.ok?SCR.res.tip.en:"Connector, subject phrase, main verb, trailing clause."}):'')+'</div>';
+  setTimeout(function(){
+    bindAll();
+    $$('[data-m]').forEach(function(b){b.onclick=function(){SCR={mode:b.dataset.m};go()}});
+    $$('[data-p]').forEach(function(b){b.onclick=function(){
+      var i=+b.dataset.p;SCR.seq.push(SCR.pool[i]);SCR.pool.splice(i,1);SCR.res=null;go()}});
+    $$('[data-s]').forEach(function(b){b.onclick=function(){
+      var i=+b.dataset.s;SCR.pool.push(SCR.seq[i]);SCR.seq.splice(i,1);SCR.res=null;go()}});
+    $("#chk").onclick=function(){
+      var ok=SCR.seq.length===items.length&&SCR.seq.every(function(x,i){return x.i===i});
+      if(!ok)logErr("order:"+(SCR.mode==="email"?"email":l.id),l.id);
+      SCR.res={ok:ok,tip:pick(TIPS)};score(ok);go();
+    };
+    $("#re").onclick=function(){SCR.key=null;go()};
+    var nb=$("#nx");if(nb)nb.onclick=function(){S.idx=(S.idx+1)%frame().lines.length;SCR={mode:"sentence"};save();go()};
+    KEY=function(e){if(e.key==="Enter"&&!SCR.pool.length&&!SCR.res){e.preventDefault();$("#chk").click()}};
+  },0);
+  return h;
+}
+/* =================== L4 PARAPHRASE =================== */
+var PP={};
+function renderParaphrase(){
+  var p=prompt_();
+  if(PP.pid!==p.id){PP={pid:p.id,bi:0,val:"",res:null}}
+  var b=p.bullets[PP.bi],sk=["P1","P2","P3"][PP.bi];
+  var n=wc(PP.val),ov=Math.round(overlap(b,PP.val)*100);
+  var h=promptCard(true)+
+   '<div class="card stamped"><h2>پارافریز <span class="tag">bullet '+(PP.bi+1)+'</span></h2>'+
+   '<p class="hint">ضعیف‌ترین حلقه‌ی زنجیره همینه. bullet رو تو ۳ تا ۶ کلمه بازنویسی کن، به شکل یک عبارت اسمی که بشه گذاشتش تو اسلات.</p>'+
+   '<div class="picker">'+p.bullets.map(function(_,i){
+     return '<button class="pick '+(PP.bi===i?"on":"")+'" data-b="'+i+'">bullet '+(i+1)+'</button>'}).join("")+'</div>'+
+   '<div class="prompt">'+esc(b)+'</div>'+
+   '<label class="f"><b>'+sk+'</b>بازنویسی تو</label>'+
+   '<input type="text" id="pin" value="'+esc(PP.val)+'" placeholder="e.g. keeping the evening slot open">'+
+   '<div class="budget"><span>کلمه <b id="pw" class="'+(n>7?"over":"")+'">'+n+'</b> / ۶</span>'+
+   '<span>هم‌پوشانی با bullet <b id="po" class="'+(ov>60?"over":"")+'">'+ov+'٪</b></span></div>'+
+   '<div class="row"><button class="btn" id="chk">بررسی <kbd>Enter</kbd></button>'+
+   '<button class="btn mut" id="smp">نمونه</button></div>'+
+   (PP.res?fbHTML({good:PP.res.i.length===0,t:PP.res.i.length===0?"تمیزه":"قابل بهبود",
+      fa:PP.res.i.length===0?PP.res.tip.fa:PP.res.i.join(" • "),
+      en:PP.res.i.length===0?PP.res.tip.en:""}):'')+
+   (PP.res&&PP.res.i.length===0?'<div class="sc" style="margin-top:8px"><p class="en-line">'+esc(p.sample[sk])+'</p><p>نمونه‌ی مرجع برای مقایسه</p></div>':'')+
+   '</div>';
+  setTimeout(function(){
+    bindPrompt();
+    $$('[data-b]').forEach(function(x){x.onclick=function(){PP.bi=+x.dataset.b;PP.val="";PP.res=null;go()}});
+    var inp=$("#pin");
+    inp.oninput=function(){
+      PP.val=inp.value;
+      var n2=wc(PP.val),o2=Math.round(overlap(b,PP.val)*100);
+      $("#pw").textContent=n2;$("#pw").className=n2>7?"over":"";
+      $("#po").textContent=o2+"٪";$("#po").className=o2>60?"over":"";
+    };
+    $("#chk").onclick=function(){
+      PP.val=inp.value;var v=PP.val.trim();if(!v)return;
+      var i=[],n3=wc(v),o3=overlap(b,v);
+      if(n3>7)i.push("«"+n3+" کلمه» زیادیه. هدف ۳ تا ۶ کلمه‌ست وگرنه از ۱۲۰ کلمه رد می‌شی.");
+      if(n3<2)i.push("خیلی کوتاهه. باید یه عبارت اسمی معنادار باشه.");
+      if(o3>0.6)i.push("خیلی نزدیک به خود bullet ه. کلمه‌های اصلی رو با مترادف عوض کن.");
+      if(/^(to |say |describe |explain |mention |state |give |ask |propose |suggest )/i.test(v))
+        i.push("با فعل امری bullet شروع نکن. باید عبارت اسمی باشه که تو جمله بشینه.");
+      if(/^[A-Z]/.test(v)&&!/^I\b/.test(v))i.push("با حرف بزرگ شروع نکن، وسط جمله قرار می‌گیره.");
+      PP.res={i:i,tip:pick(TIPS)};score(i.length===0);go();
+    };
+    $("#smp").onclick=function(){PP.val=p.sample[sk];PP.res=null;go()};
+    KEY=function(e){if(e.key==="Enter"&&document.activeElement===inp){e.preventDefault();$("#chk").click()}};
+  },0);
+  return h;
+}
+
+/* =================== L5 SLOT FILL =================== */
+var SL={};
+function renderSlots(){
+  var p=prompt_(),fr=frame(),sl=slotsOf(fr),sk=skelWords(fr);
+  if(SL.pid!==p.id+S.fk){SL={pid:p.id+S.fk,f:{},rec:"",res:null}}
+  var email=renderFrame(fr,SL.f,S.name,SL.rec);
+  var n=wc(email.replace(/\[[A-Z0-9]+\]/g,""));
+  var used=sl.reduce(function(a,k){return a+(SL.f[k]?wc(SL.f[k]):0)},0);
+  var budget=115-sk, per=(budget/sl.length).toFixed(1);
+  var filled=sl.filter(function(k){return SL.f[k]&&SL.f[k].trim()}).length;
+  var h=promptCard(true)+
+   '<div class="card"><h2>بودجه کلمه</h2>'+
+   '<p class="hint" style="margin-bottom:8px">اسکلت ثابت این قالب '+sk+' کلمه‌ست. تا سقف امن ۱۱۵ کلمه، فقط '+budget+' کلمه برای '+sl.length+' اسلات داری.</p>'+
+   '<div class="budget"><span>سقف هر اسلات ≈ <b>'+per+'</b></span>'+
+   '<span>مصرف‌شده <b id="ub" class="'+(used>budget?"over":"")+'">'+used+'</b> / '+budget+'</span></div>'+
+   gaugeHTML(n,"sg")+'</div>'+
+   '<div class="card stamped"><h2>اسلات‌ها</h2>'+frameBar("sl")+
+   '<label class="f"><b>R</b>گیرنده (خالی بذاری پیش‌فرض قالب می‌مونه)</label>'+
+   '<input type="text" class="sf" data-k="_rec" value="'+esc(SL.rec)+'" placeholder="'+esc(fr.lines[0].text.replace(/^Dear /,"").replace(/,$/,""))+'">'+
+   '<div class="grid2">'+sl.map(function(k){
+     var hh=fr.hints[k]||{fa:k,ph:""};
+     return '<div><label class="f"><b>'+k+'</b>'+esc(hh.fa)+'</label>'+
+       '<input type="text" class="sf" data-k="'+k+'" value="'+esc(SL.f[k]||"")+'" placeholder="'+esc(hh.ph)+'"></div>';
+   }).join("")+'</div>'+
+   '<div class="row"><button class="btn" id="chk">بررسی</button>'+
+   '<button class="btn mut" id="smp">نمونه جواب</button>'+
+   '<button class="btn mut" id="clr">پاک کن</button></div>'+
+   (SL.res?fbHTML({good:SL.res.i.length===0,t:SL.res.i.length===0?"تمیزه":"موارد قابل اصلاح",
+     fa:SL.res.i.length===0?SL.res.tip.fa:SL.res.i.join(" • "),
+     en:SL.res.i.length===0?SL.res.tip.en:""}):'')+'</div>'+
+   '<div class="card"><h2>پیش‌نمایش</h2><div class="mail" id="prev">'+mailHTML(email)+'</div></div>';
+  setTimeout(function(){
+    bindPrompt();
+    $$('.sf').forEach(function(inp){
+      inp.oninput=function(){
+        if(inp.dataset.k==="_rec")SL.rec=inp.value;else SL.f[inp.dataset.k]=inp.value;
+        var e2=renderFrame(fr,SL.f,S.name,SL.rec);
+        var n2=wc(e2.replace(/\[[A-Z0-9]+\]/g,""));
+        var u2=sl.reduce(function(a,k){return a+(SL.f[k]?wc(SL.f[k]):0)},0);
+        $("#prev").innerHTML=mailHTML(e2);
+        $("#ub").textContent=u2;$("#ub").className=u2>budget?"over":"";
+        updGauge("sg",n2);
+      };
+    });
+    $("#chk").onclick=function(){
+      var i=[];
+      if(filled<sl.length)i.push((sl.length-filled)+" تا اسلات خالیه.");
+      if(n>120)i.push("ایمیل "+n+" کلمه شده. بالای ۱۲۰ نمره Form جریمه می‌خوره.");
+      else if(n<80&&filled===sl.length)i.push("فقط "+n+" کلمه‌ست. ۸۰ تا ۱۲۰ امن‌تره.");
+      p.bullets.forEach(function(b,j){var k=["P1","P2","P3"][j];
+        if(SL.f[k]&&overlap(b,SL.f[k])>0.65)i.push("اسلات "+k+" تقریباً کپی bullet "+(j+1)+" ه.")});
+      ["P1","P2","P3"].forEach(function(k){if(SL.f[k]&&wc(SL.f[k])>7)i.push("اسلات "+k+" با "+wc(SL.f[k])+" کلمه بلنده.")});
+      if(S.fk!==p.frame)i.push("برای این پرامپت قالب «"+FRAMES[p.frame].fa+"» بهتر می‌شینه.");
+      SL.res={i:i,tip:pick(TIPS)};score(i.length===0);go();
+    };
+    $("#smp").onclick=function(){SL.f=Object.assign({},p.sample);SL.res=null;go()};
+    $("#clr").onclick=function(){SL.f={};SL.rec="";SL.res=null;go()};
+  },0);
+  return h;
+}
+
+/* =================== LOCAL GRADER =================== */
+function gradeLocal(text,p){
+  var n=wc(text),low=" "+text.toLowerCase()+" ";
+  var form=(n>=50&&n<=120)?2:((n>=30&&n<=150)?1:0);
+  var greet=/^\s*(dear|hi|hello)\b/i.test(text);
+  var bye=/(kind regards|best regards|yours sincerely|yours faithfully|best wishes|regards|sincerely)/i.test(text);
+  var ls=text.trim().split(/\n/).filter(function(x){return x.trim()});
+  var last=ls[ls.length-1]||"";
+  var sig=ls.length>1&&wc(last)<=4&&!/regard|sincerel|wishes/i.test(last);
+  var conv=(greet?1:0)+(bye?1:0); if(conv===2&&!sig)conv=1;
+  var conn=[/firstly|first of all|to begin with|the main issue/i,
+            /secondly|in addition|on top of that|furthermore/i,
+            /lastly|finally|for these reasons/i];
+  var ncon=conn.filter(function(r){return r.test(text)}).length;
+  var paras=text.trim().split(/\n\s*\n/).filter(function(x){return wc(x)>=8});
+  var points=Math.max(ncon,Math.max(0,paras.length-1));
+  var STOP={"write":1,"email":1,"your":1,"about":1,"that":1,"this":1,"with":1,"from":1,"have":1,"been":1,"they":1,"their":1,"there":1,"which":1,"would":1,"could":1,"should":1,"asked":1,"asking":1,"please":1};
+  var keys=[],seen={};
+  tok(p.situation).map(norm).forEach(function(x){
+    if(x.length>4&&!STOP[x]&&!seen[x]){seen[x]=1;keys.push(x)}});
+  var hits2=keys.filter(function(x){return low.indexOf(x.slice(0,5))>-1});
+  var topical=hits2.length;
+  /* Content is NOT auto-scored: rules cannot tell whether each bullet was
+     actually answered, and penalising paraphrase would teach the wrong habit.
+     The user self-checks it against the three bullets instead. */
+  var org=(ncon>=3&&paras.length>=4)?2:(ncon>=2||paras.length>=4)?1:0;
+  var copied=p.bullets.filter(function(b){
+    var bw=tok(b).map(norm).filter(function(x){return x.length>3});
+    if(bw.length<3)return false;
+    var hit=bw.filter(function(x){return low.indexOf(" "+x+" ")>-1}).length;
+    return hit/bw.length>0.8;
+  }).length;
+  var words=tok(text).map(norm).filter(function(x){return x.length>3});
+  var uq={};words.forEach(function(x){uq[x]=1});
+  var ttr=words.length?Object.keys(uq).length/words.length:0;
+  var vocab=ttr>0.62?2:ttr>0.5?1:0;
+  if(copied)vocab=Math.max(0,vocab-1);
+  var hits=[];
+  ERRPAT.forEach(function(e){var m=text.match(e.re);if(m)hits.push({w:m[0],f:e.fix,fa:e.fa,k:e.k})});
+  var sp=hits.filter(function(x){return x.k==="spell"}).length;
+  var gr=hits.filter(function(x){return x.k==="gram"}).length;
+  var sents=text.split(/[.!?]+/).filter(function(x){return wc(x)>0});
+  var longS=sents.filter(function(x){return wc(x)>42}).length;
+  var noCap=sents.filter(function(x){return x.trim()&&/^[a-z]/.test(x.trim())}).length;
+  var grammar=Math.max(0,2-gr-(longS>0?1:0));
+  var spell=Math.max(0,2-sp-(noCap>1?1:0));
+  return {n:n,points:points,topical:topical,copied:copied,hits:hits,longS:longS,noCap:noCap,
+    ttr:Math.round(ttr*100),ncon:ncon,paras:paras.length,greet:greet,bye:bye,sig:sig,
+    scores:{
+      content:{v:null,fa:points+" نکته مجزا و "+topical+" واژه مرتبط با پرامپت. نمره‌ش رو خودت پایین تیک بزن."},
+      form:{v:form,fa:n+" کلمه. بازه نمره کامل ۵۰ تا ۱۲۰ ه."},
+      organization:{v:org,fa:ncon+" کانکتور اصلی و "+paras.length+" پاراگراف."},
+      conventions:{v:conv,fa:(greet?"خطاب ✓ ":"خطاب ✗ ")+(bye?"خداحافظی ✓ ":"خداحافظی ✗ ")+(sig?"امضا ✓":"امضا ✗")},
+      grammar:{v:grammar,fa:gr?gr+" الگوی خطای شناخته‌شده پیدا شد.":(longS?"یه جمله بیشتر از ۴۲ کلمه داری.":"الگوی خطای رایجی پیدا نشد.")},
+      vocabulary:{v:vocab,fa:"تنوع واژگان "+Math.round(ttr*100)+"٪"+(copied?" و "+copied+" تا bullet عیناً کپی شده.":".")},
+      spelling:{v:spell,fa:sp?sp+" غلط املایی رایج پیدا شد.":(noCap>1?"چند جمله با حرف کوچک شروع شده.":"غلط املایی رایجی پیدا نشد.")}
+    }};
+}
+/* =================== L6 EXAM =================== */
+var EX={text:"",left:540,run:false,grade:null,start:null,model:false,mock:false,part:1,ms:[]};
+var TICK=null;
+var CRIT=[["content","محتوا"],["form","فرم"],["organization","سازمان‌دهی"],["conventions","قواعد ایمیل"],
+          ["grammar","گرامر"],["vocabulary","واژگان"],["spelling","املا"]];
+
+function examStop(){if(TICK){clearInterval(TICK);TICK=null}EX.run=false}
+function examSubmit(){
+  examStop();
+  if(!EX.text.trim())return;
+  var p=prompt_(),g=gradeLocal(EX.text,p);
+  var total=CRIT.reduce(function(a,c){return a+(g.scores[c[0]].v||0)},0);
+  g.auto=total;g.total=total;EX.cb=[false,false,false];EX.cbTouched=false;EX.grade=g;
+  var el=EX.start?Math.max(1,Math.round((Date.now()-EX.start)/1000)):0;
+  S.exams.push({d:Date.now(),words:g.n,sec:el,total:total,wpm:el?Math.round(g.n/(el/60)):0,p:p.fa});
+  if(S.exams.length>40)S.exams=S.exams.slice(-40);
+  if(EX.mock)EX.ms.push(total);
+  score(total>=11);save();go();
+}
+function renderExam(){
+  var p=prompt_(),n=wc(EX.text);
+  var el=EX.start?Math.max(1,Math.round((Date.now()-EX.start)/1000)):0;
+  var wpm=el?Math.round(n/(el/60)):0;
+  var h='<div class="card stamped"><div class="row" style="margin-top:0;justify-content:space-between">'+
+   '<div class="timer'+(EX.left<90?" low":"")+'" id="tm">'+fmtT(EX.left)+'</div>'+
+   '<div class="row" style="margin-top:0"><button class="btn" id="st">'+(EX.run?"شروع دوباره":"شروع ۹ دقیقه")+'</button>'+
+   '<button class="btn ghost" id="np">'+(EX.mock?("ایمیل بعدی ("+EX.part+"/۲)"):"پرامپت دیگه")+'</button></div></div>'+
+   '<div class="picker" style="margin-top:12px;margin-bottom:0">'+
+   '<button class="pick '+(!EX.mock?"on":"")+'" data-mk="0">تک ایمیل</button>'+
+   '<button class="pick '+(EX.mock?"on":"")+'" data-mk="1">ماک ۲ ایمیل</button>'+
+   (EX.mock?'<span class="count" style="margin-inline-start:auto">نمره‌های این ماک: '+(EX.ms.join(" · ")||"هنوز هیچی")+'</span>':'')+'</div>'+
+   '<div class="prompt" style="margin-top:13px">'+esc(p.situation)+
+   '<ul>'+p.bullets.map(function(b){return '<li>'+esc(b)+'</li>'}).join("")+'</ul></div></div>'+
+   '<div class="card"><h2>ایمیلت رو بنویس</h2>'+
+   '<p class="hint">از حفظ، بدون نگاه کردن به قالب. سر صفر خودکار تحویل می‌ره.</p>'+
+   '<textarea id="et" rows="13" placeholder="Dear ...">'+esc(EX.text)+'</textarea>'+
+   gaugeHTML(n,"eg")+
+   '<div class="budget"><span>سرعت <b id="wp">'+wpm+'</b> کلمه/دقیقه</span>'+
+   '<span>زمان صرف‌شده <b id="elp">'+fmtT(el)+'</b></span></div>'+
+   '<div class="row"><button class="btn" id="sub">تحویل و نمره <kbd>Ctrl+Enter</kbd></button>'+
+   (EX.grade?'<button class="btn ghost" id="mdl">'+(EX.model?"بستن نمونه":"نمونه جواب قوی")+'</button>':'')+'</div></div>';
+
+  if(EX.grade){
+    var g=EX.grade,ck=(EX.cb||[]).filter(Boolean).length;
+    var selfV=ck===3?2:ck===2?1:0;
+    var t=g.auto+(EX.cbTouched?selfV:0);
+    var mx=EX.cbTouched?14:12;
+    var cls=t>=mx*0.78?"":t>=mx*0.57?"mid":"low";
+    h+='<div class="card stamped"><h2>نتیجه <span class="tag">چک ساختاری، نه نمره رسمی</span></h2>'+
+     '<div style="text-align:center;padding:6px 0 14px"><div class="bigstamp '+cls+'"><b>'+t+'</b><span>OF '+mx+'</span><em>'+(t>=mx*0.78?"خوب":t>=mx*0.57?"متوسط":"ضعیف")+'</em></div>'+
+     (EX.cbTouched?'':'<div class="count" style="margin-top:8px">۱۲ نمره خودکار. ۲ نمره محتوا بعد از تیک زدن پایین اضافه می‌شه.</div>')+'</div>'+
+     '<div class="selfchk"><b>خودت چک کن:</b> این چکر نمی‌تونه بفهمه هر bullet رو واقعاً جواب دادی یا نه. خودت تیک بزن.'+
+     p.bullets.map(function(b,i){return '<label class="cbx"><input type="checkbox" data-cb="'+i+'"><span>'+esc(b)+'</span></label>'}).join("")+
+     '<div id="cbres" class="count"></div></div>'+
+     '<div class="scores">'+CRIT.map(function(c){
+       var s=g.scores[c[0]],v=s.v;
+       if(c[0]==="content")v=EX.cbTouched?selfV:null;
+       var col=v===2?"var(--ok)":v===1?"var(--gold)":v===0?"var(--err)":"var(--muted)";
+       return '<div class="sc"><div class="h"><span>'+c[1]+(c[0]==="content"?' <span class="tag">خودارزیابی</span>':'')+'</span><span class="v" style="color:'+col+'">'+(v===null?"—":v+"/2")+'</span></div><p>'+esc(s.fa)+'</p></div>';
+     }).join("")+'</div>';
+    if(g.hits.length){
+      h+='<h2 style="margin-top:16px">خطاهای شناسایی‌شده</h2>';
+      g.hits.slice(0,8).forEach(function(x){
+        h+='<div class="sc" style="margin-top:7px"><p class="en-line"><span class="t-wrong">'+esc(x.w)+'</span> &rarr; <span class="t-ok">'+esc(x.f)+'</span></p><p>'+esc(x.fa)+'</p></div>';
+      });
+    }
+    var adv=[];
+    if(g.points<3)adv.push("سه تا نکته‌ی مجزا پیدا نشد. هر bullet باید پاراگراف خودش رو داشته باشه.");
+    if(g.copied)adv.push(g.copied+" تا bullet رو تقریباً عیناً کپی کردی. بازنویسیشون کن.");
+    if(!g.greet||!g.bye||!g.sig)adv.push("خطاب یا خداحافظی یا امضا کامل نیست. این بخش راحت‌ترین نمره‌ی ایمیله.");
+    if(g.n>120)adv.push("بالای ۱۲۰ کلمه‌ای. اسلات‌های P رو کوتاه‌تر کن.");
+    if(g.n<50)adv.push("زیر ۵۰ کلمه‌ای، Form صفر می‌شه.");
+    if(g.ncon<3)adv.push("هر سه کانکتور رو بذار تا Organization کامل بشه.");
+    if(g.longS)adv.push("یه جمله بیشتر از ۴۲ کلمه داری. بشکنش به دو تا.");
+    if(g.ttr<55)adv.push("تنوع واژگانت پایینه ("+g.ttr+"٪). مترادف بیشتری استفاده کن.");
+    h+=fbHTML({good:adv.length===0,t:adv.length?"مهم‌ترین چیزی که باید درست کنی":"ساختار سالمه",
+      fa:adv.length?adv[0]:"از اینجا به بعد فقط با تمرین بیشتر و دقت به جزئیات بهتر می‌شه."});
+    h+='<p class="hint" style="margin:12px 0 0">این نمره‌دهی قاعده‌محوره: طول، ساختار، پوشش bullet، کانکتورها، تنوع واژگان و الگوهای خطای رایج رو چک می‌کنه. جای معلم رو نمی‌گیره.</p></div>';
+  }
+  if(EX.model){
+    var m=renderFrame(FRAMES[p.frame],p.sample,S.name,"");
+    h+='<div class="card"><h2>نمونه جواب <span class="tag">قالب '+FRAMES[p.frame].fa+' &middot; '+wc(m)+' کلمه</span></h2>'+
+     '<p class="hint">مال خودت رو کنارش بذار و فقط دنبال یه چیز بگرد: کجا مبهم‌تر نوشتی.</p>'+
+     '<div class="mail">'+mailHTML(m)+'</div></div>';
+  }
+  if(S.exams.length){
+    h+='<div class="card"><h2>تاریخچه</h2><table class="tb"><thead><tr><th>پرامپت</th><th>نمره</th><th>کلمه</th><th>سرعت</th><th>زمان</th></tr></thead><tbody>'+
+     S.exams.slice(-7).reverse().map(function(e){
+       return '<tr><td>'+esc(e.p)+'</td><td class="m">'+e.total+'/14</td><td class="m">'+e.words+'</td><td class="m">'+e.wpm+'</td><td class="m">'+fmtT(e.sec)+'</td></tr>';
+     }).join("")+'</tbody></table></div>';
+  }
+  setTimeout(function(){
+    var ta=$("#et");
+    ta.oninput=function(){
+      EX.text=ta.value;var n2=wc(EX.text);updGauge("eg",n2);
+      var e2=EX.start?Math.max(1,Math.round((Date.now()-EX.start)/1000)):0;
+      $("#wp").textContent=e2?Math.round(n2/(e2/60)):0;
+    };
+    $("#st").onclick=function(){
+      examStop();EX.text="";EX.left=540;EX.grade=null;EX.model=false;EX.run=true;EX.start=Date.now();
+      TICK=setInterval(function(){
+        EX.left--;var t=$("#tm");
+        if(t){t.textContent=fmtT(EX.left);t.className="timer"+(EX.left<90?" low":"")}
+        var ep=$("#elp");if(ep&&EX.start)ep.textContent=fmtT(Math.round((Date.now()-EX.start)/1000));
+        if(EX.left<=0)examSubmit();
+      },1000);
+      go();setTimeout(function(){var x=$("#et");if(x)x.focus()},350);
+    };
+    $("#np").onclick=function(){
+      S.pIdx=(S.pIdx+1)%PROMPTS.length;examStop();
+      EX.text="";EX.left=540;EX.grade=null;EX.model=false;EX.start=null;
+      if(EX.mock)EX.part++;save();go();
+    };
+    $$('[data-mk]').forEach(function(b){b.onclick=function(){
+      EX.mock=b.dataset.mk==="1";EX.ms=[];EX.part=1;go()}});
+    $("#sub").onclick=function(){EX.text=ta.value;examSubmit()};
+    var md=$("#mdl");if(md)md.onclick=function(){EX.model=!EX.model;go()};
+    $$('[data-cb]').forEach(function(c){
+      c.checked=!!(EX.cb&&EX.cb[+c.dataset.cb]);
+      c.onchange=function(){
+        if(!EX.cb)EX.cb=[false,false,false];
+        EX.cb[+c.dataset.cb]=c.checked;EX.cbTouched=true;go();
+      };
+    });
+    KEY=function(e){if((e.ctrlKey||e.metaKey)&&e.key==="Enter"){e.preventDefault();EX.text=ta.value;examSubmit()}};
+  },0);
+  return h;
+}
+
+/* =================== L7 STATS =================== */
+function renderStats(){
+  var errs=Object.keys(S.errors).map(function(k){return [k,S.errors[k]]})
+    .sort(function(a,b){return b[1].n-a[1].n}).slice(0,14);
+  var ex=S.exams,av=ex.length?(ex.reduce(function(a,e){return a+e.total},0)/ex.length).toFixed(1):"-";
+  var aw=ex.length?Math.round(ex.reduce(function(a,e){return a+e.wpm},0)/ex.length):"-";
+  var mastered=0,tot=0;
+  FK.forEach(function(k){FRAMES[k].lines.forEach(function(l){tot++;if((S.boxes[k+":"+l.id]||0)>=4)mastered++})});
+  var h='<div class="card stamped"><h2>وضعیت</h2><div class="budget" style="font-size:13px">'+
+   '<span>دقت کلی <b>'+acc()+'٪</b></span><span>استریک <b>'+S.stats.streak+'</b> (رکورد '+S.stats.best+')</span>'+
+   '<span>میانگین نمره <b>'+av+'</b>/14</span><span>میانگین سرعت <b>'+aw+'</b> wpm</span>'+
+   '<span>امتحان‌ها <b>'+ex.length+'</b></span><span>جمله‌های مسلط <b>'+mastered+'</b>/'+tot+'</span></div>'+
+   '<div class="prog"><i style="width:'+(tot?Math.round(mastered/tot*100):0)+'%"></i></div>'+
+   '<p class="hint" style="margin:10px 0 0">نوار بالا نشون می‌ده چند تا از ۲۱ جمله‌ی سه قالب رو حداقل چهار بار پشت‌سرهم درست زدی.</p></div>'+
+   '<div class="card"><h2>غلط‌های تکراری من</h2>';
+  if(!errs.length)h+='<p class="hint" style="margin:0">هنوز غلطی ثبت نشده. چند دور تو لول‌های ۱ و ۲ بزن تا اینجا پر بشه.</p>';
+  else{
+    h+='<p class="hint">این‌ها رو بیشتر از همه غلط زدی. روی «تمرین» بزنی می‌ری سر همون جمله.</p>'+
+     '<table class="tb"><thead><tr><th>کلمه</th><th>دفعات</th><th></th></tr></thead><tbody>'+
+     errs.map(function(e){
+       return '<tr><td class="m">'+esc(e[0])+'</td><td class="m">'+e[1].n+'</td>'+
+        '<td><button class="btn mut" style="padding:4px 11px;min-height:32px;font-size:12.5px" data-dl="'+esc(e[1].line)+'">تمرین</button></td></tr>';
+     }).join("")+'</tbody></table>';
+    var top=NOTES[errs[0][0]];
+    if(top)h+=fbHTML({good:false,t:"بیشترین غلطت: "+errs[0][0],fa:top.fa,en:top.en});
+  }
+  h+='</div><div class="card"><h2>تنظیمات</h2>'+
+   '<label class="f"><b>NAME</b>اسمی که آخر ایمیل میاد</label>'+
+   '<input type="text" id="nm" value="'+esc(S.name)+'">'+
+   '<div class="row"><button class="btn" id="svn">ذخیره اسم</button>'+
+   '<button class="btn mut" id="rst">پاک کردن کل پیشرفت</button></div>'+
+   '<p class="hint" style="margin:14px 0 0">همه‌چی روی همین مرورگر ذخیره می‌شه. اگه حالت ناشناس (incognito) باز کنی یا حافظه مرورگر رو پاک کنی، پیشرفت می‌پره.</p></div>';
+  setTimeout(function(){
+    $$('[data-dl]').forEach(function(b){b.onclick=function(){
+      var lid=b.dataset.dl,i=frame().lines.map(function(l){return l.id}).indexOf(lid);
+      if(i<0){for(var k=0;k<FK.length;k++){var j=FRAMES[FK[k]].lines.map(function(l){return l.id}).indexOf(lid);
+        if(j>=0){S.fk=FK[k];i=j;break}}}
+      if(i>=0){S.idx=i;S.lv=2;FD={};save();go()}
+    }});
+    $("#svn").onclick=function(){S.name=$("#nm").value||"Your Name";save();go()};
+    $("#rst").onclick=function(){
+      if(confirm("مطمئنی؟ همه پیشرفت، آمار و غلط‌ها پاک می‌شه.")){
+        var nm=S.name;S=fresh();S.name=nm;EX={text:"",left:540,run:false,grade:null,start:null,model:false,mock:false,part:1,ms:[]};SK={};FD={};SCR={};PP={};SL={};DEC={};save();go();}
+    };
+  },0);
+  return h;
+}
+
+/* =================== INIT =================== */
+var KEY=null;
+document.addEventListener("keydown",function(e){
+  if(e.altKey&&e.key>="1"&&e.key<="8"){e.preventDefault();S.lv=+e.key-1;save();go();return}
+  if(KEY)KEY(e);
+});
+if(!S.seen){
+  S.seen=1;save();
+  setTimeout(function(){
+    var w=document.createElement("div");
+    w.className="card stamped";
+    w.style.cssText="position:fixed;inset:auto 16px 16px 16px;max-width:520px;margin:0 auto;z-index:99;box-shadow:0 12px 40px #1b243033";
+    w.innerHTML='<h2>قبل از شروع</h2><p class="hint" style="margin-bottom:10px">اسم آخر ایمیل رو از تب «آمار و غلط‌ها» به اسم خودت عوض کن. اگه تازه شروع کردی، از لول ۰۰ برو جلو.</p><div class="row" style="margin-top:0"><button class="btn" id="okw">باشه</button></div>';
+    document.body.appendChild(w);
+    $("#okw").onclick=function(){w.remove()};
+  },600);
+}
+try{ go(); var bt=document.getElementById("boot"); if(bt)bt.parentNode.removeChild(bt); }
+catch(err){ crash(err) }
+
+</script>
+</body>
+</html>
