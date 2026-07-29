@@ -179,7 +179,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: url('images/hero-bg-upscaled.png') no-repeat right center/cover;
+  background: url('images/hero-bg-upscaled.webp') no-repeat right center/cover;
   background-color: #272727;
   padding: 6rem 1rem 2rem;
   overflow: hidden;
