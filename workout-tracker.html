@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>ثبت تمرین</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lapis:#0C1633; --surface:#15224A; --surface-2:#1C2C5C; --line:#2B3D72;
+    --chalk:#EFE8D8; --muted:#8C9BC4; --firooze:#3ECFC0; --zaferan:#E8A62D;
+    --sorkh:#E86A5C; --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--lapis);color:var(--chalk);
+    font-family:'Vazirmatn','IRANSans','Segoe UI',Tahoma,sans-serif;
+    line-height:1.7;padding:0 0 90px;max-width:660px;margin:0 auto;min-height:100vh;
+  }
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,textarea{font-family:inherit}
+
+  .topbar{
+    position:sticky;top:0;z-index:40;background:var(--lapis);
+    border-bottom:1px solid var(--line);padding:14px 16px 12px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .topbar h1{font-size:1.02rem;font-weight:700;line-height:1.4}
+  .topbar .sub{display:block;font-size:.73rem;color:var(--muted);font-weight:400}
+  .iconbtn{
+    flex:0 0 auto;width:34px;height:34px;border-radius:9px;
+    border:1px solid var(--line);color:var(--muted);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  }
+  .iconbtn:active{background:var(--surface-2)}
+  .savedot{flex:0 0 auto;width:7px;height:7px;border-radius:50%;background:var(--firooze);opacity:0;transition:opacity .3s}
+  .savedot.on{opacity:1}
+  .savedot.err{background:var(--sorkh);opacity:1}
+
+  .wrap{padding:18px 16px 0}
+
+  .nav{
+    position:fixed;bottom:0;left:0;right:0;z-index:50;
+    background:var(--lapis);border-top:1px solid var(--line);
+    display:flex;max-width:660px;margin:0 auto;padding-bottom:env(safe-area-inset-bottom);
+  }
+  .nav button{flex:1;padding:11px 4px 13px;color:var(--muted);font-size:.7rem;font-weight:500;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .nav button .ic{font-size:1.15rem;line-height:1}
+  .nav button.on{color:var(--firooze)}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:15px;margin-bottom:13px}
+  .card.acc{border-inline-start:3px solid var(--firooze)}
+  .card.warn{border-inline-start:3px solid var(--zaferan)}
+  .card.bad{border-inline-start:3px solid var(--sorkh)}
+  .card h3{font-size:.95rem;font-weight:700;margin-bottom:5px}
+  .card p{font-size:.84rem;color:var(--muted)}
+  .eyebrow{font-size:.7rem;letter-spacing:.13em;color:var(--firooze);font-weight:700;margin-bottom:7px}
+  .empty{text-align:center;color:var(--muted);font-size:.86rem;padding:44px 20px}
+  .sectitle{font-size:.73rem;letter-spacing:.11em;color:var(--muted);font-weight:700;margin:26px 0 11px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+
+  .btn{display:block;width:100%;padding:13px;border-radius:11px;background:var(--firooze);color:var(--lapis);font-weight:700;font-size:.92rem;text-align:center}
+  .btn:active{opacity:.82}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--chalk);font-weight:500}
+  .btn.ghost:active{background:var(--surface-2)}
+  .btn.danger{background:transparent;border:1px solid var(--sorkh);color:var(--sorkh);font-weight:500}
+  .btn.sm{padding:9px;font-size:.83rem;border-radius:9px}
+  .btnrow{display:flex;gap:9px;margin-top:11px}
+  .btnrow .btn{margin:0}
+
+  .daycard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;margin-bottom:10px;display:flex;align-items:center;gap:12px;width:100%;text-align:right}
+  .daycard.next{border-inline-start:3px solid var(--zaferan)}
+  .daycard .dn{flex:0 0 34px;height:34px;border-radius:9px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;color:var(--firooze)}
+  .daycard .dtxt{flex:1;min-width:0}
+  .daycard .dtxt b{display:block;font-size:.93rem;font-weight:700}
+  .daycard .dtxt span{font-size:.75rem;color:var(--muted)}
+  .daycard .badge{flex:0 0 auto;font-size:.68rem;font-weight:700;color:var(--zaferan);background:rgba(232,166,45,.14);padding:3px 8px;border-radius:20px}
+
+  .block{margin-bottom:20px}
+  .bhead{display:flex;align-items:baseline;gap:9px;margin-bottom:8px;padding-inline-start:2px}
+  .bhead .bid{font-size:.72rem;font-weight:700;color:var(--firooze);letter-spacing:.05em}
+  .bhead .btype{font-size:.72rem;color:var(--muted)}
+  .station{font-size:.73rem;color:var(--muted);background:rgba(62,207,192,.07);border:1px solid var(--line);border-radius:9px;padding:7px 11px;margin-bottom:10px}
+  .station b{color:var(--firooze);font-weight:500}
+
+  .round{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:9px;overflow:hidden}
+  .round.sup{border-inline-end:3px solid var(--firooze)}
+  .rlabel{font-size:.7rem;color:var(--muted);padding:7px 13px;background:var(--surface-2);border-bottom:1px solid var(--line);font-weight:500}
+
+  .setrow{padding:11px 13px}
+  .setrow + .setrow{border-top:1px dashed var(--line)}
+  .setrow.done{background:rgba(62,207,192,.05)}
+  .srtop{display:flex;align-items:baseline;gap:8px;margin-bottom:9px}
+  .srtop .code{font-size:.7rem;font-weight:700;color:var(--firooze);flex:0 0 auto}
+  .srtop .nm{font-size:.87rem;font-weight:500;flex:1;min-width:0;line-height:1.45}
+  .srtop .tgt{font-size:.71rem;color:var(--muted);flex:0 0 auto;white-space:nowrap}
+  .last{font-size:.71rem;color:var(--muted);margin-bottom:8px}
+  .last b{color:var(--chalk);font-weight:500}
+
+  /* ---- عدد کشویی ---- */
+  .inrow{display:flex;align-items:center;gap:7px;margin-bottom:9px}
+  .nf{flex:1;display:flex;align-items:center;background:var(--lapis);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+  .nf.pull{border-color:var(--firooze)}
+  .nfb{flex:0 0 40px;height:42px;color:var(--muted);font-size:1.25rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .nfb:active{background:var(--surface-2);color:var(--firooze)}
+  .nfv{
+    flex:1;min-width:0;height:42px;background:transparent;border:none;outline:none;
+    color:var(--chalk);font-size:1.08rem;font-weight:900;text-align:center;
+    font-variant-numeric:tabular-nums;touch-action:pan-y;cursor:ew-resize;padding:0;
+  }
+  .nfv::placeholder{color:var(--line);font-weight:400}
+  .nfv:not([readonly]){color:var(--firooze)}
+  .nfcap{flex:0 0 auto;font-size:.66rem;color:var(--muted);padding-inline-end:9px}
+  .wu{flex:0 0 auto;width:42px;height:42px;border-radius:10px;border:1px solid var(--line);color:var(--muted);font-size:.85rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .wu.on{border-color:var(--zaferan);color:var(--zaferan);background:rgba(232,166,45,.12)}
+  .ok{flex:0 0 auto;width:52px;height:42px;border-radius:10px;background:var(--firooze);color:var(--lapis);font-size:1.05rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .ok.undo{background:transparent;border:1px solid var(--line);color:var(--muted);font-size:.9rem}
+
+  /* ---- ردیف ضربه‌ای ---- */
+  .chiprow{display:flex;align-items:center;gap:5px;margin-top:8px}
+  .chiprow .lb{font-size:.66rem;color:var(--muted);flex:0 0 30px}
+  .chiprow .cs{
+    display:flex;gap:4px;flex:1;min-width:0;
+    overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    scroll-behavior:smooth;padding-bottom:2px;
+  }
+  .chiprow .cs::-webkit-scrollbar{display:none}
+  .chiprow .cs button{
+    flex:0 0 40px;padding:8px 0;border-radius:8px;border:1px solid var(--line);
+    color:var(--muted);font-size:.82rem;font-weight:700;font-variant-numeric:tabular-nums;
+  }
+  .chiprow .cs button.tgt{border-color:rgba(62,207,192,.45);color:var(--chalk);background:rgba(62,207,192,.06)}
+  .chiprow .cs button.on{background:var(--firooze);border-color:var(--firooze);color:var(--lapis)}
+  .chiprow.rir .cs button{flex:1;padding:5px 0;font-size:.74rem}
+  .chiprow.rir .cs{overflow:visible}
+  .chiprow.rir .cs button.on{background:var(--surface-2);border-color:var(--firooze);color:var(--firooze)}
+
+  /* ---- حالت ثبت‌شده ---- */
+  .donerow{display:flex;align-items:center;gap:9px}
+  .donerow .val{flex:1;font-size:1rem;font-weight:900;color:var(--firooze);font-variant-numeric:tabular-nums}
+  .donerow .val small{font-size:.72rem;color:var(--muted);font-weight:400;margin-inline-start:5px}
+  .donerow .wtag{font-size:.68rem;color:var(--zaferan);background:rgba(232,166,45,.14);padding:2px 7px;border-radius:20px;font-weight:700}
+
+  .addr{width:100%;padding:9px;border-radius:10px;border:1px dashed var(--line);color:var(--muted);font-size:.78rem;font-weight:500;margin-top:2px}
+  .addr:active{border-color:var(--firooze);color:var(--firooze)}
+
+  .timer{position:fixed;bottom:66px;left:0;right:0;z-index:45;max-width:660px;margin:0 auto;padding:0 16px;pointer-events:none}
+  .timer .in{background:var(--surface-2);border:1px solid var(--firooze);border-radius:13px;padding:11px 15px;display:flex;align-items:center;gap:13px;pointer-events:auto;box-shadow:0 6px 22px rgba(0,0,0,.4)}
+  .timer.hid{display:none}
+  .timer .num{font-size:1.65rem;font-weight:900;color:var(--firooze);font-variant-numeric:tabular-nums}
+  .timer .lb{flex:1;font-size:.75rem;color:var(--muted);line-height:1.4}
+  .timer .lb b{display:block;color:var(--chalk);font-size:.82rem;font-weight:500}
+  .timer button{flex:0 0 auto;padding:6px 11px;border-radius:8px;border:1px solid var(--line);color:var(--muted);font-size:.76rem;font-weight:500}
+  .timer.over .in{border-color:var(--zaferan)}
+  .timer.over .num{color:var(--zaferan)}
+
+  .modal{position:fixed;inset:0;z-index:80;background:rgba(6,11,26,.82);display:flex;align-items:flex-end;justify-content:center}
+  .modal.hid{display:none}
+  .sheet{background:var(--lapis);border-top:1px solid var(--line);border-radius:20px 20px 0 0;width:100%;max-width:660px;max-height:92vh;overflow-y:auto;padding:20px 16px calc(26px + env(safe-area-inset-bottom))}
+  .sheet h2{font-size:1.08rem;font-weight:700;margin-bottom:4px}
+  .sheet .sh{font-size:.8rem;color:var(--muted);margin-bottom:18px}
+  .grab{width:38px;height:4px;border-radius:4px;background:var(--line);margin:0 auto 16px}
+
+  .qz{margin-bottom:16px}
+  .qz .q{font-size:.85rem;font-weight:500;margin-bottom:7px}
+  .qz .opts{display:flex;gap:6px}
+  .qz .opts button{flex:1;padding:9px 4px;border-radius:9px;border:1px solid var(--line);color:var(--muted);font-size:.78rem;font-weight:500;line-height:1.35}
+  .qz .opts button.on{background:var(--surface-2);border-color:var(--firooze);color:var(--firooze);font-weight:700}
+
+  .fldbox{flex:1;margin-bottom:16px}
+  .fldbox label{display:block;font-size:.76rem;color:var(--muted);margin-bottom:5px}
+  .fldbox input,.fldbox textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:9px;color:var(--chalk);font-size:.9rem;padding:10px;outline:none;resize:vertical}
+  .fldbox input:focus,.fldbox textarea:focus{border-color:var(--firooze)}
+
+  .summ{display:flex;gap:9px;margin-bottom:16px}
+  .summ div{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:11px 8px;text-align:center}
+  .summ b{display:block;font-size:1.2rem;font-weight:900;color:var(--firooze);line-height:1.3}
+  .summ span{font-size:.7rem;color:var(--muted)}
+
+  textarea.exp{width:100%;height:130px;background:#080F24;border:1px solid var(--line);border-radius:10px;color:#C6D4F5;font-size:.7rem;padding:11px;direction:ltr;text-align:left;font-family:monospace;outline:none}
+  .hist{border-bottom:1px solid var(--line);padding:11px 0;font-size:.84rem;display:flex;gap:10px}
+  .hist .hd{color:var(--muted);font-size:.75rem;flex:0 0 auto}
+  .hist .hn{flex:1}
+  .hist .hs{color:var(--firooze);font-size:.76rem;font-weight:700;flex:0 0 auto}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="flex:1;min-width:0">
+    <h1><span id="ttl">ثبت تمرین</span><span class="sub" id="sub"></span></h1>
+  </div>
+  <div class="savedot" id="dot"></div>
+  <button class="iconbtn" id="btnExp">⇩</button>
+</div>
+
+<div class="wrap" id="view"></div>
+
+<div class="timer hid" id="timer">
+  <div class="in">
+    <div class="num" id="tnum">0:00</div>
+    <div class="lb"><b id="tlb">استراحت</b><span id="tsub"></span></div>
+    <button id="tadd">+۳۰</button>
+    <button id="tskip">رد</button>
+  </div>
+</div>
+
+<div class="nav">
+  <button data-tab="home" class="on"><span class="ic">▣</span>خانه</button>
+  <button data-tab="session"><span class="ic">✦</span>تمرین</button>
+  <button data-tab="progress"><span class="ic">◔</span>پیشرفت</button>
+  <button data-tab="settings"><span class="ic">⚙</span>تنظیمات</button>
+</div>
+
+<div class="modal hid" id="modal"><div class="sheet" id="sheet"></div></div>
+
+<script>
+"use strict";
+
+/* ==========================================================================
+   لایه ۱ — ذخیره‌سازی
+   هر تماس با مهلت زمانی و پوشش خطا. هیچ خطایی نباید اپ را متوقف کند.
+   ========================================================================== */
+var StoreState = { engine:'—', ok:true, lastError:null };
+
+function withTimeout(promise, ms){
+  return new Promise(function(resolve, reject){
+    var done = false;
+    var t = setTimeout(function(){ if(!done){ done=true; reject(new Error('timeout')); } }, ms);
+    Promise.resolve(promise).then(
+      function(v){ if(!done){ done=true; clearTimeout(t); resolve(v); } },
+      function(e){ if(!done){ done=true; clearTimeout(t); reject(e); } }
+    );
+  });
+}
+
+function ArtifactStore(){}
+ArtifactStore.prototype.get = function(k){
+  return withTimeout(window.storage.get(k,false),6000).then(function(r){
+    return r && r.value ? JSON.parse(r.value) : null;
+  });
+};
+ArtifactStore.prototype.set = function(k,v){ return withTimeout(window.storage.set(k,JSON.stringify(v),false),8000); };
+ArtifactStore.prototype.del = function(k){ return withTimeout(window.storage.delete(k,false),6000); };
+
+function LocalStore(){ this.p='wt:'; }
+LocalStore.prototype.get = function(k){ var v=localStorage.getItem(this.p+k); return Promise.resolve(v?JSON.parse(v):null); };
+LocalStore.prototype.set = function(k,v){ localStorage.setItem(this.p+k,JSON.stringify(v)); return Promise.resolve(true); };
+LocalStore.prototype.del = function(k){ localStorage.removeItem(this.p+k); return Promise.resolve(true); };
+
+function MemStore(){ this.m={}; }
+MemStore.prototype.get = function(k){ return Promise.resolve(this.m[k]!==undefined?this.m[k]:null); };
+MemStore.prototype.set = function(k,v){ this.m[k]=JSON.parse(JSON.stringify(v)); return Promise.resolve(true); };
+MemStore.prototype.del = function(k){ delete this.m[k]; return Promise.resolve(true); };
+
+var Store;
+(function(){
+  try{
+    if(typeof window!=='undefined' && window.storage && typeof window.storage.get==='function'){
+      Store = new ArtifactStore(); StoreState.engine='حافظه دائمی'; return;
+    }
+  }catch(e){}
+  try{
+    localStorage.setItem('__t','1'); localStorage.removeItem('__t');
+    Store = new LocalStore(); StoreState.engine='حافظه مرورگر'; return;
+  }catch(e){}
+  Store = new MemStore(); StoreState.engine='موقت'; StoreState.ok=false;
+})();
+
+/* خواندن امن: هر خطایی برابر است با «داده‌ای نیست» */
+function safeGet(k){
+  try{ return Store.get(k).catch(function(e){ StoreState.lastError=String(e); return null; }); }
+  catch(e){ StoreState.lastError=String(e); return Promise.resolve(null); }
+}
+function safeSet(k,v){
+  try{ return Store.set(k,v).then(function(){ return true; })
+       .catch(function(e){ StoreState.lastError=String(e); StoreState.ok=false; return false; }); }
+  catch(e){ StoreState.lastError=String(e); StoreState.ok=false; return Promise.resolve(false); }
+}
+
+/* ==========================================================================
+   کاتالوگ — در خود فایل تعریف شده، نیازی به ذخیره ندارد
+   ========================================================================== */
+var MUSCLES = {
+  chest:{fa:'سینه',mv:8,mev:10,mrv:22}, back:{fa:'پشت',mv:8,mev:10,mrv:25},
+  quads:{fa:'کوادریسپس',mv:6,mev:8,mrv:20}, hamstring:{fa:'همسترینگ',mv:4,mev:6,mrv:20},
+  glutes:{fa:'باسن',mv:0,mev:4,mrv:16}, front_delt:{fa:'سرشانه جلو',mv:0,mev:0,mrv:16},
+  side_delt:{fa:'سرشانه میانی',mv:6,mev:8,mrv:26}, rear_delt:{fa:'سرشانه عقب',mv:0,mev:6,mrv:24},
+  triceps:{fa:'پشت بازو',mv:4,mev:6,mrv:18}, biceps:{fa:'جلو بازو',mv:4,mev:8,mrv:26},
+  calves:{fa:'ساق',mv:6,mev:8,mrv:20}, abs:{fa:'شکم',mv:0,mev:0,mrv:25},
+  obliques:{fa:'پهلو',mv:0,mev:0,mrv:20}, lower_back:{fa:'فیله',mv:0,mev:2,mrv:12},
+  forearms:{fa:'ساعد',mv:0,mev:4,mrv:16}, neck:{fa:'گردن',mv:0,mev:4,mrv:12},
+  traps:{fa:'کول',mv:0,mev:4,mrv:20}
+};
+function E(fa,primary,secondary,equipment,loadType,step,metric,opt){
+  var o = {fa:fa,primary:primary,secondary:secondary||[],equipment:equipment,
+           loadType:loadType,step:step,metric:metric,unilateral:false,unit:'reps'};
+  if(opt){ for(var k in opt) o[k]=opt[k]; }
+  return o;
+}
+var EXERCISES = {
+  ex_chest_press_machine:   E('پرس سینه دستگاه یا اسمیت','chest',['front_delt','triceps'],'machine','total',10,'e1rm'),
+  ex_db_row_single:         E('روو تک‌دست دمبل','back',['biceps','rear_delt'],'dumbbell','per_hand',5,'e1rm',{unilateral:true}),
+  ex_lat_pulldown_wide:     E('لت پول‌داون دست باز','back',['biceps'],'cable','total',10,'e1rm'),
+  ex_incline_db_press:      E('بالا سینه دمبل','chest',['front_delt','triceps'],'dumbbell','per_hand',5,'e1rm'),
+  ex_cable_fly:             E('فلای کابل یا کراس‌اور','chest',[],'cable','total',5,'volume'),
+  ex_cable_pullover:        E('پول‌اور کابل دست صاف','back',[],'cable','total',5,'volume'),
+  ex_shoulder_press_machine:E('پرس سرشانه دستگاه','front_delt',['side_delt','triceps'],'machine','total',10,'e1rm'),
+  ex_cable_lateral_raise:   E('نشر جانب کابل تک‌دست','side_delt',[],'cable','per_hand',5,'volume',{unilateral:true}),
+  ex_face_pull:             E('فیس پول','rear_delt',['side_delt'],'cable','total',5,'volume'),
+  ex_triceps_rope_pushdown: E('پشت بازو طنابی','triceps',[],'cable','total',5,'volume'),
+  ex_biceps_cable_curl:     E('جلو بازو کابل','biceps',['forearms'],'cable','total',5,'volume'),
+  ex_cable_crunch:          E('کرانچ کابل','abs',[],'cable','total',5,'volume'),
+  ex_wrist_curl_db:         E('مچ دمبل رو به بالا','forearms',[],'dumbbell','per_hand',2.5,'volume'),
+  ex_neck_extension:        E('گردن اکستنشن، دمر روی میز','neck',[],'plate','total',2.5,'volume'),
+  ex_neck_flexion:          E('گردن فلکشن، طاق‌باز روی میز','neck',[],'plate','total',2.5,'volume'),
+  ex_hack_squat:            E('هاک اسکوات','quads',['glutes','hamstring'],'machine','total',10,'e1rm'),
+  ex_rdl:                   E('ددلیفت رومانیایی','hamstring',['glutes','back'],'barbell','total',5,'e1rm'),
+  ex_leg_press:             E('پرس پا','quads',['glutes'],'machine','total',10,'e1rm'),
+  ex_calf_press_leg_press:  E('ساق پا روی دستگاه پرس پا','calves',[],'machine','total',10,'volume'),
+  ex_leg_extension:         E('جلو پا دستگاه','quads',[],'machine','total',10,'volume'),
+  ex_lying_leg_curl:        E('پشت پا خوابیده دستگاه','hamstring',[],'machine','total',10,'volume'),
+  ex_seated_leg_curl:       E('پشت پا نشسته دستگاه','hamstring',[],'machine','total',10,'volume'),
+  ex_bulgarian_split_squat: E('بلغاری اسپلیت اسکوات با دمبل','quads',['glutes','hamstring'],'dumbbell','per_hand',5,'e1rm',{unilateral:true}),
+  ex_hip_thrust:            E('هیپ تراست با دمبل یا هالتر','glutes',['hamstring'],'barbell','total',5,'e1rm'),
+  ex_hanging_leg_raise:     E('زیر شکم آویزان یا خلبانی','abs',[],'bodyweight','total',2.5,'volume'),
+  ex_hanging_knee_twist:    E('زیر شکم با چرخش زانو به پهلو','obliques',['abs'],'bodyweight','total',2.5,'volume',{unilateral:true}),
+  ex_back_extension:        E('بک اکستنشن','lower_back',['glutes','hamstring'],'plate','total',5,'volume'),
+  ex_farmers_walk:          E('فارمرز واک با دمبل سنگین','forearms',['traps'],'dumbbell','per_hand',5,'volume',{unit:'seconds'}),
+  ex_lat_pulldown_neutral:  E('لت دست جمع نوترال گرپ','back',['biceps'],'cable','total',10,'e1rm'),
+  ex_db_bench_press:        E('پرس سینه دمبل','chest',['front_delt','triceps'],'dumbbell','per_hand',5,'e1rm'),
+  ex_triceps_overhead_cable:E('پشت بازو بالای سر با کابل','triceps',[],'cable','total',5,'volume'),
+  ex_hammer_curl:           E('همرکرل دمبل','biceps',['forearms'],'dumbbell','per_hand',5,'volume'),
+  ex_seated_calf_raise:     E('ساق پا نشسته','calves',[],'machine','total',10,'volume'),
+  ex_pallof_press:          E('پالوف پرس','obliques',['abs'],'cable','total',5,'volume',{unilateral:true}),
+  ex_reverse_wrist_curl:    E('مچ برعکس با دمبل','forearms',[],'dumbbell','per_hand',2.5,'volume'),
+  ex_weighted_plank:        E('پلانک وزنه‌دار','abs',[],'plate','total',5,'volume',{unit:'seconds'}),
+  ex_neck_lateral:          E('گردن جانبی، پهلو خوابیده','neck',[],'plate','total',2.5,'volume',{unilateral:true}),
+  ex_chest_supported_db_row:E('روو دمبل چست‌ساپورتد روی میز شیب‌دار','back',['biceps','rear_delt'],'dumbbell','per_hand',5,'e1rm'),
+  ex_db_pullover:           E('پول‌اور دمبل روی میز','back',['chest'],'dumbbell','total',5,'volume')
+};
+
+function B(id,type,rest,station,items){ return {id:id,type:type,rest:rest,station:station,items:items}; }
+function I(ex,sets,lo,hi,rir,note){ return {ex:ex,sets:sets,repLow:lo,repHigh:hi,targetRir:rir==null?1:rir,note:note||''}; }
+
+var PROGRAM = {
+  id:'prog_2026_08', name:'برنامه ۳ روزه حجم', createdAt:'2026-08-06',
+  days:[
+    { id:'d1', name:'بالاتنه سنگین', sub:'سینه، پشت، سرشانه، بازوی سبک', blocks:[
+      B('A','superset',165,'دستگاه پرس + دو دمبل کنارش، دست روی قاب دستگاه',[
+        I('ex_chest_press_machine',4,6,8,2), I('ex_db_row_single',4,6,8,2,'میز نمی‌خواهد، دست روی قاب دستگاه')]),
+      B('B','superset',120,'فقط یک میز شیب‌دار و دو دمبل، بین دو حرکت جابه‌جا نمی‌شوی',[
+        I('ex_incline_db_press',3,8,10,2), I('ex_chest_supported_db_row',3,8,10,2,'همان میز، فقط دمر می‌خوابی')]),
+      B('C','single',120,'فقط ایستگاه لت',[
+        I('ex_lat_pulldown_wide',3,8,10,2,'تکی، بدون سوپرست')]),
+      B('D','superset',90,'یک تاور، دو طرفش',[
+        I('ex_cable_fly',3,12,15,1), I('ex_cable_pullover',2,12,15,1)]),
+      B('E','single',120,'فقط دستگاه سرشانه',[
+        I('ex_shoulder_press_machine',3,8,10,2,'تکی، باید با انرژی زده شود')]),
+      B('F','superset',75,'یک تاور، دو طرفش',[
+        I('ex_cable_lateral_raise',4,12,15,1), I('ex_face_pull',3,15,20,1)]),
+      B('G','superset',60,'یک تاور، بالا و پایین',[
+        I('ex_triceps_rope_pushdown',2,12,15,1), I('ex_biceps_cable_curl',2,12,15,1)]),
+      B('Z','superset',50,'یک تاور + دو دمبل سبک کنارش',[
+        I('ex_cable_crunch',3,12,15,1), I('ex_wrist_curl_db',3,15,20,1)]),
+      B('Y','superset',45,'یک میز صاف + یک صفحه سبک',[
+        I('ex_neck_extension',2,15,20,3,'دو تا سه هفته اول بدون وزنه'),
+        I('ex_neck_flexion',2,15,20,3,'دو تا سه هفته اول بدون وزنه')])
+    ]},
+    { id:'d2', name:'پایین‌تنه سنگین', sub:'کوادریسپس، همسترینگ، باسن، ساق', blocks:[
+      B('A','single',180,'فقط هاک',[ I('ex_hack_squat',4,6,10,2,'سنگین‌ترین حرکت هفته') ]),
+      B('B','single',165,'فقط یک هالتر',[ I('ex_rdl',4,6,8,2,'کشش کامل، کمر صاف') ]),
+      B('C','superset',105,'فقط دستگاه پرس پا',[
+        I('ex_leg_press',3,10,12,2), I('ex_calf_press_leg_press',4,10,12,1,'فقط جای پا را عوض می‌کنی')]),
+      B('D','superset',120,'این دو دستگاه کنار هم هستند',[
+        I('ex_leg_extension',3,12,15,1), I('ex_lying_leg_curl',3,10,12,1)]),
+      B('E','superset',120,'یک میز صاف + دمبل',[
+        I('ex_bulgarian_split_squat',3,8,12,2,'هر پا جدا'), I('ex_hip_thrust',3,10,12,2)]),
+      B('Z','superset',60,'فقط خلبانی یا بارفیکس',[
+        I('ex_hanging_leg_raise',3,10,15,1), I('ex_hanging_knee_twist',2,8,10,1,'هر طرف جدا')]),
+      B('Y','single',60,'فقط میز فیله',[ I('ex_back_extension',3,12,15,2,'۲ ثانیه مکث در بالا') ]),
+      B('X','single',60,'هیچی، فقط دو دمبل',[ I('ex_farmers_walk',3,30,45,1,'شانه پایین و عقب') ])
+    ]},
+    { id:'d3', name:'بالاتنه حجمی و بازو', sub:'دور دوم سینه و پشت، بازو، پای تکمیلی', blocks:[
+      B('A','single',140,'فقط ایستگاه لت',[
+        I('ex_lat_pulldown_neutral',4,8,12,2,'تکی، بدون سوپرست')]),
+      B('B','superset',140,'یک میز شیب‌دار + دمبل، بدون جابه‌جایی',[
+        I('ex_incline_db_press',4,8,12,2), I('ex_db_row_single',4,8,12,2)]),
+      B('C','superset',120,'همان میز، صاف',[
+        I('ex_db_bench_press',3,10,12,2), I('ex_db_pullover',2,12,15,1)]),
+      B('D','superset',90,'یک تاور، دو طرفش',[
+        I('ex_cable_fly',2,12,15,1), I('ex_cable_lateral_raise',3,15,20,1)]),
+      B('E','superset',90,'یک تاور، بالا و پایین',[
+        I('ex_triceps_rope_pushdown',3,10,12,1), I('ex_biceps_cable_curl',3,10,12,1)]),
+      B('F','superset',60,'یک تاور + دو دمبل کنارش',[
+        I('ex_triceps_overhead_cable',3,12,15,1), I('ex_hammer_curl',2,10,12,1)]),
+      B('G','superset',90,'همان دو دستگاه کنار هم',[
+        I('ex_leg_extension',3,12,15,1), I('ex_seated_leg_curl',3,10,15,1)]),
+      B('H','single',60,'فقط دستگاه ساق',[ I('ex_seated_calf_raise',3,12,20,1) ]),
+      B('Z','superset',50,'یک تاور + دو دمبل سبک کنارش',[
+        I('ex_pallof_press',3,12,12,1,'هر طرف جدا'), I('ex_reverse_wrist_curl',3,15,20,1)]),
+      B('Y','superset',45,'یک میز صاف + یک صفحه سبک',[
+        I('ex_weighted_plank',3,45,60,1), I('ex_neck_lateral',2,15,15,3,'هر طرف جدا')])
+    ]}
+  ]
+};
+
+/* ==========================================================================
+   لایه ۲ — مدل داده
+   حالت داخل مرورگر منبع حقیقت است. ذخیره‌سازی فقط لایه ماندگاری.
+   سه کلید: config، draft، book
+   ========================================================================== */
+var DB = {
+  ready:false,
+  config:{ schema:2, unit:'lb', createdAt:null, lastExport:null, programs:{ active:PROGRAM.id, list:{} } },
+  draft:null,
+  book:{ recent:{}, sessions:[] },
+  _t:null, _fails:0,
+
+  init:function(){
+    this.config.createdAt = today();
+    this.config.programs.list[PROGRAM.id] = PROGRAM;
+  },
+  hydrate:function(){
+    var self=this;
+    return Promise.all([ safeGet('config'), safeGet('draft'), safeGet('book') ])
+      .then(function(r){
+        if(r[0] && r[0].programs && r[0].programs.list){
+          self.config = r[0];
+          if(!self.config.programs.list[PROGRAM.id]) self.config.programs.list[PROGRAM.id]=PROGRAM;
+          else self.config.programs.list[PROGRAM.id]=PROGRAM;   // همیشه آخرین نسخه برنامه
+        } else {
+          safeSet('config', self.config);
+        }
+        if(r[1] && r[1].sets) self.draft = r[1];
+        if(r[2] && r[2].sessions) self.book = r[2];
+        self.ready=true;
+      })
+      .catch(function(e){ StoreState.lastError=String(e); self.ready=true; });
+  },
+  ex:function(id){ return EXERCISES[id] || {fa:id,primary:'chest',secondary:[],step:5,metric:'volume',loadType:'total',unit:'reps'}; },
+  prog:function(){ return this.config.programs.list[this.config.programs.active] || PROGRAM; },
+  day:function(id){ var d=this.prog().days.filter(function(x){return x.id===id;}); return d[0]; },
+
+  queueDraft:function(){
+    var self=this; dot('on'); clearTimeout(this._t);
+    this._t = setTimeout(function(){
+      safeSet('draft', self.draft).then(function(ok){
+        if(ok){ self._fails=0; dot('off'); }
+        else { self._fails++; dot('err');
+          if(self._fails===3) alert('ذخیره‌سازی چند بار ناموفق بود. جلسه در حافظه هست، ولی از تنظیمات خروجی بگیر.'); }
+      });
+    }, 900);
+  },
+  clearDraft:function(){ this.draft=null; return safeSet('draft', null); },
+
+  finishSession:function(s){
+    var self=this;
+    this.book.sessions.push(s);
+    var byEx={};
+    s.sets.forEach(function(x){
+      if(!x.warmup && x.reps){ (byEx[x.ex]=byEx[x.ex]||[]).push(x); }
+    });
+    Object.keys(byEx).forEach(function(id){
+      var sets=byEx[id], prev=self.book.recent[id]||{}, best=prev.best||null;
+      sets.forEach(function(x){
+        var sc=score(id,x);
+        if(!best || sc>best.score) best={weight:x.weight,reps:x.reps,score:sc,date:s.date};
+      });
+      self.book.recent[id]={ date:s.date,
+        sets:sets.map(function(x){return {weight:x.weight,reps:x.reps,rir:x.rir};}), best:best };
+    });
+    this.draft=null;
+    return safeSet('book', this.book).then(function(){ return safeSet('draft', null); });
+  },
+  allSessions:function(){
+    return this.book.sessions.slice().sort(function(a,b){ return a.startedAt<b.startedAt?1:-1; });
+  }
+};
+
+/* ==========================================================================
+   لایه ۳ — منطق
+   ========================================================================== */
+function p2(n){ return n<10?'0'+n:''+n; }
+function today(){ var d=new Date(); return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate()); }
+function e1rm(w,r){ return r<=0?0:(r===1?w:w*(1+r/30)); }
+function score(id,st){
+  var ex=DB.ex(id), w=(ex.loadType==='per_hand')?st.weight*2:st.weight;
+  return ex.metric==='e1rm'? e1rm(w,st.reps) : w*st.reps;
+}
+function isHardSet(st){ return !st.warmup && (st.rir==null || st.rir<=3); }
+function fa(n){ return String(n).replace(/[0-9]/g,function(d){ return '۰۱۲۳۴۵۶۷۸۹'[+d]; }); }
+function toEn(s){
+  return String(s).replace(/[۰-۹]/g,function(d){ return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)); })
+                  .replace(/[٠-٩]/g,function(d){ return String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)); });
+}
+function num(s){ var v=parseFloat(toEn(String(s).trim()).replace(',','.')); return isNaN(v)?null:v; }
+function rounds(bl){ return Math.max.apply(null, bl.items.map(function(i){return i.sets;})); }
+
+var Timer = {
+  endAt:null,total:0,label:'',tick:null,beeped:false,
+  start:function(sec,label){
+    this.endAt=Date.now()+sec*1000; this.total=sec; this.label=label||'استراحت'; this.beeped=false;
+    this.render(); clearInterval(this.tick); var s=this; this.tick=setInterval(function(){s.render();},250);
+  },
+  add:function(sec){ if(this.endAt){ this.endAt+=sec*1000; this.beeped=false; this.render(); } },
+  stop:function(){ this.endAt=null; clearInterval(this.tick); this.render(); },
+  left:function(){ return this.endAt? Math.round((this.endAt-Date.now())/1000):null; },
+  render:function(){
+    var el=document.getElementById('timer'), L=this.left();
+    if(L===null){ el.classList.add('hid'); return; }
+    el.classList.remove('hid');
+    var over=L<0, a=Math.abs(L);
+    document.getElementById('tnum').textContent=(over?'−':'')+fa(Math.floor(a/60))+':'+fa(p2(a%60));
+    document.getElementById('tlb').textContent= over?'استراحت تمام شد':this.label;
+    document.getElementById('tsub').textContent= over?'برو ست بعدی':'از '+fa(Math.floor(this.total/60))+':'+fa(p2(this.total%60));
+    el.classList.toggle('over',over);
+    if(over && !this.beeped){ this.beeped=true; beep(); }
+    if(L<-180) this.stop();
+  }
+};
+function beep(){
+  try{
+    var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+    var C=new AC();
+    [0,0.18].forEach(function(t){
+      var o=C.createOscillator(), g=C.createGain();
+      o.frequency.value=784; o.type='sine'; o.connect(g); g.connect(C.destination);
+      g.gain.setValueAtTime(0.0001,C.currentTime+t);
+      g.gain.exponentialRampToValueAtTime(0.25,C.currentTime+t+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,C.currentTime+t+0.15);
+      o.start(C.currentTime+t); o.stop(C.currentTime+t+0.17);
+    });
+  }catch(e){}
+}
+document.addEventListener('visibilitychange',function(){ if(!document.hidden) Timer.render(); });
+
+/* ==========================================================================
+   لایه ۴ — رابط کاربری
+   ========================================================================== */
+var TAB='home';
+function V(){ return document.getElementById('view'); }
+function dot(s){ document.getElementById('dot').className='savedot'+(s==='on'?' on':s==='err'?' err':''); }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function openSheet(h){ document.getElementById('sheet').innerHTML='<div class="grab"></div>'+h;
+  document.getElementById('modal').classList.remove('hid'); }
+function closeSheet(){ document.getElementById('modal').classList.add('hid'); }
+function setTop(t,s){ document.getElementById('ttl').textContent=t; document.getElementById('sub').textContent=s||''; }
+
+function go(tab){
+  TAB=tab;
+  var bs=document.querySelectorAll('.nav button');
+  for(var i=0;i<bs.length;i++) bs[i].classList.toggle('on', bs[i].getAttribute('data-tab')===tab);
+  try{
+    if(tab==='home') renderHome();
+    else if(tab==='session') renderSession();
+    else if(tab==='progress') renderProgress();
+    else renderSettings();
+  }catch(e){
+    V().innerHTML='<div class="card bad"><h3>خطا در نمایش</h3><p>'+esc(String(e&&e.message||e))+'</p>'+
+      '<button class="btn sm ghost" style="margin-top:10px" onclick="go(\'home\')">برگرد به خانه</button></div>';
+  }
+  window.scrollTo(0,0);
+}
+
+/* ---------- خانه ---------- */
+function nextDayId(){
+  var all=DB.allSessions(), days=DB.prog().days;
+  if(!all.length) return days[0].id;
+  var i=-1; for(var k=0;k<days.length;k++){ if(days[k].id===all[0].dayId){ i=k; break; } }
+  return days[(i+1)%days.length].id;
+}
+function renderHome(){
+  setTop('ثبت تمرین', DB.ready?DB.prog().name:'در حال بارگذاری');
+  var h='', all=DB.allSessions(), nx=nextDayId();
+
+  if(!StoreState.ok){
+    h+='<div class="card bad"><h3>ذخیره‌سازی در دسترس نیست</h3>'+
+       '<p>اپ کار می‌کند ولی داده بعد از بستن صفحه می‌پرد. حتماً آخر جلسه خروجی بگیر.</p></div>';
+  }
+  if(DB.draft){
+    var d=DB.day(DB.draft.dayId);
+    h+='<div class="card warn"><div class="eyebrow">جلسه ناتمام</div><h3>'+
+       esc(d?d.name:DB.draft.dayName)+'</h3><p>'+fa(DB.draft.sets.length)+
+       ' ست ثبت شده. از همان‌جا ادامه بده یا حذفش کن.</p>'+
+       '<div class="btnrow"><button class="btn sm" onclick="go(\'session\')">ادامه</button>'+
+       '<button class="btn sm ghost" onclick="dropDraft()">حذف</button></div></div>';
+  }
+  h+='<div class="sectitle">امروز کدام روز؟</div>';
+  DB.prog().days.forEach(function(d,i){
+    var is=(d.id===nx && !DB.draft);
+    h+='<button class="daycard'+(is?' next':'')+'" onclick="startDay(\''+d.id+'\')">'+
+       '<div class="dn">'+fa(i+1)+'</div><div class="dtxt"><b>'+esc(d.name)+'</b><span>'+
+       esc(d.sub)+'</span></div>'+(is?'<div class="badge">نوبت این</div>':'')+'</button>';
+  });
+  if(all.length){
+    h+='<div class="sectitle">جلسات اخیر</div>';
+    all.slice(0,6).forEach(function(s){
+      h+='<div class="hist"><div class="hd">'+fa(s.date.slice(5))+'</div><div class="hn">'+
+         esc(s.dayName)+'</div><div class="hs">'+fa(s.sets.filter(isHardSet).length)+' ست</div></div>';
+    });
+    var days=DB.config.lastExport?Math.round((Date.now()-new Date(DB.config.lastExport))/864e5):999;
+    if(days>21) h+='<div class="card warn" style="margin-top:16px"><h3>خروجی بگیر</h3><p>'+
+      (DB.config.lastExport?'بیش از سه هفته از آخرین خروجی گذشته.':'هنوز هیچ خروجی نگرفته‌ای.')+
+      ' این تنها بیمه در برابر از دست رفتن داده است.</p>'+
+      '<button class="btn sm ghost" style="margin-top:10px" onclick="doExport()">خروجی JSON</button></div>';
+  } else {
+    h+='<div class="empty">هنوز جلسه‌ای ثبت نشده.<br>یک روز را انتخاب کن و شروع کن.</div>';
+  }
+  V().innerHTML=h;
+}
+function dropDraft(){ if(confirm('جلسه ناتمام حذف شود؟')){ DB.clearDraft().then(function(){ go('home'); }); } }
+function startDay(id){
+  if(DB.draft && DB.draft.dayId!==id && !confirm('یک جلسه ناتمام داری. با شروع جلسه جدید حذف می‌شود.')) return;
+  var d=DB.day(id);
+  if(!DB.draft || DB.draft.dayId!==id){
+    DB.draft={ id:'s_'+Date.now(), programId:DB.config.programs.active, dayId:id, dayName:d.name,
+      date:today(), startedAt:new Date().toISOString(), sets:[] };
+    DB.queueDraft();
+  }
+  go('session');
+}
+
+/* ---------- جلسه ---------- */
+function findSet(ex,bid,r){
+  var f=DB.draft.sets.filter(function(s){ return s.ex===ex&&s.block===bid&&s.round===r; });
+  return f[0];
+}
+function cssKey(k){ return k.replace(/[^a-zA-Z0-9]/g,'_'); }
+function parseKey(k){ var p=k.split('|'); return {ex:p[0],block:p[1],round:+p[2]}; }
+
+var ROWS={};                       // key -> {it,bl,r,code}
+var PEND={};                       // key -> {w,reps,warmup}  مقدار در حال ویرایش
+
+function extraOf(bid){ return (DB.draft.extra&&DB.draft.extra[bid])||0; }
+function totalRounds(bl){ return rounds(bl)+extraOf(bl.id); }
+
+/* مقدار پیشنهادی اولیه: از جلسه قبل، وگرنه کف دامنه */
+function seed(it,bl,r){
+  var st=findSet(it.ex,bl.id,r);
+  if(st) return {w:st.weight,reps:st.reps,warmup:st.warmup};
+  if(PEND[it.ex+'|'+bl.id+'|'+r]) return PEND[it.ex+'|'+bl.id+'|'+r];
+  var rec=DB.book.recent[it.ex], w=null, reps=it.repLow;
+  if(rec&&rec.sets&&rec.sets.length){
+    var p=rec.sets[r-1]||rec.sets[rec.sets.length-1];
+    w=p.weight; reps=p.reps;
+  }
+  if(reps<it.repLow) reps=it.repLow;
+  if(reps>it.repHigh) reps=it.repHigh;
+  return {w:w,reps:reps,warmup:false};
+}
+function pend(key){
+  if(!PEND[key]){ var R=ROWS[key]; PEND[key]=seed(R.it,R.bl,R.r); }
+  return PEND[key];
+}
+
+function renderSession(){
+  if(!DB.draft){
+    setTop('تمرین','جلسه‌ای در جریان نیست');
+    V().innerHTML='<div class="empty">جلسه‌ای در جریان نیست.<br>از صفحه خانه یک روز را انتخاب کن.</div>';
+    return;
+  }
+  var d=DB.day(DB.draft.dayId);
+  if(!d){ V().innerHTML='<div class="empty">این روز در برنامه پیدا نشد.</div>'; return; }
+  if(!DB.draft.extra) DB.draft.extra={};
+  ROWS={};
+  updateCount();
+  var h='';
+  d.blocks.forEach(function(bl){
+    h+='<div class="block"><div class="bhead"><span class="bid">'+bl.id+'</span><span class="btype">'+
+       (bl.type==='superset'?'سوپرست · استراحت '+fa(bl.rest)+' ثانیه':'استراحت '+fa(bl.rest)+' ثانیه')+
+       '</span></div>';
+    if(bl.station) h+='<div class="station">ایستگاه: <b>'+esc(bl.station)+'</b></div>';
+    var base=rounds(bl), R=totalRounds(bl);
+    for(var r=1;r<=R;r++){
+      var items = (r<=base) ? bl.items.filter(function(it){ return it.sets>=r; }) : bl.items;
+      h+='<div class="round'+(bl.type==='superset'?' sup':'')+'">';
+      h+='<div class="rlabel">'+(bl.type==='superset'?'دور ':'ست ')+fa(r)+' از '+fa(R)+
+         (r>base?' · اضافه':'')+'</div>';
+      for(var j=0;j<items.length;j++){
+        var it=items[j];
+        var code=(bl.type==='superset')?bl.id+(bl.items.indexOf(it)+1):bl.id;
+        var key=it.ex+'|'+bl.id+'|'+r;
+        ROWS[key]={it:it,bl:bl,r:r,code:code};
+        h+='<div class="setrow'+(findSet(it.ex,bl.id,r)?' done':'')+'" id="row_'+cssKey(key)+'">'+
+           rowInner(key)+'</div>';
+      }
+      h+='</div>';
+    }
+    h+='<button class="addr" onclick="addRound(\''+bl.id+'\')">+ یک '+
+       (bl.type==='superset'?'دور':'ست')+' اضافه</button>';
+    if(extraOf(bl.id)>0) h+='<button class="addr" style="margin-top:6px" onclick="delRound(\''+bl.id+'\')">− حذف آخرین اضافه</button>';
+    h+='</div>';
+  });
+  h+='<button class="btn" style="margin:24px 0 10px" onclick="askFinish()">پایان جلسه</button>'+
+     '<button class="btn ghost" style="margin-bottom:10px" onclick="cancelSession()">لغو جلسه</button>';
+  V().innerHTML=h;
+  bindDrags();
+  bindChips();
+}
+function updateCount(){
+  var d=DB.day(DB.draft.dayId);
+  setTop(d.name, fa(DB.draft.sets.filter(isHardSet).length)+' ست کاری ثبت شده');
+}
+
+function rowInner(key){
+  var R=ROWS[key], it=R.it, bl=R.bl, r=R.r, code=R.code;
+  var ex=DB.ex(it.ex), st=findSet(it.ex,bl.id,r), c=cssKey(key);
+  var unit=(ex.unit==='seconds')?'ثانیه':'تکرار';
+
+  var head='<div class="srtop"><span class="code">'+code+'</span><span class="nm">'+esc(ex.fa)+
+    '</span><span class="tgt">'+fa(it.repLow)+'–'+fa(it.repHigh)+'</span></div>';
+
+  /* --- ثبت‌شده: نمایش فشرده --- */
+  if(st){
+    var rir='<div class="chiprow rir"><span class="lb">ذخیره</span><div class="cs">';
+    [0,1,2,3,4].forEach(function(n){
+      rir+='<button class="'+(st.rir===n?'on':'')+'" onclick="setRir(\''+key+'\','+n+')">'+
+           (n===4?fa(4)+'+':fa(n))+'</button>';
+    });
+    rir+='</div></div>';
+    return head+
+      '<div class="donerow"><div class="val">'+fa(st.weight)+' <small>پوند</small> × '+
+      fa(st.reps)+' <small>'+unit+'</small></div>'+
+      (st.warmup?'<span class="wtag">گرم‌کردنی</span>':'')+
+      '<button class="ok undo" onclick="undoSet(\''+key+'\')">↺</button></div>'+rir;
+  }
+
+  /* --- ثبت‌نشده: ورودی --- */
+  var v=pend(key);
+  var rec=DB.book.recent[it.ex], last='';
+  if(rec&&rec.sets&&rec.sets.length){
+    var p=rec.sets[r-1]||rec.sets[rec.sets.length-1];
+    last='<div class="last">قبلی: <b>'+fa(p.weight)+'</b> × <b>'+fa(p.reps)+'</b>'+
+         (p.rir!=null?' · ذخیره '+fa(p.rir):'')+'</div>';
+  }
+  var wTxt=(v.w==null?'':fa(v.w));
+  var nf='<div class="inrow">'+
+    '<div class="nf" id="nf_'+c+'">'+
+      '<button class="nfb" onclick="bump(\''+key+'\',-1)">−</button>'+
+      '<input class="nfv" id="w_'+c+'" readonly inputmode="decimal" value="'+wTxt+'" placeholder="؟" '+
+        'data-key="'+key+'">'+
+      '<span class="nfcap">پوند</span>'+
+      '<button class="nfb" onclick="bump(\''+key+'\',1)">+</button>'+
+    '</div>'+
+    '<button class="wu'+(v.warmup?' on':'')+'" id="u_'+c+'" onclick="toggleWu(\''+key+'\')">گ</button>'+
+    '<button class="ok" onclick="logSet(\''+key+'\')">✓</button>'+
+  '</div>';
+
+  /* تکرار: ردیف ضربه‌ای پهن و قابل اسکرول. ثانیه‌ای‌ها کشویی می‌مانند */
+  var reps='';
+  if(ex.unit==='reps'){
+    var lo=Math.max(1,it.repLow-2), hi=it.repHigh+8;
+    reps='<div class="chiprow"><span class="lb">تکرار</span><div class="cs">';
+    for(var n=lo;n<=hi;n++){
+      var cls=(n===v.reps?'on':(n>=it.repLow&&n<=it.repHigh?'tgt':''));
+      reps+='<button class="'+cls+'" onclick="pickReps(\''+key+'\','+n+')">'+fa(n)+'</button>';
+    }
+    reps+='</div></div>';
+  } else {
+    reps='<div class="inrow" style="margin-top:8px;margin-bottom:0">'+
+      '<div class="nf" id="nfr_'+c+'">'+
+        '<button class="nfb" onclick="bumpR(\''+key+'\',-1)">−</button>'+
+        '<input class="nfv" id="r_'+c+'" readonly inputmode="numeric" value="'+fa(v.reps)+'" '+
+          'data-key="'+key+'" data-kind="r">'+
+        '<span class="nfcap">'+unit+'</span>'+
+        '<button class="nfb" onclick="bumpR(\''+key+'\',1)">+</button>'+
+      '</div></div>';
+  }
+  return head+last+nf+reps;
+}
+
+/* ---- تغییر مقدار ---- */
+function stepOf(key){ return DB.ex(ROWS[key].it.ex).step||2.5; }
+function buzz(){ try{ if(navigator.vibrate) navigator.vibrate(8); }catch(e){} }
+function setW(key,val){
+  var v=pend(key), s=stepOf(key);
+  if(val!=null && val<0) val=0;
+  if(val!=null) val=Math.round(val/s)*s;
+  v.w = val;
+  var el=document.getElementById('w_'+cssKey(key));
+  if(el) el.value=(val==null?'':fa(+val.toFixed(2)));
+}
+function setR(key,val){
+  var v=pend(key);
+  if(val<1) val=1;
+  v.reps=val;
+  var el=document.getElementById('r_'+cssKey(key));
+  if(el) el.value=fa(val);
+  var row=document.getElementById('row_'+cssKey(key));
+  if(!row) return;
+  var cs=row.querySelectorAll('.chiprow:not(.rir) .cs button');
+  for(var i=0;i<cs.length;i++){
+    var n=+toEn(cs[i].textContent);
+    cs[i].classList.toggle('on', n===val);
+  }
+  centerChips(row);
+}
+function bump(key,dir){ var v=pend(key); setW(key,(v.w==null?0:v.w)+dir*stepOf(key)); buzz(); }
+function bumpR(key,dir){ var v=pend(key); setR(key,v.reps+dir); buzz(); }
+function pickReps(key,n){
+  if(CHIP.moved){ CHIP.moved=false; return; }      // اسکرول بود، نه ضربه
+  setR(key,n); buzz();
+  var v=pend(key);
+  if(v.w==null){ var el=document.getElementById('w_'+cssKey(key)); if(el) startType(el); return; }
+  logSet(key);
+}
+
+/* ردیف تکرار قابل اسکرول است، پس ضربه را از کشیدن جدا کن */
+var CHIP={x:0,moved:false};
+function bindChips(root){
+  var cs=(root||document).querySelectorAll('.chiprow:not(.rir) .cs');
+  for(var i=0;i<cs.length;i++){
+    cs[i].addEventListener('pointerdown',function(e){ CHIP.x=e.clientX; CHIP.moved=false; });
+    cs[i].addEventListener('pointermove',function(e){ if(Math.abs(e.clientX-CHIP.x)>8) CHIP.moved=true; });
+  }
+  centerChips(root);
+}
+function centerChips(root){
+  var cs=(root||document).querySelectorAll('.chiprow:not(.rir) .cs');
+  for(var i=0;i<cs.length;i++){
+    var on=cs[i].querySelector('button.on');
+    if(!on) continue;
+    var want=on.offsetLeft - cs[i].clientWidth/2 + on.offsetWidth/2;
+    try{ cs[i].scrollLeft=want; }catch(e){}
+  }
+}
+
+/* ---- کشیدن روی عدد ---- */
+var DRAG=null;
+function bindDrags(){
+  var els=document.querySelectorAll('.nfv');
+  for(var i=0;i<els.length;i++){
+    var el=els[i];
+    el.addEventListener('pointerdown',nfDown);
+    el.addEventListener('pointermove',nfMove);
+    el.addEventListener('pointerup',nfUp);
+    el.addEventListener('pointercancel',function(){ DRAG=null; });
+    el.addEventListener('blur',nfBlur);
+  }
+}
+function nfDown(e){
+  var el=e.currentTarget;
+  if(!el.hasAttribute('readonly')) return;
+  var key=el.getAttribute('data-key'), kind=el.getAttribute('data-kind')||'w';
+  var v=pend(key);
+  DRAG={el:el,key:key,kind:kind,x:e.clientX,
+        v:(kind==='r'? v.reps : (v.w==null?0:v.w)), moved:false,last:0};
+  try{ el.setPointerCapture(e.pointerId); }catch(er){}
+}
+function nfMove(e){
+  if(!DRAG||DRAG.el!==e.currentTarget) return;
+  var dx=e.clientX-DRAG.x;
+  if(!DRAG.moved && Math.abs(dx)<7) return;
+  DRAG.moved=true;
+  e.preventDefault();
+  var n=Math.round(dx/14);
+  if(n===DRAG.last) return;
+  DRAG.last=n;
+  if(DRAG.kind==='r') setR(DRAG.key, DRAG.v+n);
+  else setW(DRAG.key, DRAG.v + n*stepOf(DRAG.key));
+  buzz();
+}
+function nfUp(e){
+  if(!DRAG||DRAG.el!==e.currentTarget){ DRAG=null; return; }
+  var el=DRAG.el, moved=DRAG.moved; DRAG=null;
+  if(!moved) startType(el);
+}
+function startType(el){
+  el.removeAttribute('readonly');
+  el.value=toEn(el.value);
+  el.focus();
+  try{ el.setSelectionRange(0,el.value.length); }catch(e){}
+}
+function nfBlur(e){
+  var el=e.currentTarget;
+  if(el.hasAttribute('readonly')) return;
+  el.setAttribute('readonly','');
+  var key=el.getAttribute('data-key'), kind=el.getAttribute('data-kind')||'w';
+  var val=num(el.value);
+  if(kind==='r') setR(key, val==null?pend(key).reps:val);
+  else setW(key, val);
+}
+
+/* ---- ثبت ---- */
+function logSet(key){
+  var k=parseKey(key), v=pend(key);
+  if(v.reps==null||v.reps<=0){ alert('تعداد تکرار را مشخص کن.'); return; }
+  var old=findSet(k.ex,k.block,k.round), rir=old?old.rir:null;
+  DB.draft.sets=DB.draft.sets.filter(function(s){ return s!==old; });
+  DB.draft.sets.push({ex:k.ex,block:k.block,round:k.round,
+    weight:(v.w==null?0:v.w),reps:v.reps,rir:rir,warmup:!!v.warmup});
+  DB.queueDraft();
+  if(!v.warmup) Timer.start(ROWS[key].bl.rest,'استراحت بلوک '+k.block);
+  refreshRow(key); updateCount(); buzz();
+  seedNext(key);
+}
+/* وزنه ست بعدی همان حرکت را از این ست پر کن */
+function seedNext(key){
+  var R=ROWS[key], nk=R.it.ex+'|'+R.bl.id+'|'+(R.r+1);
+  if(ROWS[nk] && !findSet(R.it.ex,R.bl.id,R.r+1)){
+    var v=pend(key);
+    PEND[nk]={w:v.w,reps:v.reps,warmup:false};
+    refreshRow(nk);
+  }
+}
+function refreshRow(key){
+  var el=document.getElementById('row_'+cssKey(key));
+  if(!el) return;
+  el.className='setrow'+(findSet(ROWS[key].it.ex,ROWS[key].bl.id,ROWS[key].r)?' done':'');
+  el.innerHTML=rowInner(key);
+  var ins=el.querySelectorAll('.nfv');
+  for(var i=0;i<ins.length;i++){
+    ins[i].addEventListener('pointerdown',nfDown);
+    ins[i].addEventListener('pointermove',nfMove);
+    ins[i].addEventListener('pointerup',nfUp);
+    ins[i].addEventListener('pointercancel',function(){ DRAG=null; });
+    ins[i].addEventListener('blur',nfBlur);
+  }
+  bindChips(el);
+}
+function undoSet(key){
+  var k=parseKey(key), st=findSet(k.ex,k.block,k.round);
+  if(st) PEND[key]={w:st.weight,reps:st.reps,warmup:st.warmup};
+  DB.draft.sets=DB.draft.sets.filter(function(s){ return !(s.ex===k.ex&&s.block===k.block&&s.round===k.round); });
+  DB.queueDraft(); refreshRow(key); updateCount();
+}
+function toggleWu(key){
+  var v=pend(key); v.warmup=!v.warmup;
+  var b=document.getElementById('u_'+cssKey(key));
+  if(b) b.classList.toggle('on',v.warmup);
+  buzz();
+}
+function setRir(key,n){
+  var k=parseKey(key), st=findSet(k.ex,k.block,k.round);
+  if(!st) return;
+  st.rir=(st.rir===n)?null:n;
+  DB.queueDraft(); refreshRow(key); updateCount();
+}
+function addRound(bid){
+  if(!DB.draft.extra) DB.draft.extra={};
+  DB.draft.extra[bid]=(DB.draft.extra[bid]||0)+1;
+  DB.queueDraft(); renderSession();
+}
+function delRound(bid){
+  var n=(DB.draft.extra[bid]||0); if(n<1) return;
+  var d=DB.day(DB.draft.dayId);
+  var bl=d.blocks.filter(function(b){return b.id===bid;})[0];
+  var r=rounds(bl)+n;
+  DB.draft.sets=DB.draft.sets.filter(function(s){ return !(s.block===bid&&s.round===r); });
+  DB.draft.extra[bid]=n-1;
+  DB.queueDraft(); renderSession();
+}
+function cancelSession(){
+  if(confirm('کل این جلسه حذف شود؟')){ Timer.stop(); DB.clearDraft().then(function(){ go('home'); }); }
+}
+
+/* ---------- پایان جلسه ---------- */
+var FB=[
+  {k:'pump',    q:'پمپ چطور بود؟',    o:['کم','خوب','عالی']},
+  {k:'soreness',q:'کوفتگی جلسه قبل؟', o:['نداشتم','به‌موقع خوب شد','هنوز داشتم']},
+  {k:'joints',  q:'مفاصل؟',           o:['راحت','کمی اذیت','درد']},
+  {k:'workload',q:'سختی جلسه؟',       o:['راحت بود','درست بود','بیش از توانم']}
+];
+var FBST={};
+function askFinish(){
+  FBST={};
+  var hard=DB.draft.sets.filter(isHardSet).length, tot=DB.draft.sets.length;
+  var mins=Math.round((Date.now()-new Date(DB.draft.startedAt))/60000);
+  var h='<h2>پایان جلسه</h2><div class="sh">'+esc(DB.draft.dayName)+'</div><div class="summ">'+
+    '<div><b>'+fa(hard)+'</b><span>ست کاری</span></div>'+
+    '<div><b>'+fa(tot-hard)+'</b><span>گرم‌کردنی</span></div>'+
+    '<div><b>'+fa(mins)+'</b><span>دقیقه</span></div></div>';
+  FB.forEach(function(f){
+    h+='<div class="qz"><div class="q">'+f.q+'</div><div class="opts" id="fb_'+f.k+'">';
+    f.o.forEach(function(o,i){ h+='<button onclick="pickFb(\''+f.k+'\','+i+')">'+o+'</button>'; });
+    h+='</div></div>';
+  });
+  h+='<div class="fldbox"><label>وزن بدن (اختیاری)</label><input inputmode="decimal" id="bw" placeholder="پوند"></div>'+
+     '<div class="fldbox"><label>یادداشت (اختیاری)</label><textarea id="nt" rows="2" placeholder="هرچیزی که بعداً به درد تحلیل می‌خورد"></textarea></div>'+
+     '<button class="btn" onclick="finishNow()">ثبت و بستن جلسه</button>'+
+     '<button class="btn ghost" style="margin-top:9px" onclick="closeSheet()">برگرد</button>';
+  openSheet(h);
+}
+function pickFb(k,i){
+  FBST[k]=i;
+  var bs=document.querySelectorAll('#fb_'+k+' button');
+  for(var x=0;x<bs.length;x++) bs[x].classList.toggle('on',x===i);
+}
+function finishNow(){
+  var s=DB.draft;
+  s.endedAt=new Date().toISOString();
+  s.bodyweight=num(document.getElementById('bw').value);
+  s.notes=document.getElementById('nt').value.trim();
+  s.feedback=Object.keys(FBST).length?FBST:null;
+  s.sets=s.sets.filter(function(x){ return x.reps; });
+  Timer.stop(); closeSheet();
+  DB.finishSession(s).then(function(){ go('home'); });
+}
+
+/* ---------- پیشرفت ---------- */
+function renderProgress(){
+  setTop('پیشرفت','');
+  var all=DB.allSessions();
+  var h='<div class="card acc"><h3>نمودارها در مرحله بعد</h3><p>نمودار هر حرکت، جدول حجم هفتگی عضلات با باندهای مرجع، و تشخیص درجا زدن در مرحله ۳ اضافه می‌شوند. داده‌شان از همین حالا جمع می‌شود.</p></div>';
+  if(all.length){
+    h+='<div class="sectitle">تاریخچه</div>';
+    all.forEach(function(s){
+      h+='<div class="hist"><div class="hd">'+fa(s.date)+'</div><div class="hn">'+esc(s.dayName)+
+         (s.bodyweight?' · '+fa(s.bodyweight)+' پوند':'')+'</div><div class="hs">'+
+         fa(s.sets.filter(isHardSet).length)+' ست</div></div>';
+    });
+  } else h+='<div class="empty">هنوز داده‌ای نیست.</div>';
+  V().innerHTML=h;
+}
+
+/* ---------- تنظیمات ---------- */
+function renderSettings(){
+  setTop('تنظیمات','');
+  var all=DB.allSessions(), nSets=0;
+  all.forEach(function(s){ nSets+=s.sets.length; });
+  V().innerHTML=
+    '<div class="card"><h3>داده</h3><p>'+fa(all.length)+' جلسه · '+fa(nSets)+' ست · '+
+      fa(Object.keys(DB.book.recent).length)+' حرکت با سابقه</p>'+
+      '<p style="margin-top:5px">موتور ذخیره‌سازی: '+StoreState.engine+(StoreState.ok?'':' (ناموفق)')+'</p>'+
+      '<p style="margin-top:5px">آخرین خروجی: '+(DB.config.lastExport?fa(DB.config.lastExport.slice(0,10)):'هرگز')+'</p>'+
+      '<div class="btnrow"><button class="btn sm" onclick="doExport()">خروجی JSON</button></div></div>'+
+    '<div class="card"><h3>برنامه فعال</h3><p>'+esc(DB.prog().name)+' · '+fa(DB.prog().days.length)+
+      ' روز</p><p style="margin-top:5px">افزودن برنامه جدید از طریق ورود JSON در مرحله ۴ اضافه می‌شود.</p></div>'+
+    '<div class="card warn"><h3>هشدار گردن</h3><p>دو تا سه هفته اول حرکات گردن را بدون هیچ وزنه‌ای بزن. تمپو آهسته، حدود ۳ ثانیه رفت و ۳ ثانیه برگشت. اگر گزگز یا بی‌حسی در دست، سرگیجه یا سردرد حس کردی همان‌جا قطع کن.</p></div>'+
+    '<div class="card"><h3>بازنشانی</h3><p>همه جلسات و سوابق پاک می‌شود. قبلش خروجی بگیر.</p>'+
+      '<button class="btn sm danger" style="margin-top:10px" onclick="wipe()">پاک کردن همه داده</button></div>';
+}
+function doExport(){
+  var dump={ exportedAt:new Date().toISOString(), schema:2,
+    config:DB.config, book:DB.book, draft:DB.draft };
+  var txt=JSON.stringify(dump);
+  DB.config.lastExport=new Date().toISOString(); safeSet('config',DB.config);
+  openSheet('<h2>خروجی داده</h2><div class="sh">کپی کن یا فایلش را بگیر. برای تحلیل، همین را در چت بفرست.</div>'+
+    '<textarea class="exp" id="expbox" readonly>'+esc(txt)+'</textarea>'+
+    '<div class="btnrow"><button class="btn sm" onclick="copyExp()">کپی</button>'+
+    '<button class="btn sm ghost" onclick="dlExp()">دانلود فایل</button></div>'+
+    '<button class="btn ghost" style="margin-top:9px" onclick="closeSheet()">بستن</button>');
+}
+function copyExp(){
+  var t=document.getElementById('expbox'); t.select(); t.setSelectionRange(0,999999);
+  try{ document.execCommand('copy'); alert('کپی شد'); }catch(e){ alert('دستی کپی کن'); }
+}
+function dlExp(){
+  var t=document.getElementById('expbox').value;
+  var b=new Blob([t],{type:'application/json'}), u=URL.createObjectURL(b);
+  var a=document.createElement('a'); a.href=u; a.download='tamrin-'+today()+'.json'; a.click();
+  setTimeout(function(){ URL.revokeObjectURL(u); },1000);
+}
+function wipe(){
+  if(!confirm('همه داده پاک شود؟ برگشت ندارد.')) return;
+  if(!confirm('مطمئنی؟ اگر خروجی نگرفته‌ای، همه چیز از بین می‌رود.')) return;
+  Promise.all([safeSet('config',null),safeSet('draft',null),safeSet('book',null)])
+    .then(function(){ location.reload(); });
+}
+
+document.getElementById('btnExp').onclick=doExport;
+document.getElementById('tadd').onclick=function(){ Timer.add(30); };
+document.getElementById('tskip').onclick=function(){ Timer.stop(); };
+document.getElementById('modal').addEventListener('click',function(e){ if(e.target.id==='modal') closeSheet(); });
+(function(){
+  var bs=document.querySelectorAll('.nav button');
+  for(var i=0;i<bs.length;i++){
+    (function(b){ b.onclick=function(){ go(b.getAttribute('data-tab')); }; })(bs[i]);
+  }
+})();
+
+/* ---------- شروع: اول نمایش، بعد بارگذاری ---------- */
+DB.init();
+go('home');                                  // فوری، حتی اگر حافظه خراب باشد
+DB.hydrate().then(function(){                // بعد داده واقعی می‌آید
+  go(DB.draft ? 'session' : 'home');
+});
+</script>
+</body>
+</html>
