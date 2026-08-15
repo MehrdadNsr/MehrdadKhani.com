@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E50PFBPNTZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E50PFBPNTZ');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+  <title>Cleaning Validation in Multi-Product GMP Facilities: MACO & CIP Protocols | Mehrdad Khani</title>
+  <link rel="icon" type="image/png" href="images/favicon.png?v=4">
+  <link rel="apple-touch-icon" href="images/favicon.png?v=4">
+  <meta name="description" content="Mastering Cleaning Validation in multi-product biomanufacturing suites. Maximum Allowable Carryover (MACO), TOC recovery studies, and CIP verification by Mehrdad Khani.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding-top: 100px; }
+    .article-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .article-meta {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .article-cover {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .article-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    .article-content h2 {
+      color: var(--text-primary);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cleaning Validation in Multi-Product GMP Facilities: MACO & CIP Protocols | Mehrdad Khani",
+    "description": "Mastering Cleaning Validation in multi-product biomanufacturing suites. Maximum Allowable Carryover (MACO), TOC recovery studies, and CIP verification by Mehrdad Khani.",
+    "author": {
+      "@type": "Person",
+      "name": "Mehrdad Khani",
+      "url": "https://mehrdadkhani.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Mehrdad Khani",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mehrdadkhani.com/images/favicon.png"
+      }
+    },
+    "datePublished": "2025-11-02",
+    "dateModified": "2026-08-15"
+  }
+  </script>
+
+  <link rel="canonical" href="https://mehrdadkhani.com/post-cleaning-validation-maco.html">
+</head>
+<body>
+  
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">Mer Khani</a>
+    <ul class="nav-links">
+      <li><a href="blog.html" class="active">← Back to Blog</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main style="padding-bottom: 5rem;">
+    <div class="container scroll-reveal">
+      <div class="article-header">
+        <span class="article-meta">Nov 02, 2025 • GMP & Validation</span>
+        <h1 class="section-title">Cleaning Validation in Multi-Product Biomanufacturing: Calculating MACO & CIP Verification</h1>
+      </div>
+      
+      <img src="images/blog_cleaning.webp" alt="Clean-in-place CIP systems and stainless steel bioprocess vessels" class="article-cover">
+      
+      <div class="article-content">
+        <p>In multi-product biopharmaceutical manufacturing suites, cross-contamination is one of the most critical risks to patient safety. Regulatory authorities—including Health Canada, EMA (Annex 15), and the US FDA—mandate scientifically sound, risk-based Cleaning Validation programs to demonstrate that automated Clean-In-Place (CIP) and Clean-Out-of-Place (COP) cycles consistently reduce residual product, cleaning agents, and bioburden to acceptable limits.</p>
+        
+        <h2>Determining Maximum Allowable Carryover (MACO)</h2>
+        <p>The foundation of a robust cleaning validation protocol is the scientific calculation of the Maximum Allowable Carryover (MACO). Modern regulatory expectations rely on toxicological evaluations using Permitted Daily Exposure (PDE) or Health-Based Exposure Limits (HBEL), rather than relying solely on arbitrary 10 ppm or 0.001 therapeutic dose thresholds. The calculated MACO must account for the shared equipment surface area, the minimum batch size of the subsequent product, and the maximum daily dose administered to patients.</p>
+        
+        <h2>Sampling Strategies: Swab vs. Rinse TOC Recovery</h2>
+        <p>Analytical verification requires validated sampling methods. Swab sampling targets worst-case, hard-to-clean geometric locations (such as impellers, dip tubes, spray balls, and gasket interfaces) and is evaluated via Total Organic Carbon (TOC) and product-specific ELISA or HPLC assays. Recovery study percentages must be rigorously established for each contact material (316L stainless steel, EPDM, PTFE, silicon). Combined with rinse water conductivity testing and visual inspection under intense illumination, these protocols ensure audit-ready compliance during regulatory inspections.</p>
+        
+        <div class="references" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+          <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-primary);">References</h3>
+          <ul style="list-style-type: none; padding-left: 0; font-size: 0.95rem; color: var(--text-secondary);">
+            <li style="margin-bottom: 0.5rem;">EMA (2018). Guideline on setting health based exposure limits for use in risk identification in the manufacture of different medicinal products in shared facilities. <em>European Medicines Agency</em>. <a href="https://www.ema.europa.eu/en/documents/scientific-guideline/guideline-setting-health-based-exposure-limits-use-risk-identification-manufacture-different-medicinal-products-shared-facilities_en.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">EMA/CHMP/CVMP/SWP/169430/2012</a></li>
+            <li style="margin-bottom: 0.5rem;">Parenteral Drug Association (PDA). (2010). Technical Report No. 29: Points to Consider for Cleaning Validation. <em>PDA Journal of Pharmaceutical Science and Technology</em>. <a href="https://www.pda.org/bookstore/product-detail/1231-tr-29-points-to-consider-for-cleaning-validation" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">PDA TR No. 29</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+      <div class="footer-links">
+        <a href="mailto:M.NasrollahKhani@gmail.com" class="footer-link" aria-label="Email">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span class="link-text">Email Me</span>
+        </a>
+        <a href="Mehrdad_Khani_Resume.pdf" download class="footer-link" aria-label="Download Resume">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span class="link-text">Resume</span>
+        </a>
+        <a href="https://linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span class="link-text">LinkedIn</span>
+        </a>
+      </div>
+      <p>&copy; 2026 Mehrdad Khani. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
