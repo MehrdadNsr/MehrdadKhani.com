@@ -118,7 +118,12 @@ a:hover {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 40px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  transition: top 0.3s ease, padding 0.3s ease;
+  transition: top 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.5rem 2rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
 .nav-brand {
@@ -927,6 +932,9 @@ footer p {
     justify-content: center;
     padding: 1rem;
     width: 95%;
+  }
+  .navbar.scrolled {
+    padding: 0.6rem 1rem;
   }
   .nav-links {
     gap: 1rem;

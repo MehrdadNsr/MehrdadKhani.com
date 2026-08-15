@@ -19,6 +19,8 @@
   <meta name="keywords" content="Mehrdad Khani, Biotechnologist, Downstream Processing Engineer, GMP, Protein Purification, TFF, Chromatography, Biomanufacturing, Biopharmaceutical, Canada">
   <link rel="canonical" href="https://mehrdadkhani.com/">
   <meta name="google-site-verification" content="t7eMFw5IArL7xfNv8tihxZ9KpCYCRKRP1YgMSAlZf5Y" />
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
   
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:title" content="Mehrdad Khani | Biotechnologist">
@@ -96,7 +98,7 @@
 <body>
   
   <nav class="navbar" id="navbar">
-    <div class="nav-brand">Mer Khani</div>
+    <a href="#" class="nav-brand" style="text-decoration: none; color: inherit;">Mer Khani</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -474,6 +476,8 @@
         </p>
         
         <form class="contact-form" action="https://formspree.io/f/mlgyjdow" method="POST" style="max-width: 600px; margin: 0 auto;">
+          <!-- Anti-spam Honeypot Field -->
+          <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required placeholder="Your Name">
