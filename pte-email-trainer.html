@@ -10,6 +10,9 @@
 <meta name="description" content="تمرین تعاملی Write Email آزمون PTE Core">
 <title>تمرین ایمیل PTE Core</title>
 <link rel="canonical" href="https://mehrdadkhani.com/pte-email-trainer.html">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
@@ -325,7 +328,7 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:26px 0 0}
       </div>
       <div>
         <span class="sub">Write Email &middot; 9 min &middot; 50&ndash;120 w</span>
-        <h1>تمرین ایمیل PTE Core</h1>
+        <h1 style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">تمرین ایمیل PTE Core <button id="btn-update-check" class="btn mut" style="padding:2px 9px;min-height:26px;font-size:11.5px;font-family:var(--fa);border-radius:6px;cursor:pointer;" title="بروزرسانی و پاکسازی کش نسخه">بروزرسانی نسخه 🔄</button></h1>
       </div>
       <div class="postmark" id="pm">
         <b id="pmv">0%</b><span>دقت</span>
@@ -334,6 +337,16 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:26px 0 0}
     <div class="airmail" style="margin-top:12px"></div>
     <div class="prog"><i id="progbar" style="width:0%"></i></div>
   </header>
+
+  <div id="update-toast" class="card stamped" style="position:fixed;top:16px;inset-inline:16px;max-width:540px;margin:0 auto;z-index:99999;box-shadow:0 12px 40px rgba(27,36,48,0.28);border-color:var(--blue);display:none;padding:16px 20px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+      <div>
+        <b style="color:var(--blue);font-size:14.5px;display:block;margin-bottom:2px;">🔔 نسخه جدیدی از تمرین‌ساز منتشر شده است!</b>
+        <span style="font-size:12.5px;color:var(--muted)">برای دریافت آخرین پرامپت‌ها و اصلاحات، برنامه را بروزرسانی کنید.</span>
+      </div>
+      <button class="btn" id="btn-apply-update" style="padding:7px 15px;min-height:36px;font-size:13px;flex-shrink:0;">بروزرسانی اکنون</button>
+    </div>
+  </div>
 
   <nav id="nav"></nav>
   <noscript>
@@ -346,6 +359,7 @@ footer{text-align:center;color:var(--muted);font-size:11.5px;padding:26px 0 0}
 
   <footer>
     یک فایل، بدون نصب، بدون اینترنت. پیشرفتت روی همین دستگاه ذخیره می‌شه.
+    <div style="margin-top:8px;"><button id="btn-footer-update" class="btn mut" style="padding:3px 11px;min-height:28px;font-size:11.5px;font-family:var(--fa);border-radius:6px;cursor:pointer;">🔄 بروزرسانی و دریافت آخرین تغییرات</button></div>
   </footer>
 </div>
 
@@ -2497,6 +2511,53 @@ if(!S.seen){
 }
 try{ go(); var bt=document.getElementById("boot"); if(bt)bt.parentNode.removeChild(bt); }
 catch(err){ crash(err) }
+
+/* =================== VERSION & LIVE CACHE UPDATER =================== */
+var APP_BUILD = "2026.08.19.1";
+
+function forceHardReload(){
+  try {
+    if ('caches' in window) {
+      caches.keys().then(function(names) {
+        names.forEach(function(name) { caches.delete(name); });
+      });
+    }
+  } catch(e){}
+  var u = new URL(window.location.href);
+  u.searchParams.set('v', Date.now());
+  window.location.replace(u.toString());
+}
+
+function checkForUpdates(manual){
+  var fetchUrl = window.location.pathname + '?_chk=' + Date.now();
+  fetch(fetchUrl, { cache: 'no-store' })
+    .then(function(r){ return r.text(); })
+    .then(function(html){
+      var m = html.match(/var\s+APP_BUILD\s*=\s*["']([^"']+)["']/);
+      if (m && m[1] && m[1] !== APP_BUILD) {
+        var toast = document.getElementById("update-toast");
+        if (toast) toast.style.display = "block";
+      } else if (manual) {
+        alert("شما در حال حاضر از آخرین نسخه استفاده می‌کنید (Build: " + APP_BUILD + ").");
+      }
+    })
+    .catch(function(){
+      if (manual) forceHardReload();
+    });
+}
+
+document.addEventListener("click", function(e){
+  var t = e.target;
+  if (!t) return;
+  if (t.id === "btn-update-check" || (t.closest && t.closest("#btn-update-check")) ||
+      t.id === "btn-footer-update" || (t.closest && t.closest("#btn-footer-update")) ||
+      t.id === "btn-apply-update" || (t.closest && t.closest("#btn-apply-update"))) {
+    e.preventDefault();
+    forceHardReload();
+  }
+});
+
+setTimeout(function(){ checkForUpdates(false); }, 2500);
 
 </script>
 </body>
