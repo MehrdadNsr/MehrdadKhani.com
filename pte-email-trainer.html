@@ -9,6 +9,8 @@
 <meta name="apple-mobile-web-app-title" content="PTE Email">
 <meta name="description" content="تمرین تعاملی Write Email آزمون PTE Core">
 <title>تمرین ایمیل PTE Core</title>
+<link rel="icon" type="image/png" href="images/favicon.png?v=4">
+<link rel="apple-touch-icon" href="images/favicon.png?v=4">
 <link rel="canonical" href="https://mehrdadkhani.com/pte-email-trainer.html">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -2516,16 +2518,28 @@ catch(err){ crash(err) }
 var APP_BUILD = "2026.08.19.1";
 
 function forceHardReload(){
+  function reload(){
+    var u = new URL(window.location.href);
+    u.searchParams.delete('_chk');
+    u.searchParams.set('v', Date.now());
+    window.location.replace(u.toString());
+  }
+  // The purge is async: navigating before it settles would leave the old
+  // cache in place, so wait for it (and never hang if it stalls).
   try {
     if ('caches' in window) {
-      caches.keys().then(function(names) {
-        names.forEach(function(name) { caches.delete(name); });
-      });
+      var done = false;
+      var once = function(){ if (!done) { done = true; reload(); } };
+      setTimeout(once, 1500);
+      caches.keys()
+        .then(function(names){
+          return Promise.all(names.map(function(name){ return caches.delete(name); }));
+        })
+        .then(once, once);
+      return;
     }
   } catch(e){}
-  var u = new URL(window.location.href);
-  u.searchParams.set('v', Date.now());
-  window.location.replace(u.toString());
+  reload();
 }
 
 function checkForUpdates(manual){
@@ -2535,6 +2549,7 @@ function checkForUpdates(manual){
     .then(function(html){
       var m = html.match(/var\s+APP_BUILD\s*=\s*["']([^"']+)["']/);
       if (m && m[1] && m[1] !== APP_BUILD) {
+        if (manual) { forceHardReload(); return; }
         var toast = document.getElementById("update-toast");
         if (toast) toast.style.display = "block";
       } else if (manual) {
@@ -2546,14 +2561,24 @@ function checkForUpdates(manual){
     });
 }
 
+function hitsButton(t, id){
+  return t.id === id || (t.closest && !!t.closest("#" + id));
+}
+
 document.addEventListener("click", function(e){
   var t = e.target;
   if (!t) return;
-  if (t.id === "btn-update-check" || (t.closest && t.closest("#btn-update-check")) ||
-      t.id === "btn-footer-update" || (t.closest && t.closest("#btn-footer-update")) ||
-      t.id === "btn-apply-update" || (t.closest && t.closest("#btn-apply-update"))) {
+  // "Update now" in the toast: the check already ran, so reload straight away.
+  if (hitsButton(t, "btn-apply-update")) {
     e.preventDefault();
     forceHardReload();
+    return;
+  }
+  // The header/footer buttons ask "is there a new build?" first, and only
+  // reload when there actually is one.
+  if (hitsButton(t, "btn-update-check") || hitsButton(t, "btn-footer-update")) {
+    e.preventDefault();
+    checkForUpdates(true);
   }
 });
 

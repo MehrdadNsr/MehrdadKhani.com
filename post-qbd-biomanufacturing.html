@@ -12,6 +12,23 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
+  <!-- Applied before first paint: prevents a theme flash and un-hides content when JS runs. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (saved === 'light' || (!saved && prefersLight)) {
+          root.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
@@ -23,6 +40,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Implementing Quality by Design (QbD) in Canadian Biopharma Facilities">
+  <meta property="og:description" content="A comprehensive guide to implementing Quality by Design (QbD) in biopharmaceutical manufacturing. Ensure consistent quality for Health Canada approvals.">
+  <meta property="og:image" content="https://mehrdadkhani.com/images/blog_qbd.webp">
+  <meta property="og:url" content="https://mehrdadkhani.com/post-qbd-biomanufacturing.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Mehrdad Khani">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Implementing Quality by Design (QbD) in Canadian Biopharma Facilities">
+  <meta name="twitter:description" content="A comprehensive guide to implementing Quality by Design (QbD) in biopharmaceutical manufacturing. Ensure consistent quality for Health Canada approvals.">
+  <meta name="twitter:image" content="https://mehrdadkhani.com/images/blog_qbd.webp">
   <link rel="stylesheet" href="styles.css">
   <style>
     body { padding-top: 100px; }
@@ -114,7 +145,7 @@
         <h1 class="section-title">Implementing Quality by Design (QbD) in Biomanufacturing</h1>
       </div>
       
-      <img src="images/blog_qbd.webp" alt="Quality by Design Dashboard" class="article-cover">
+      <img src="images/blog_qbd.webp" alt="Quality by Design Dashboard" class="article-cover" decoding="async" fetchpriority="high">
       
       <div class="article-content">
         <p>Historically, the biopharmaceutical industry relied heavily on empirical "quality by testing" (QbT) approaches, where the quality of the final product was verified at the end of the manufacturing process. However, the modern paradigm has shifted towards Quality by Design (QbD). QbD is a systematic approach to development that begins with predefined objectives and emphasizes product and process understanding and process control, based on sound science and quality risk management.</p>

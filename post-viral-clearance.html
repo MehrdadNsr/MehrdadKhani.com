@@ -12,6 +12,23 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
+  <!-- Applied before first paint: prevents a theme flash and un-hides content when JS runs. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (saved === 'light' || (!saved && prefersLight)) {
+          root.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
@@ -23,6 +40,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Viral Clearance Strategies for Health Canada Biologics Approvals">
+  <meta property="og:description" content="Robust viral clearance and inactivation strategies for biopharmaceuticals. Meet regulatory requirements for Health Canada and FDA with effective downstream processing.">
+  <meta property="og:image" content="https://mehrdadkhani.com/images/blog_viral.webp">
+  <meta property="og:url" content="https://mehrdadkhani.com/post-viral-clearance.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Mehrdad Khani">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Viral Clearance Strategies for Health Canada Biologics Approvals">
+  <meta name="twitter:description" content="Robust viral clearance and inactivation strategies for biopharmaceuticals. Meet regulatory requirements for Health Canada and FDA with effective downstream processing.">
+  <meta name="twitter:image" content="https://mehrdadkhani.com/images/blog_viral.webp">
   <link rel="stylesheet" href="styles.css">
   <style>
     body { padding-top: 100px; }
@@ -114,7 +145,7 @@
         <h1 class="section-title">Viral Clearance Strategies in Downstream Processing</h1>
       </div>
       
-      <img src="images/blog_viral.webp" alt="Viral Clearance Nanofiltration" class="article-cover">
+      <img src="images/blog_viral.webp" alt="Viral Clearance Nanofiltration" class="article-cover" decoding="async" fetchpriority="high">
       
       <div class="article-content">
         <p>Ensuring the viral safety of biopharmaceutical products is a paramount regulatory requirement. Biological products manufactured in mammalian cell lines, such as CHO cells, carry an inherent risk of viral contamination from endogenous retroviruses or adventitious agents introduced during upstream processing. Downstream processing must therefore incorporate robust and orthogonal viral clearance steps.</p>

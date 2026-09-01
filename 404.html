@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
+  <!-- Applied before first paint: prevents a theme flash and un-hides content when JS runs. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (saved === 'light' || (!saved && prefersLight)) {
+          root.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <title>Page Not Found | Mehrdad Khani</title>
+  <link rel="icon" type="image/png" href="images/favicon.png?v=4">
+  <link rel="apple-touch-icon" href="images/favicon.png?v=4">
+  <meta name="description" content="The page you were looking for could not be found on mehrdadkhani.com.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="/" class="nav-brand" style="text-decoration: none; color: inherit;">Mer Khani</a>
+    <ul class="nav-links">
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#experience">Experience</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="section" style="min-height: 72vh; display: flex; align-items: center; justify-content: center; padding-top: 8rem;">
+    <div class="glass-card" style="max-width: 620px; text-align: center; padding: 3rem 2rem;">
+      <p style="font-family: 'Outfit', sans-serif; font-size: var(--step-5); font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.5rem;">404</p>
+      <h1 class="section-title" style="margin-bottom: 1rem;">Page Not Found</h1>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        This page has moved or never existed. The links below will get you back on track.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="/blog.html" class="btn-primary">Read the Blog</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+      <div class="footer-links">
+        <a href="mailto:M.NasrollahKhani@gmail.com" class="footer-link" aria-label="Email">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span class="link-text">Email Me</span>
+        </a>
+        <a href="https://linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span class="link-text">LinkedIn</span>
+        </a>
+      </div>
+      <p>&copy; 2026 Mehrdad Khani. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

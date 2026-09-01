@@ -12,6 +12,23 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
+  <!-- Applied before first paint: prevents a theme flash and un-hides content when JS runs. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (saved === 'light' || (!saved && prefersLight)) {
+          root.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <title>Mehrdad Khani | Bioprocess & Downstream Specialist | Canada</title>
   <link rel="icon" type="image/png" href="images/favicon.png?v=4">
   <link rel="apple-touch-icon" href="images/favicon.png?v=4">
@@ -122,8 +139,8 @@
       <h1 class="hero-title">Mehrdad (Mer) Khani</h1>
       <div class="hero-subtitle-wrapper">
         <h2 class="hero-subtitle">Biotechnologist & Purification Specialist</h2>
-        <a href="BioReady-Certificate.pdf" target="_blank" class="bioready-badge-link" aria-label="View BioReady Certificate">
-          <img src="images/bioready-logo.webp" alt="BioReady Certified Logo" class="bioready-badge">
+        <a href="BioReady-Certificate.pdf" target="_blank" rel="noopener noreferrer" class="bioready-badge-link" aria-label="View BioReady Certificate">
+          <img src="images/bioready-logo.webp" alt="BioReady Certified Logo" class="bioready-badge" decoding="async">
         </a>
       </div>
       <p class="hero-contact">
@@ -171,7 +188,7 @@
     <section id="about" class="section">
       <div class="about-container glass-card scroll-reveal">
         <div class="about-image">
-          <img src="images/profile-pic.webp?v=2" alt="Mehrdad Khani" class="profile-pic">
+          <img src="images/profile-pic.webp?v=2" loading="lazy" decoding="async" alt="Mehrdad Khani" class="profile-pic">
         </div>
         <div class="about-text">
           <h2 class="section-title" style="text-align: left;">Professional Summary</h2>
@@ -209,7 +226,7 @@
             </div>
           </div>
           <div class="experience-image-wrapper">
-            <img src="images/eurofins_job.webp" alt="Eurofins CDMO Alphora Inc">
+            <img src="images/eurofins_job.webp" loading="lazy" decoding="async" alt="Eurofins CDMO Alphora Inc">
           </div>
         </div>
 
@@ -233,7 +250,7 @@
             </div>
           </div>
           <div class="experience-image-wrapper">
-            <img src="images/cinnagen_qa_job.webp" alt="CinnaGen Biosimilar Company QA">
+            <img src="images/cinnagen_qa_job.webp" loading="lazy" decoding="async" alt="CinnaGen Biosimilar Company QA">
           </div>
         </div>
 
@@ -257,7 +274,7 @@
             </div>
           </div>
           <div class="experience-image-wrapper">
-            <img src="images/cinnagen_rnd_iranian.webp" alt="CinnaGen Biosimilar Company R&D">
+            <img src="images/cinnagen_rnd_iranian.webp" loading="lazy" decoding="async" alt="CinnaGen Biosimilar Company R&D">
           </div>
         </div>
 
@@ -288,7 +305,7 @@
             </div>
           </div>
           <div class="experience-image-wrapper">
-            <img src="images/cinnagen_prod_job.webp" alt="CinnaGen Biosimilar Company Production">
+            <img src="images/cinnagen_prod_job.webp" loading="lazy" decoding="async" alt="CinnaGen Biosimilar Company Production">
           </div>
         </div>
 
@@ -321,7 +338,7 @@
             </div>
           </div>
           <div class="experience-image-wrapper">
-            <img src="images/hospital_job_iranian.webp" alt="Shahid Madani Hospital">
+            <img src="images/hospital_job_iranian.webp" loading="lazy" decoding="async" alt="Shahid Madani Hospital">
           </div>
         </div>
 
@@ -344,7 +361,7 @@
             </div>
           </div>
           <div class="experience-image-wrapper">
-            <img src="images/university_job_iranian.webp" alt="Amol University">
+            <img src="images/university_job_iranian.webp" loading="lazy" decoding="async" alt="Amol University">
           </div>
         </div>
       </div>
@@ -406,12 +423,12 @@
             <h2 class="section-title">Certifications</h2>
             
             <div class="certification-card" style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 10px; border: 1px solid var(--glass-border);">
-              <img src="images/bioready-logo.webp" alt="BioReady Logo" style="width: 70px; height: 70px; object-fit: contain;">
+              <img src="images/bioready-logo.webp" alt="BioReady Logo" loading="lazy" decoding="async" style="width: 70px; height: 70px; object-fit: contain;">
               <div>
                 <h3 style="color: var(--accent); margin-bottom: 0.2rem; font-size: 1.1rem;">BioReady™ Certified</h3>
                 <p style="font-size: 0.9rem; margin-bottom: 0;"><strong>Process Development Technician</strong></p>
                 <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0;">Issued by BioTalent Canada (2026)</p>
-                <a href="BioReady-Certificate.pdf" target="_blank" style="font-size: 0.8rem; color: var(--primary-light); text-decoration: underline;">View Certificate</a>
+                <a href="BioReady-Certificate.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.8rem; color: var(--primary-light); text-decoration: underline;">View Certificate</a>
               </div>
             </div>
 

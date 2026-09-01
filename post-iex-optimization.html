@@ -12,6 +12,23 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
+  <!-- Applied before first paint: prevents a theme flash and un-hides content when JS runs. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (saved === 'light' || (!saved && prefersLight)) {
+          root.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
@@ -23,6 +40,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Optimizing Ion Exchange (IEX) for High-Yield API Production">
+  <meta property="og:description" content="Maximize API production yields by optimizing Ion Exchange (IEX) chromatography. Advanced purification strategies for GMP biomanufacturing.">
+  <meta property="og:image" content="https://mehrdadkhani.com/images/blog_iex.webp">
+  <meta property="og:url" content="https://mehrdadkhani.com/post-iex-optimization.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Mehrdad Khani">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Optimizing Ion Exchange (IEX) for High-Yield API Production">
+  <meta name="twitter:description" content="Maximize API production yields by optimizing Ion Exchange (IEX) chromatography. Advanced purification strategies for GMP biomanufacturing.">
+  <meta name="twitter:image" content="https://mehrdadkhani.com/images/blog_iex.webp">
   <link rel="stylesheet" href="styles.css">
   <style>
     body { padding-top: 100px; }
@@ -114,7 +145,7 @@
         <h1 class="section-title">Optimizing Ion Exchange (IEX) Chromatography</h1>
       </div>
       
-      <img src="images/blog_iex.webp" alt="Ion Exchange Chromatography Column" class="article-cover">
+      <img src="images/blog_iex.webp" alt="Ion Exchange Chromatography Column" class="article-cover" decoding="async" fetchpriority="high">
       
       <div class="article-content">
         <p>Ion Exchange (IEX) chromatography remains the workhorse of downstream polishing for monoclonal antibodies and recombinant proteins. Whether operating in bind-and-elute mode (typically Cation Exchange, CEX) to clear product-related impurities like high molecular weight (HMW) aggregates, or in flow-through mode (typically Anion Exchange, AEX) to clear process-related impurities like host cell DNA and endotoxins, IEX is critical for meeting final GMP quality specifications.</p>

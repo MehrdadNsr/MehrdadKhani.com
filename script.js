@@ -53,34 +53,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Theme Toggle Logic
+  // The theme itself is applied by the inline <head> script before first paint,
+  // so this only keeps the icons in sync and handles the toggle click.
   const themeToggle = document.getElementById('theme-toggle');
   const sunIcon = document.querySelector('.sun-icon');
   const moonIcon = document.querySelector('.moon-icon');
 
-  // Check for saved theme preference or system preference
-  const savedTheme = localStorage.getItem('theme');
-  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  const syncThemeIcons = () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (sunIcon) sunIcon.style.display = isLight ? 'none' : 'block';
+    if (moonIcon) moonIcon.style.display = isLight ? 'block' : 'none';
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(isLight));
+      themeToggle.setAttribute(
+        'aria-label',
+        isLight ? 'Switch to dark theme' : 'Switch to light theme'
+      );
+    }
+  };
 
-  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
-    document.documentElement.setAttribute('data-theme', 'light');
-    sunIcon.style.display = 'none';
-    moonIcon.style.display = 'block';
-  }
+  syncThemeIcons();
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      if (currentTheme === 'light') {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
         document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'dark');
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
       }
+      try {
+        localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      } catch (e) {}
+      syncThemeIcons();
     });
   }
 
