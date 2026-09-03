@@ -955,6 +955,104 @@ html.js .scroll-reveal.visible {
   }
 }
 
+/* Breadcrumb trail above the article title */
+.article-breadcrumb {
+  font-size: var(--step--1);
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.article-breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.article-breadcrumb span[aria-hidden] {
+  margin: 0 0.4rem;
+  opacity: 0.5;
+}
+
+.article-breadcrumb [aria-current="page"] {
+  color: var(--text-primary);
+}
+
+/* Related articles: the posts previously had no links to each other */
+.related-articles {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.related-articles h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: var(--step-1);
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-card:hover,
+.related-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--glass-shadow);
+}
+
+.related-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.related-card-body {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.related-card-cat {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.related-card h3 {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Respect users who ask for less motion: show everything immediately,
    drop the reveal/scroll animations, keep the layout identical. */
 @media (prefers-reduced-motion: reduce) {
