@@ -608,8 +608,13 @@
         </p>
         
         <form class="contact-form" action="https://formspree.io/f/mlgyjdow" method="POST" style="max-width: 600px; margin: 0 auto;">
-          <!-- Anti-spam Honeypot Field -->
-          <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off">
+          <!-- Honeypot. Formspree drops any submission that fills _gotcha, so this
+               is enforced server-side. Hidden off-screen rather than with
+               display:none, which bots commonly detect and skip. -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="_gotcha">Leave this field empty</label>
+            <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required placeholder="Your Name">
@@ -622,6 +627,13 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
           </div>
+          <!-- Turnstile mounts here once a site key is configured (see below). -->
+          <div class="form-group" id="turnstile-group" hidden>
+            <div id="turnstile-widget"></div>
+          </div>
+
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+
           <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;">Let's Connect ✉️</button>
         </form>
       </div>
@@ -654,6 +666,85 @@
       <path d="M12 19V5M5 12l7-7 7 7"/>
     </svg>
   </button>
+
+  <script>
+  /* ============================================================
+     CONTACT FORM SPAM PROTECTION
+     ------------------------------------------------------------
+     To switch Cloudflare Turnstile on:
+
+       1. dash.cloudflare.com -> Turnstile -> Add widget
+          (hostname: mehrdadkhani.com). Copy both keys.
+       2. Paste the SITE key between the quotes below.
+       3. Paste the SECRET key into Formspree:
+          formspree.io -> this form -> Settings -> CAPTCHA
+          -> Cloudflare Turnstile.
+
+     Step 3 is the one that actually stops spam: Formspree verifies
+     the token server-side and rejects anything posted straight to
+     the endpoint. Steps 1-2 alone only draw the widget.
+
+     While SITE_KEY is empty nothing loads and the form behaves
+     exactly as before, so a half-finished setup never breaks it.
+     ============================================================ */
+  var TURNSTILE_SITE_KEY = '';
+
+  (function () {
+    var form = document.querySelector('.contact-form');
+    if (!form) return;
+
+    var errorEl = document.getElementById('form-error');
+    var group = document.getElementById('turnstile-group');
+    var widget = document.getElementById('turnstile-widget');
+    var loadedAt = Date.now();
+    var widgetId = null;
+
+    function fail(msg) {
+      if (!errorEl) return;
+      errorEl.textContent = msg;
+      errorEl.hidden = false;
+    }
+    function clearError() {
+      if (errorEl) errorEl.hidden = true;
+    }
+
+    if (TURNSTILE_SITE_KEY) {
+      // Match the widget to whichever theme the page is currently showing.
+      window.onTurnstileLoad = function () {
+        widgetId = window.turnstile.render(widget, {
+          sitekey: TURNSTILE_SITE_KEY,
+          theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
+          callback: clearError
+        });
+        group.hidden = false;
+      };
+      var s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+
+    form.addEventListener('submit', function (e) {
+      clearError();
+
+      // No human reads this page and writes a message in under three
+      // seconds. Only catches bots that actually run the page's JS.
+      if (Date.now() - loadedAt < 3000) {
+        e.preventDefault();
+        fail('That was a little too quick — please take a moment and try again.');
+        return;
+      }
+
+      if (TURNSTILE_SITE_KEY && window.turnstile && widgetId !== null) {
+        if (!window.turnstile.getResponse(widgetId)) {
+          e.preventDefault();
+          fail('Please complete the verification above before sending.');
+        }
+      }
+    });
+  })();
+  </script>
 
   <script src="script.js"></script>
 </body>

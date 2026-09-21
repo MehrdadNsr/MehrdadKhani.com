@@ -734,6 +734,31 @@ a:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
+/* Honeypot: off-screen rather than display:none, which bots skip.
+   aria-hidden + tabindex="-1" keep it away from keyboard and screen readers. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-error {
+  color: #F87171;
+  font-size: var(--step--1);
+  margin: 0;
+}
+
+[data-theme="light"] .form-error {
+  color: #DC2626;
+}
+
+/* Turnstile renders in an iframe; keep it from stretching the flex column. */
+#turnstile-widget {
+  min-height: 65px;
+}
+
 /* Footer */
 footer {
   text-align: center;
