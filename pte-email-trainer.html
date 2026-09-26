@@ -2,6 +2,8 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.anthropic.com https://api.openai.com https://generativelanguage.googleapis.com; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#eceadf">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -768,7 +770,7 @@ function crash(err){
       '<div class="diff" style="color:var(--err)">'+esc(m)+'<br><br>'+esc(st)+'</div>'+
       '<div class="row"><button class="btn" onclick="try{localStorage.removeItem(\'pte_email_html\')}catch(e){};location.reload()">ریست و بارگذاری دوباره</button></div></div>';
   }catch(e2){
-    document.body.innerHTML='<pre dir="ltr" style="padding:20px;white-space:pre-wrap">ERROR: '+m+'</pre>';
+    document.body.innerHTML='<pre dir="ltr" style="padding:20px;white-space:pre-wrap">ERROR: '+esc(m)+'</pre>';
   }
 }
 function go_(){
