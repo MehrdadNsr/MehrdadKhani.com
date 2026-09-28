@@ -1,0 +1,194 @@
+[
+ {
+  "start": 0.0,
+  "end": 29.94,
+  "mood": "quiet",
+  "intensity": 0.2
+ },
+ {
+  "start": 29.94,
+  "end": 41.99,
+  "mood": "tense",
+  "intensity": 0.46
+ },
+ {
+  "start": 41.99,
+  "end": 86.2,
+  "mood": "hopeful",
+  "intensity": 0.38
+ },
+ {
+  "start": 86.2,
+  "end": 97.89,
+  "mood": "warm",
+  "intensity": 0.46
+ },
+ {
+  "start": 97.89,
+  "end": 108.38,
+  "mood": "hopeful",
+  "intensity": 0.38
+ },
+ {
+  "start": 108.38,
+  "end": 123.07,
+  "mood": "low",
+  "intensity": 0.2
+ },
+ {
+  "start": 123.07,
+  "end": 132.07,
+  "mood": "tense",
+  "intensity": 0.46
+ },
+ {
+  "start": 132.07,
+  "end": 146.79,
+  "mood": "quiet",
+  "intensity": 0.2
+ },
+ {
+  "start": 146.79,
+  "end": 163.69,
+  "mood": "low",
+  "intensity": 0.2
+ },
+ {
+  "start": 163.69,
+  "end": 175.98,
+  "mood": "tense",
+  "intensity": 0.47
+ },
+ {
+  "start": 175.98,
+  "end": 192.16,
+  "mood": "warm",
+  "intensity": 0.47
+ },
+ {
+  "start": 192.16,
+  "end": 207.93,
+  "mood": "quiet",
+  "intensity": 0.21
+ },
+ {
+  "start": 207.93,
+  "end": 224.42,
+  "mood": "hopeful",
+  "intensity": 0.39
+ },
+ {
+  "start": 224.42,
+  "end": 239.74,
+  "mood": "build",
+  "intensity": 0.57
+ },
+ {
+  "start": 239.74,
+  "end": 256.78,
+  "mood": "low",
+  "intensity": 0.21
+ },
+ {
+  "start": 256.78,
+  "end": 273.03,
+  "mood": "build",
+  "intensity": 0.57
+ },
+ {
+  "start": 273.03,
+  "end": 290.41,
+  "mood": "warm",
+  "intensity": 0.47
+ },
+ {
+  "start": 290.41,
+  "end": 310.73,
+  "mood": "triumph",
+  "intensity": 0.73
+ },
+ {
+  "start": 310.73,
+  "end": 326.93,
+  "mood": "hopeful",
+  "intensity": 0.4
+ },
+ {
+  "start": 326.93,
+  "end": 344.65,
+  "mood": "low",
+  "intensity": 0.22
+ },
+ {
+  "start": 344.65,
+  "end": 352.65,
+  "mood": "quiet",
+  "intensity": 0.23
+ },
+ {
+  "start": 352.65,
+  "end": 366.86,
+  "mood": "build",
+  "intensity": 0.59
+ },
+ {
+  "start": 366.86,
+  "end": 403.46,
+  "mood": "warm",
+  "intensity": 0.5
+ },
+ {
+  "start": 403.46,
+  "end": 422.16,
+  "mood": "triumph",
+  "intensity": 0.75
+ },
+ {
+  "start": 422.16,
+  "end": 435.82,
+  "mood": "tense",
+  "intensity": 0.52
+ },
+ {
+  "start": 435.82,
+  "end": 452.79,
+  "mood": "build",
+  "intensity": 0.65
+ },
+ {
+  "start": 452.79,
+  "end": 481.34,
+  "mood": "warm",
+  "intensity": 0.58
+ },
+ {
+  "start": 481.34,
+  "end": 498.74,
+  "mood": "end",
+  "intensity": 0.43
+ },
+ {
+  "start": 498.74,
+  "end": 518.06,
+  "mood": "quiet",
+  "intensity": 0.35
+ },
+ {
+  "start": 518.06,
+  "end": 535.3,
+  "mood": "tense",
+  "intensity": 0.61
+ },
+ {
+  "start": 535.3,
+  "end": 552.39,
+  "mood": "hopeful",
+  "intensity": 0.53
+ },
+ {
+  "start": 552.39,
+  "end": 567.71,
+  "mood": "end",
+  "intensity": 0.43
+ }
+]

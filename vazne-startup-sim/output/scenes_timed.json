@@ -1,0 +1,1281 @@
+{
+ "title_fa": "وزنه‌ای که زمین نمی‌ذاری",
+ "logline_fa": "در یک شب، ده سال آینده‌ی مهرداد شبیه‌سازی می‌شود: شدنی‌ترین راه برای این‌که وزنه از یک ای‌پی‌کی روی گوشی خودش به چیزی تبدیل شود که زندگی‌اش را جابه‌جا می‌کند، بی‌آنکه شغلش را قمار کند.",
+ "scenes": [
+  {
+   "id": "title",
+   "type": "title",
+   "year": 0,
+   "date": "یکشنبه‌شب · مهر ۱۴۰۵",
+   "p": null,
+   "mood": "quiet",
+   "narration": "تو خوابیدی. من داشتم ده سال آینده‌ت رو زندگی می‌کردم. دوازده مسیر، چهار داور، یک انتخاب.",
+   "params": {
+    "kicker": "فیلم مسیر ده‌ساله",
+    "title": "وزنه",
+    "subtitle": "تو خوابیدی. من داشتم ده سال آینده‌ت رو *زندگی* می‌کردم.",
+    "date": "می‌سی‌ساگا، انتاریو · مهر ۱۴۰۵"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/00_title.mp3",
+   "tts_dur": 9.4,
+   "tts_lead": 0.6,
+   "dur": 11.4
+  },
+  {
+   "id": "ch1",
+   "type": "chapter",
+   "year": 0,
+   "date": "مهر ۱۴۰۵",
+   "p": 1,
+   "mood": "quiet",
+   "narration": "",
+   "params": {
+    "num": 1,
+    "label": "فصل",
+    "title": "امشب",
+    "sub": "می‌سی‌ساگا، انتاریو"
+   },
+   "min_dur": 4.5,
+   "dur": 4.5
+  },
+  {
+   "id": "now_phone",
+   "type": "phone",
+   "year": 0,
+   "date": "امشب",
+   "p": 1,
+   "mood": "quiet",
+   "narration": "وزنه روی گوشی خودت کار می‌کنه. آفلاین. وزنه‌ی دفعه‌ی قبل رو یادت می‌ندازه. هیچ‌کس جز تو و چند نفر از بچه‌ها ندارتش.",
+   "params": {
+    "screen": "log",
+    "data": {
+     "day": "روز پا · جلسه‌ی ۳۱"
+    },
+    "caption": "وزنه، فعلاً فقط روی گوشی *خودت*"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/02_now_phone.mp3",
+   "tts_dur": 12.04,
+   "tts_lead": 0.6,
+   "dur": 14.04
+  },
+  {
+   "id": "now_text",
+   "type": "text",
+   "year": 0,
+   "date": "امشب",
+   "p": 1,
+   "mood": "tense",
+   "narration": "شیفت چرخشی. پی‌تی‌ای. پرونده‌ی پی‌آر. و یه سؤال که هر شب برمی‌گرده: منتشرش کنم؟",
+   "params": {
+    "kicker": "امشب",
+    "lines": [
+     "یه ای‌پی‌کی روی گوشی تو.",
+     "شیفت‌های چرخشی. پی‌تی‌ای. پرونده‌ی پی‌آر.",
+     "و یه سؤال: *منتشرش کنم؟*"
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/03_now_text.mp3",
+   "tts_dur": 10.05,
+   "tts_lead": 0.6,
+   "dur": 12.05
+  },
+  {
+   "id": "verdict",
+   "type": "decision",
+   "year": 0,
+   "date": "شبیه‌سازی امشب",
+   "p": 1,
+   "mood": "hopeful",
+   "narration": "دوازده مسیر شبیه‌سازی شد. چهار داور با چهار نگاه متفاوت. هر چهارتا یه چیز رو اول گذاشتن: مسیری که اولین قدمش دست خودته.",
+   "params": {
+    "kicker": "دوازده مسیر شبیه‌سازی شد",
+    "question": "شدنی‌ترین راه برای تو کدومه؟",
+    "plabel": "امتیاز داورها",
+    "options": [
+     {
+      "text": "پروژه‌ای که زمین نمی‌ذاری: شغل می‌مونه، ۴ تا ۷ ساعت در هفته، مربی‌ها موتور رشد",
+      "p": 0.74,
+      "chosen": true,
+      "tag": "انتخاب هر ۴ داور"
+     },
+     {
+      "text": "فارسی‌اول: باشگاه خودت و مربی‌های ایرانی جی‌تی‌ای",
+      "p": 0.65
+     },
+     {
+      "text": "وام، شتاب‌دهنده، سرمایه‌گذار",
+      "p": 0.36
+     }
+    ],
+    "caption": "امتیاز از ۱۰ · میانگین چهار داور"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/04_verdict.mp3",
+   "tts_dur": 12.36,
+   "tts_lead": 0.6,
+   "dur": 14.36
+  },
+  {
+   "id": "thesis",
+   "type": "text",
+   "year": 0,
+   "date": "شبیه‌سازی امشب",
+   "p": 1,
+   "mood": "hopeful",
+   "narration": "نه وام، نه شریک، نه سرمایه‌گذار. شغلت می‌مونه. وزنه قمار نیست؛ اهرمه. این فیلم، همون مسیره.",
+   "params": {
+    "lines": [
+     "نه وام. نه شریک. نه سرمایه‌گذار.",
+     "شغلت می‌مونه.",
+     "و وزنه می‌شه *اهرم*، نه قمار."
+    ],
+    "align": "center"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/05_thesis.mp3",
+   "tts_dur": 10.58,
+   "tts_lead": 0.6,
+   "dur": 12.58
+  },
+  {
+   "id": "ch2",
+   "type": "chapter",
+   "year": 0.05,
+   "date": "مهر ۱۴۰۵ تا مهر ۱۴۰۶",
+   "p": 1,
+   "mood": "hopeful",
+   "narration": "",
+   "params": {
+    "num": 2,
+    "label": "فصل",
+    "title": "سال اول",
+    "sub": "مهر ۱۴۰۵ تا مهر ۱۴۰۶"
+   },
+   "min_dur": 4.5,
+   "dur": 4.5
+  },
+  {
+   "id": "week1",
+   "type": "checklist",
+   "year": 0.05,
+   "date": "هفته‌ی اول",
+   "p": 1,
+   "mood": "hopeful",
+   "narration": "یکشنبه شب، حساب گوگل‌پلی. بیست و پنج دلار. دوشنبه، سیاست حریم خصوصی. سه‌شنبه شب، باشگاه.",
+   "params": {
+    "title": "هفته‌ی اول",
+    "items": [
+     {
+      "text": "حساب Google Play · ۲۵ دلار",
+      "sub": "یکشنبه شب",
+      "state": "done"
+     },
+     {
+      "text": "سیاست حریم خصوصی و فرم Data Safety",
+      "sub": "دوشنبه",
+      "state": "done"
+     },
+     {
+      "text": "بریف با دو قانون: بک‌آپ قبل از مایگریشن، سقف هوش مصنوعی",
+      "state": "done"
+     },
+     {
+      "text": "۱۲ تستر از شاگردهای یه مربی",
+      "sub": "سه‌شنبه شب · باشگاه",
+      "state": "now"
+     },
+     {
+      "text": "آپلود تست بسته · شمارنده‌ی ۱۴ روز",
+      "state": "next"
+     }
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/07_week1.mp3",
+   "tts_dur": 10.77,
+   "tts_lead": 0.6,
+   "dur": 12.77
+  },
+  {
+   "id": "gymchat",
+   "type": "chat",
+   "year": 0.05,
+   "date": "سه‌شنبه شب · باشگاه",
+   "p": 0.96,
+   "mood": "warm",
+   "narration": "چهارده نفر لینک رو باز می‌کنن. رضا شرط می‌ذاره: اگه وزنه‌هام پاک شه، دیگه نصب نمی‌کنم. یادت بمونه.",
+   "params": {
+    "title": "بچه‌های باشگاه",
+    "sub": "۸ نفر آنلاین",
+    "messages": [
+     {
+      "me": true,
+      "text": "بچه‌ها، وزنه رو می‌خوام ببرم رو گوگل‌پلی. ۱۲ نفر باید ۱۴ روز تستش کنن. کی هست؟"
+     },
+     {
+      "from": "امیر",
+      "text": "داداش جدی؟ لینک بده"
+     },
+     {
+      "from": "سارا",
+      "text": "iOS نداره؟ 😭"
+     },
+     {
+      "me": true,
+      "text": "فعلاً اندروید. مربی‌تون هم اگه بیاد، برنامه‌ش می‌آد تو اپ."
+     },
+     {
+      "from": "رضا",
+      "text": "من هستم. ولی اگه وزنه‌هام پاک شه دیگه نصب نمی‌کنم 😂"
+     }
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/08_gymchat.mp3",
+   "tts_dur": 9.69,
+   "tts_lead": 0.6,
+   "dur": 11.69
+  },
+  {
+   "id": "closedtest",
+   "type": "phone",
+   "year": 0.08,
+   "date": "هفته‌ی دوم",
+   "p": 0.92,
+   "mood": "hopeful",
+   "narration": "قانون گوگل برای حساب‌های تازه: دوازده نفر، چهارده روز پشت‌سرهم. شمارنده شروع شده.",
+   "params": {
+    "screen": "playstore",
+    "data": {
+     "rating": "—",
+     "installs": "14",
+     "status": "Closed testing · 14 testers · day 3 of 14"
+    },
+    "caption": "شمارنده شروع شد: *۱۴ روز* پشت‌سرهم"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/09_closedtest.mp3",
+   "tts_dur": 8.49,
+   "tts_lead": 0.6,
+   "dur": 10.49
+  },
+  {
+   "id": "night1",
+   "type": "low",
+   "year": 0.1,
+   "date": "ماه اول",
+   "p": 0.92,
+   "mood": "low",
+   "narration": "ساعت دو صبح پیام امیر می‌آد: گوشی رو چرخوندم، اپ پرید. کد رو تو ننوشتی. ولی مسئولش تویی. این حس، ده سال نگهت می‌داره.",
+   "params": {
+    "time": "02:10",
+    "timeLabel": "شب قبل از مصاحبه",
+    "lines": [
+     "امیر: «وسط ست گوشی رو چرخوندم، اپ پرید.»",
+     "کد ننوشتی.",
+     "ولی *مسئولشی*."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/10_night1.mp3",
+   "tts_dur": 12.69,
+   "tts_lead": 0.6,
+   "dur": 14.69
+  },
+  {
+   "id": "month2",
+   "type": "montage",
+   "year": 0.17,
+   "date": "ماه دوم · آذر ۱۴۰۵",
+   "p": 0.85,
+   "mood": "tense",
+   "narration": "",
+   "params": {
+    "kicker": "ماه دوم",
+    "items": [
+     {
+      "date": "روز ۱۴",
+      "text": "تست بسته تموم شد. درخواست انتشار.",
+      "tone": "good"
+     },
+     {
+      "date": "روز ۱۶",
+      "text": "گوگل رد کرد: فرم Data Safety با چت هوش مصنوعی نمی‌خونه",
+      "tone": "bad"
+     },
+     {
+      "date": "روز ۲۵",
+      "text": "اصلاح، ارسال دوباره، تأیید",
+      "tone": "good"
+     },
+     {
+      "date": "همون هفته",
+      "text": "قرارداد شیفت چرخشی رو امضا کردی"
+     },
+     {
+      "date": "پی‌تی‌ای",
+      "text": "نمره‌ی قابل‌قبول، نه عالی"
+     }
+    ]
+   },
+   "min_dur": 9,
+   "dur": 9.0
+  },
+  {
+   "id": "month3",
+   "type": "text",
+   "year": 0.25,
+   "date": "ماه سوم · دی ۱۴۰۵",
+   "p": 0.82,
+   "mood": "quiet",
+   "narration": "ماه سوم، وزنه روی گوگل‌پلی زنده می‌شه. بی‌سروصدا. چهل و پنج نصب، همه آشنا. هیچ غریبه‌ای نمی‌آد. و این طبیعیه.",
+   "params": {
+    "kicker": "ماه سوم · دی ۱۴۰۵",
+    "lines": [
+     "وزنه *زنده* شد.",
+     "۴۵ نصب. همه‌شون آشنا.",
+     "هیچ غریبه‌ای نیومد."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/12_month3.mp3",
+   "tts_dur": 12.72,
+   "tts_lead": 0.6,
+   "dur": 14.72
+  },
+  {
+   "id": "night2",
+   "type": "low",
+   "year": 0.33,
+   "date": "ماه چهارم · بهمن ۱۴۰۵",
+   "p": 0.8,
+   "mood": "low",
+   "narration": "بهمن. آپدیت بزرگ رو ساعت دو شب بعد از شیفت منتشر می‌کنی. مایگریشن می‌شکنه. شش نفر لاگ یک ماه‌شون رو از دست می‌دن. رضا فقط می‌نویسه: گفتم که.",
+   "params": {
+    "time": "02:47",
+    "timeLabel": "بعد از شیفت شب",
+    "lines": [
+     "آپدیت بزرگ رو ساعت ۲ شب منتشر کردی.",
+     "مایگریشن *لاگ‌های آفلاین* رو پاک کرد.",
+     "رضا: «گفتم که.»"
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/13_night2.mp3",
+   "tts_dur": 14.9,
+   "tts_lead": 0.6,
+   "dur": 16.9
+  },
+  {
+   "id": "review3",
+   "type": "quote",
+   "year": 0.35,
+   "date": "ماه چهارم",
+   "p": 0.8,
+   "mood": "tense",
+   "narration": "بدترین هفته‌ی مسیر. رول‌بک، عذرخواهی، دو نفر پاک می‌کنن. و یه قانون تازه: هیچ انتشاری بعد از شیفت شب.",
+   "params": {
+    "text": "دست‌خط مربی منو نمی‌خونه.",
+    "author": "— اولین نقد یه غریبه",
+    "source": "Google Play · ★ ۳",
+    "stars": 3,
+    "caption": "قانون تازه: *هیچ انتشاری* بعد از شیفت شب"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/14_review3.mp3",
+   "tts_dur": 10.29,
+   "tts_lead": 0.6,
+   "dur": 12.29
+  },
+  {
+   "id": "firstdollar",
+   "type": "phone",
+   "year": 0.42,
+   "date": "ماه پنجم · اسفند ۱۴۰۵",
+   "p": 0.77,
+   "mood": "warm",
+   "narration": "اسفند. توی ماشین، جلوی خونه، بعد از شیفت شب: اولین چهار دلار و نود و نه سنت. از یه غریبه. بعد از کارمزد گوگل، چهار دلار و بیست و چهار سنت.",
+   "params": {
+    "screen": "notif",
+    "data": {
+     "time": "06:40",
+     "date": "سه‌شنبه · اسفند ۱۴۰۵",
+     "items": [
+      {
+       "app": "Google Play",
+       "t": "اشتراک جدید · وزنه پلاس",
+       "b": "CAD 4.99 · یه غریبه",
+       "when": "الان"
+      },
+      {
+       "app": "واتساپ · تسترهای وزنه",
+       "t": "رضا",
+       "b": "وزنه‌هام برگشت. آفرین.",
+       "when": "۱۲ دقیقه پیش"
+      }
+     ]
+    },
+    "caption": "اولین *چهار دلار و نود و نه سنت*"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/15_firstdollar.mp3",
+   "tts_dur": 14.18,
+   "tts_lead": 0.6,
+   "dur": 16.18
+  },
+  {
+   "id": "rules",
+   "type": "text",
+   "year": 0.42,
+   "date": "ماه پنجم",
+   "p": 0.77,
+   "mood": "quiet",
+   "narration": "لاگ‌کردن همیشه رایگان می‌مونه. اسکن و مربی هوشمند پولی، با سقف سخت. و اگه ورک‌پرمیت بسته داری، تا پی‌آر پول نمی‌گیری. فقط کاربر جمع می‌کنی.",
+   "params": {
+    "kicker": "قانونی که هر چهار داور گفتن",
+    "lines": [
+     "لاگ‌کردن *همیشه* رایگان.",
+     "اسکن و مربی هوشمند پولی، با سقف.",
+     "روی ورک‌پرمیت بسته، تا پی‌آر ~پول نگیر~."
+    ],
+    "size": "small"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/16_rules.mp3",
+   "tts_dur": 13.77,
+   "tts_lead": 0.6,
+   "dur": 15.77
+  },
+  {
+   "id": "coachcode",
+   "type": "phone",
+   "year": 0.5,
+   "date": "ماه ششم · فروردین ۱۴۰۶",
+   "p": 0.75,
+   "mood": "ai",
+   "narration": "فروردین. به‌جای ریلز بیشتر، کد مربی می‌سازی. مربی برنامه رو می‌فرسته، شاگرد با یه کد شش‌رقمی وارد می‌کنه. اولین مربی، همون مربی باشگاه خودت.",
+   "params": {
+    "screen": "scan",
+    "data": {
+     "paperTitle": "برنامه‌ی مربی — کد ۴۸۲۱۹۳"
+    },
+    "caption": "*کد مربی*: مربی می‌فرسته، شاگرد با کد وارد می‌کنه"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/17_coachcode.mp3",
+   "tts_dur": 14.49,
+   "tts_lead": 0.6,
+   "dur": 16.49
+  },
+  {
+   "id": "m6counter",
+   "type": "counter",
+   "year": 0.5,
+   "date": "پایان ماه ششم",
+   "p": 0.75,
+   "mood": "build",
+   "narration": "سیصد و بیست نصب، هفت مشترک، سی دلار درآمد، چهل و پنج دلار هزینه. ولی یه چیز رو می‌بینی: شاگردهای مربی دو برابر بقیه می‌مونن. موتور اینجاست.",
+   "params": {
+    "kicker": "پایان ماه ششم",
+    "items": [
+     {
+      "value": 320,
+      "label": "نصب",
+      "color": "mint"
+     },
+     {
+      "value": 13,
+      "suffix": "٪",
+      "label": "ماندگاری روز ۳۰ · عادی برای این بازار",
+      "color": "amber"
+     }
+    ],
+    "caption": "ولی شاگردهای مربی *دو برابر* بقیه می‌مونن"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/18_m6counter.mp3",
+   "tts_dur": 13.32,
+   "tts_lead": 0.6,
+   "dur": 15.32
+  },
+  {
+   "id": "nothing",
+   "type": "text",
+   "year": 0.67,
+   "date": "ماه هشتم · خرداد ۱۴۰۶",
+   "p": 0.72,
+   "mood": "low",
+   "narration": "خرداد. ماهی که هیچی نمی‌شه. سه شیفت شب پشت هم، پی‌آر توی صف. اپ رو باز نمی‌کنی. هیچ‌چیز هم نمی‌شکنه. این ماه رو از قبل توی تقویم بنویس.",
+   "params": {
+    "kicker": "ماه هشتم · خرداد ۱۴۰۶",
+    "lines": [
+     "ماهی که *هیچی* نشد.",
+     "سه شیفت شب پشت هم.",
+     "هیچ نقدی. هیچ خبری. هیچ‌چیز هم نشکست."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/19_nothing.mp3",
+   "tts_dur": 15.04,
+   "tts_lead": 0.6,
+   "dur": 17.04
+  },
+  {
+   "id": "apkmap",
+   "type": "map",
+   "year": 0.75,
+   "date": "ماه نهم · تیر ۱۴۰۶",
+   "p": 0.7,
+   "mood": "build",
+   "narration": "تیر. ای‌پی‌کی رو روی سایتت می‌ذاری. یه کانال تلگرامی لینکش رو می‌ذاره: پونصد نصب از ایران در دو هفته، رایگان. قبض هوش مصنوعی نمی‌پره، چون سقف داشتی.",
+   "params": {
+    "title": "تیر ۱۴۰۶ · ای‌پی‌کی رفت",
+    "nodes": [
+     {
+      "name": "می‌سی‌ساگا",
+      "sub": "باشگاه خودت",
+      "x": 300,
+      "y": 560,
+      "r": 18
+     },
+     {
+      "name": "تورنتو",
+      "x": 470,
+      "y": 470,
+      "r": 14
+     },
+     {
+      "name": "نورث‌یورک",
+      "sub": "مربی دوم",
+      "x": 560,
+      "y": 360,
+      "r": 14
+     },
+     {
+      "name": "ریچموندهیل",
+      "sub": "مربی سوم",
+      "x": 660,
+      "y": 260,
+      "r": 12
+     },
+     {
+      "name": "ونکوور",
+      "sub": "یه نقد ۵ ستاره",
+      "x": 130,
+      "y": 260,
+      "r": 12,
+      "color": "#4DA3FF"
+     },
+     {
+      "name": "تهران",
+      "sub": "ای‌پی‌کی رایگان · هوش مصنوعی خاموش",
+      "x": 790,
+      "y": 790,
+      "r": 14,
+      "color": "#A78BFA"
+     }
+    ],
+    "edges": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "caption": "پونصد نصب از یه کانال تلگرامی، در دو هفته"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/20_apkmap.mp3",
+   "tts_dur": 14.25,
+   "tts_lead": 0.6,
+   "dur": 16.25
+  },
+  {
+   "id": "review5",
+   "type": "quote",
+   "year": 0.83,
+   "date": "ماه دهم · مرداد ۱۴۰۶",
+   "p": 0.69,
+   "mood": "warm",
+   "narration": "مرداد. سه ریلز پونزده ثانیه‌ای، هر بار یک پیام: کاغذ رفیق، اسکن، تعجب خودش. یکی‌شون چهارده هزار بازدید. و اولین پنج ستاره از یه غریبه در ونکوور.",
+   "params": {
+    "text": "بالاخره یه اپ که برنامه‌ی دست‌نویس مربی‌م رو می‌فهمه. مربی‌م هم الان ازش استفاده می‌کنه.",
+    "author": "— یه غریبه، ونکوور",
+    "source": "Google Play · ★ ۵",
+    "stars": 5,
+    "caption": "بعد از سه ریلز ۱۵ ثانیه‌ای"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/21_review5.mp3",
+   "tts_dur": 15.38,
+   "tts_lead": 0.6,
+   "dur": 17.38
+  },
+  {
+   "id": "year1",
+   "type": "year",
+   "year": 1,
+   "date": "مهر ۱۴۰۶ · یک سال",
+   "p": 0.67,
+   "mood": "triumph",
+   "narration": "یک سال. هزار و ششصد نصب، سه مربی، بیست و چهار مشترک. اولین ماه سود: شصت و پنج دلار. و توی یه مصاحبه، ریکروتر درباره‌ی اپ می‌پرسه.",
+   "params": {
+    "year": 1,
+    "label": "سال",
+    "headline": "اولین سود: *۶۵ دلار*. و یه خط تازه توی رزومه.",
+    "tiles": [
+     {
+      "value": 1600,
+      "label": "نصب گوگل‌پلی",
+      "color": "mint"
+     },
+     {
+      "value": 125,
+      "prefix": "$",
+      "label": "درآمد ماهانه (CAD)",
+      "color": "amber"
+     },
+     {
+      "value": 3,
+      "label": "مربی · ۲۴ مشترک",
+      "color": "blue"
+     },
+     {
+      "value": 67,
+      "suffix": "٪",
+      "label": "احتمال اینکه هنوز تو مسیری",
+      "color": "red"
+     }
+    ],
+    "lines": [
+     "هزار و دویست ای‌پی‌کی بیرون از پلی.",
+     "یه ریکروتر توی مصاحبه *دقیقاً* درباره‌ی اپ می‌پرسه."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/22_year1.mp3",
+   "tts_dur": 13.82,
+   "tts_lead": 0.6,
+   "dur": 15.82
+  },
+  {
+   "id": "ch3",
+   "type": "chapter",
+   "year": 1.05,
+   "date": "۱۴۰۶ تا ۱۴۰۸",
+   "p": 0.67,
+   "mood": "quiet",
+   "narration": "",
+   "params": {
+    "num": 3,
+    "label": "فصل",
+    "title": "سال دوم و سوم",
+    "sub": "خستگی، وضوح، مربی‌ها"
+   },
+   "min_dur": 4.5,
+   "dur": 4.5
+  },
+  {
+   "id": "interview",
+   "type": "text",
+   "year": 1.25,
+   "date": "آذر ۱۴۰۶",
+   "p": 0.65,
+   "mood": "hopeful",
+   "narration": "آذر. برای یه نقش ولیدیشن با شیفت روز اپلای می‌کنی. وسط مصاحبه، اسکن رو زنده نشون می‌دی. چهل و پنج درصد. اگه نشد، سال بعد دوباره.",
+   "params": {
+    "kicker": "آذر ۱۴۰۶",
+    "lines": [
+     "مصاحبه برای شیفت روز.",
+     "دموی زنده‌ی اسکن، وسط مصاحبه.",
+     "احتمال قبولی: *۴۵٪*."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/24_interview.mp3",
+   "tts_dur": 14.2,
+   "tts_lead": 0.6,
+   "dur": 16.2
+  },
+  {
+   "id": "tired",
+   "type": "low",
+   "year": 1.5,
+   "date": "اسفند ۱۴۰۶",
+   "p": 0.62,
+   "mood": "low",
+   "narration": "اسفند. خسته‌ای. پروژه می‌شه چهار ساعت در هفته. یه اپ بزرگ انگلیسی ایمپورت از عکس رو اضافه می‌کنه. سه هفته دست نمی‌زنی. قانون: کم کن، ول نکن.",
+   "params": {
+    "time": "23:30",
+    "timeLabel": "بعد از دومین زمستان",
+    "lines": [
+     "خسته‌ای.",
+     "ساعت پروژه: *۴ ساعت* در هفته.",
+     "قانون: کم کن، ~ول نکن~."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/25_tired.mp3",
+   "tts_dur": 15.72,
+   "tts_lead": 0.6,
+   "dur": 17.72
+  },
+  {
+   "id": "threeweeks",
+   "type": "timeline",
+   "year": 1.75,
+   "date": "خرداد ۱۴۰۷",
+   "p": 0.61,
+   "mood": "quiet",
+   "narration": "",
+   "params": {
+    "title": "آزمون سه هفته",
+    "items": [
+     {
+      "text": "سه هفته کامل دست نمی‌زنی",
+      "state": "done"
+     },
+     {
+      "text": "هیچ‌چیز نمی‌شکنه",
+      "sub": "محصول بالغ شده",
+      "state": "done"
+     },
+     {
+      "text": "مربی‌ها خودشون شاگرد اضافه می‌کنن",
+      "state": "done"
+     },
+     {
+      "text": "پی‌آر · نزدیک",
+      "sub": "برآورد ۵۵٪ تا این‌جا",
+      "state": "now"
+     }
+    ]
+   },
+   "min_dur": 8,
+   "dur": 8.0
+  },
+  {
+   "id": "mrrchart",
+   "type": "chart",
+   "year": 2,
+   "date": "مهر ۱۴۰۷ · دو سال",
+   "p": 0.6,
+   "mood": "build",
+   "narration": "دو سال. خرج: چهار هزار و پونصد دلار. درآمد: دو هزار و نهصد. ادامه می‌دی، چون رزومه‌ت رو عوض کرده، نه چون پول می‌ده.",
+   "params": {
+    "title": "درآمد ماهانه · CAD",
+    "sub": "دو سال اول · میانه‌ی شبیه‌سازی",
+    "points": [
+     0,
+     0,
+     0,
+     0,
+     20,
+     30,
+     40,
+     45,
+     60,
+     75,
+     105,
+     125,
+     140,
+     150,
+     160,
+     185,
+     210,
+     225,
+     235,
+     245,
+     255,
+     260
+    ],
+    "xlabels": [
+     "ماه ۱",
+     "ماه ۶",
+     "ماه ۱۲",
+     "ماه ۱۸",
+     "ماه ۲۴"
+    ],
+    "color": "#FFB020",
+    "valuePrefix": "$",
+    "caption": "خرج دو سال: ۴٬۵۰۰ · درآمد: ۲٬۹۰۰"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/27_mrrchart.mp3",
+   "tts_dur": 12.21,
+   "tts_lead": 0.6,
+   "dur": 14.21
+  },
+  {
+   "id": "coachdm",
+   "type": "chat",
+   "year": 2.5,
+   "date": "فروردین ۱۴۰۸",
+   "p": 0.59,
+   "mood": "warm",
+   "narration": "فروردین هزار و چهارصد و هشت. یه مربی ایرانی در نورث‌یورک بیست شاگردش رو می‌آره و داشبورد می‌خواد. می‌سازی: کی زد، کی نزد، کی وزنه رو بالا برد.",
+   "params": {
+    "title": "مربی · نورث‌یورک",
+    "sub": "دایرکت اینستاگرام",
+    "messages": [
+     {
+      "from": "مربی",
+      "text": "سلام. ۲۰ تا شاگرد دارم، همه رو آوردم رو وزنه. یه جایی می‌خوام ببینم کی زد، کی نزد."
+     },
+     {
+      "me": true,
+      "text": "یه داشبورد ساده می‌سازم: کی زد، کی نزد، کی وزنه رو بالا برد. دوشنبه صبح خلاصه می‌آد."
+     },
+     {
+      "from": "مربی",
+      "text": "عالیه. ماهی چند؟"
+     },
+     {
+      "me": true,
+      "text": "۹٫۹۹. شاگردها رایگان."
+     }
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/28_coachdm.mp3",
+   "tts_dur": 13.15,
+   "tts_lead": 0.6,
+   "dur": 15.15
+  },
+  {
+   "id": "year3",
+   "type": "year",
+   "year": 3,
+   "date": "مهر ۱۴۰۸ · سه سال",
+   "p": 0.58,
+   "mood": "warm",
+   "narration": "سه سال. نه مربی، هفتاد مشترک، چهارصد و سی دلار در ماه. مک و آی‌او‌اس رو می‌سنجی و می‌گی: نه، هنوز نه. پی‌آر گرفتی. اولین پس‌انداز واقعی.",
+   "params": {
+    "year": 3,
+    "label": "سال",
+    "headline": "نه به آی‌او‌اس. *هنوز نه.*",
+    "tiles": [
+     {
+      "value": 5200,
+      "label": "نصب پلی · ۴٬۰۰۰ ای‌پی‌کی",
+      "color": "mint"
+     },
+     {
+      "value": 430,
+      "prefix": "$",
+      "label": "درآمد ماهانه (CAD)",
+      "color": "amber"
+     },
+     {
+      "value": 9,
+      "label": "مربی · ۷۰ مشترک",
+      "color": "blue"
+     },
+     {
+      "value": 58,
+      "suffix": "٪",
+      "label": "احتمال اینکه هنوز تو مسیری",
+      "color": "red"
+     }
+    ],
+    "lines": [
+     "پی‌آر گرفتی (برآورد ۷۰٪).",
+     "اولین پس‌انداز واقعی، از شغل روز؛ باشگاه پنج روز هفته."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/29_year3.mp3",
+   "tts_dur": 14.95,
+   "tts_lead": 0.6,
+   "dur": 16.95
+  },
+  {
+   "id": "ch4",
+   "type": "chapter",
+   "year": 3.1,
+   "date": "۱۴۰۹ تا ۱۴۱۵",
+   "p": 0.58,
+   "mood": "quiet",
+   "narration": "",
+   "params": {
+    "num": 4,
+    "label": "فصل",
+    "title": "سال چهارم تا دهم",
+    "sub": "بازدهی که تو پلی‌کنسول نیست"
+   },
+   "min_dur": 4.5,
+   "dur": 4.5
+  },
+  {
+   "id": "newrole",
+   "type": "text",
+   "year": 4,
+   "date": "سال ۴ · ۱۴۰۹",
+   "p": 0.57,
+   "mood": "triumph",
+   "narration": "سال چهارم. با پورتفولیوی وزنه و سی‌ای‌پی‌ام به نقش ولیدیشن و فرایند دیجیتال می‌رسی. حقوق پونزده تا بیست و پنج هزار بالاتر. این بزرگ‌ترین بازده وزنه‌ست. بی‌سروصدا.",
+   "params": {
+    "kicker": "سال ۴ · ۱۴۰۹",
+    "lines": [
+     "با پورتفولیوی وزنه و سی‌ای‌پی‌ام:",
+     "*Validation / Digital Process Specialist*",
+     "حقوق: ۱۵ تا ۲۵ هزار بالاتر."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/31_newrole.mp3",
+   "tts_dur": 16.7,
+   "tts_lead": 0.6,
+   "dur": 18.7
+  },
+  {
+   "id": "iosfork",
+   "type": "decision",
+   "year": 4.2,
+   "date": "سال ۴ · دوراهی",
+   "p": 0.57,
+   "mood": "tense",
+   "narration": "دوراهی آی‌او‌اس. چهل درصد می‌سازی، شصت درصد اندروید می‌مونی. هیچ‌کدوم اشتباه نیست. فقط یکی سقف بالاتری داره.",
+   "params": {
+    "kicker": "سال ۴ · دوراهی آی‌او‌اس",
+    "question": "مک بخری و بازسازی کراس‌پلتفرم کنی؟",
+    "options": [
+     {
+      "text": "می‌سازی: ۱٬۵۰۰ دلار، سه ماه درد، مشترک ۳۰ تا ۵۰٪ بالاتر",
+      "p": 0.4,
+      "chosen": true,
+      "tag": "اگه مربی‌ها بخوان"
+     },
+     {
+      "text": "اندروید می‌مونی: آرام‌تر، سقف ۵۰۰ دلار در ماه",
+      "p": 0.6
+     }
+    ],
+    "caption": "شبیه‌سازی هر دو رو زنده نگه می‌داره"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/32_iosfork.mp3",
+   "tts_dur": 11.66,
+   "tts_lead": 0.6,
+   "dur": 13.66
+  },
+  {
+   "id": "y5to7",
+   "type": "montage",
+   "year": 6,
+   "date": "سال ۵ تا ۷",
+   "p": 0.56,
+   "mood": "build",
+   "narration": "سال پنجم، اولین مشاوره: سه هزار دلار. سال ششم، یه اپ بزرگ فارسی می‌شه؛ تو رقابت نمی‌کنی. سال هفتم، پیشنهاد خرید ده تا بیست هزار. نگهش می‌داری.",
+   "params": {
+    "kicker": "سال ۵ تا ۷",
+    "items": [
+     {
+      "date": "سال ۵",
+      "text": "اولین مشاوره: درفت SOP با ایجنت‌ها · ۳ هزار دلار",
+      "tone": "good"
+     },
+     {
+      "date": "سال ۶",
+      "text": "یه اپ بزرگ فارسی می‌شه. رقابت نمی‌کنی.",
+      "tone": "bad"
+     },
+     {
+      "date": "سال ۶",
+      "text": "ریزش ۲۰٪ · ۳ تا ۴ ساعت در هفته"
+     },
+     {
+      "date": "سال ۷",
+      "text": "پیشنهاد خرید ۱۰ تا ۲۰ هزار. نه.",
+      "tone": "good"
+     },
+     {
+      "date": "سال ۷",
+      "text": "شهروند کانادا (برآورد)"
+     }
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/33_y5to7.mp3",
+   "tts_dur": 14.97,
+   "tts_lead": 0.6,
+   "dur": 16.97
+  },
+  {
+   "id": "y8",
+   "type": "counter",
+   "year": 8,
+   "date": "سال ۸ · ۱۴۱۳",
+   "p": 0.56,
+   "mood": "warm",
+   "narration": "سال هشتم. سرپرست ولیدیشن. وزنه رو مثل یه باغچه نگه می‌داری: آپدیت فصلی، بانک حرکت، دو سه ساعت در هفته.",
+   "params": {
+    "kicker": "سال ۸",
+    "items": [
+     {
+      "value": 105000,
+      "prefix": "$",
+      "label": "حقوق سالانه · سرپرست ولیدیشن (برآورد)",
+      "color": "mint"
+     },
+     {
+      "value": 500,
+      "prefix": "$",
+      "label": "درآمد ماهانه‌ی وزنه",
+      "color": "amber"
+     }
+    ],
+    "caption": "وزنه مثل یه *باغچه*: آپدیت فصلی، بانک حرکت"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/34_y8.mp3",
+   "tts_dur": 11.04,
+   "tts_lead": 0.6,
+   "dur": 13.04
+  },
+  {
+   "id": "y9map",
+   "type": "map",
+   "year": 9,
+   "date": "سال ۹ · ۱۴۱۴",
+   "p": 0.55,
+   "mood": "warm",
+   "narration": "سال نهم. حساب می‌کنی: کل درآمد وزنه در طول عمرش سی و پنج تا پنجاه و پنج هزار دلار. و مسیر شغلی‌ای که بدون این ویترین سه تا پنج سال دیرتر می‌رسید.",
+   "params": {
+    "title": "حساب عمر",
+    "nodes": [
+     {
+      "name": "شغل",
+      "sub": "۹۵ تا ۱۲۰ هزار در سال",
+      "x": 460,
+      "y": 300,
+      "r": 22,
+      "color": "#2FD58F"
+     },
+     {
+      "name": "وزنه",
+      "sub": "۳۵ تا ۵۵ هزار در کل عمر",
+      "x": 290,
+      "y": 570,
+      "r": 16
+     },
+     {
+      "name": "مشاوره",
+      "sub": "سالی ۳ تا ۸ هزار",
+      "x": 650,
+      "y": 570,
+      "r": 12,
+      "color": "#4DA3FF"
+     },
+     {
+      "name": "بچه‌های باشگاه",
+      "sub": "هنوز اپ رو دارن",
+      "x": 470,
+      "y": 810,
+      "r": 12,
+      "color": "#A78BFA"
+     }
+    ],
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      2,
+      0
+     ],
+     [
+      3,
+      1
+     ]
+    ],
+    "caption": "یکی از شاگردهای مربی اول، حالا خودش مربیه"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/35_y9map.mp3",
+   "tts_dur": 13.51,
+   "tts_lead": 0.6,
+   "dur": 15.51
+  },
+  {
+   "id": "year10",
+   "type": "year",
+   "year": 10,
+   "date": "۱۴۱۵ · ده سال",
+   "p": 0.55,
+   "mood": "end",
+   "narration": "ده سال از اون هفته‌ی مهر. وزنه هنوز روی پلی هست. لاگ‌کردن هنوز رایگان. هنوز کاغذ مربی رو می‌خونه. هیچ‌وقت کارت رو ول نکردی، و لازم هم نبود.",
+   "params": {
+    "year": 10,
+    "label": "سال",
+    "headline": "هنوز *زیر وزنه*.",
+    "tiles": [
+     {
+      "value": 65,
+      "suffix": "٪",
+      "label": "احتمال زنده‌بودن اپ",
+      "color": "mint"
+     },
+     {
+      "value": 500,
+      "prefix": "$",
+      "label": "درآمد ماهانه (۳۰۰ تا ۷۰۰)",
+      "color": "amber"
+     },
+     {
+      "value": 15000,
+      "label": "نصب کل (۱۲ تا ۱۸ هزار)",
+      "color": "blue"
+     },
+     {
+      "value": 0,
+      "label": "باری که مجبور شدی زمین بذاری",
+      "color": "red"
+     }
+    ],
+    "lines": [
+     "هیچ‌وقت کارت رو ول نکردی. لازم هم نبود.",
+     "آرام، بی‌بدهی، هفته‌ای سه بار باشگاه."
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/36_year10.mp3",
+   "tts_dur": 15.4,
+   "tts_lead": 0.6,
+   "dur": 17.4
+  },
+  {
+   "id": "ch5",
+   "type": "chapter",
+   "year": 10,
+   "date": "صبح · مهر ۱۴۰۵",
+   "p": null,
+   "mood": "quiet",
+   "narration": "",
+   "params": {
+    "num": 5,
+    "label": "فصل",
+    "title": "صبح",
+    "sub": "دوباره می‌سی‌ساگا"
+   },
+   "min_dur": 4,
+   "dur": 4.0
+  },
+  {
+   "id": "outcome",
+   "type": "chart",
+   "year": 10,
+   "date": "توزیع نتیجه",
+   "p": null,
+   "mood": "quiet",
+   "narration": "و صادقانه: سی و پنج درصد این مسیر می‌میره. چهل و هشت درصد یه درآمد جانبی آرومه. چهارده درصد یه شرکت کوچک. سه درصد چیزی بزرگ‌تر.",
+   "params": {
+    "title": "این مسیر در سال ۱۰ چطور تموم می‌شه؟",
+    "sub": "توزیع نتیجه · ۱۲ شبیه‌سازی و ۴ داور",
+    "kind": "bar",
+    "points": [
+     35,
+     48,
+     14,
+     3
+    ],
+    "xlabels": [
+     "مُرده",
+     "درآمد جانبی",
+     "شرکت کوچک",
+     "مقیاس بزرگ"
+    ],
+    "ymax": 60,
+    "color": "#FFB020",
+    "caption": "صادقانه: *هیچ‌کدوم* تضمینی نیست"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/38_outcome.mp3",
+   "tts_dur": 13.32,
+   "tts_lead": 0.6,
+   "dur": 15.32
+  },
+  {
+   "id": "kill",
+   "type": "text",
+   "year": 10,
+   "date": "خط قرمزها",
+   "p": null,
+   "mood": "tense",
+   "narration": "سه خط قرمز. روز چهارده، زیر دوازده نفر: از شاگردهای یه مربی بگیر. ماه شش، زیر صد نفر فعال: فقط نگه‌داری. سه ماه صفر ساعت: تصمیم بگیر.",
+   "params": {
+    "kicker": "معیارهای توقف",
+    "kickerColor": "red",
+    "lines": [
+     "روز ۱۴: زیر ۱۲ نفر؟ از شاگردهای یه مربی بگیر.",
+     "ماه ۶: زیر ۱۰۰ نفر فعال و هیچ مربی؟ فقط نگه‌داری.",
+     "سه ماه صفر ساعت؟ ~تصمیم بگیر~، رها نکن."
+    ],
+    "size": "small"
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/39_kill.mp3",
+   "tts_dur": 15.24,
+   "tts_lead": 0.6,
+   "dur": 17.24
+  },
+  {
+   "id": "thisweek",
+   "type": "checklist",
+   "year": 10,
+   "date": "این هفته",
+   "p": null,
+   "mood": "hopeful",
+   "narration": "همه‌ی ده سال از همین هفته شروع می‌شه. یکشنبه شب حساب. دوشنبه بریف. سه‌شنبه شب باشگاه. چهارشنبه شمارنده. و یه اسلات ثابت توی تقویم.",
+   "params": {
+    "title": "این هفته",
+    "items": [
+     {
+      "text": "یکشنبه شب: حساب Google Play · ۲۵ دلار",
+      "sub": "ده دقیقه",
+      "state": "now"
+     },
+     {
+      "text": "دوشنبه: بریف با دو قانون آهنین",
+      "sub": "بک‌آپ قبل از مایگریشن · سقف هوش مصنوعی",
+      "state": "next"
+     },
+     {
+      "text": "سه‌شنبه شب: باشگاه، یکی دو مربی، ۱۲ تا ۱۵ تستر",
+      "state": "next"
+     },
+     {
+      "text": "چهارشنبه: آپلود تست بسته · شمارنده‌ی ۱۴ روز",
+      "state": "next"
+     },
+     {
+      "text": "شنبه: اولین ریلز ۱۵ ثانیه‌ای · هنوز پست نکن",
+      "state": "next"
+     },
+     {
+      "text": "هر هفته: ۴ تا ۷ ساعت ثابت توی تقویم",
+      "state": "next"
+     }
+    ]
+   },
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/40_thisweek.mp3",
+   "tts_dur": 15.09,
+   "tts_lead": 0.6,
+   "dur": 17.09
+  },
+  {
+   "id": "end",
+   "type": "end",
+   "year": 10,
+   "date": "مهر ۱۴۰۵",
+   "p": null,
+   "mood": "end",
+   "narration": "تو خوابیدی، و من ده سالت رو زندگی کردم. هیچ‌کدومش تضمینی نیست. ولی همه‌ش از یه سه‌شنبه شب توی باشگاه شروع می‌شه. صبح بخیر، مهرداد.",
+   "params": {
+    "title": "وزنه",
+    "lines": [
+     "تو خوابیدی، و من ده سالت رو زندگی کردم.",
+     "هیچ‌کدومش تضمینی نیست.",
+     "ولی همه‌ش از *سه‌شنبه شب* توی باشگاه شروع می‌شه."
+    ],
+    "small": [
+     "شبیه‌سازی ۱۲ مسیر · ۴ داور · ۱ انتخاب",
+     "مهرداد خانی · می‌سی‌ساگا · مهر ۱۴۰۵"
+    ]
+   },
+   "min_dur": 13,
+   "tts": "/tmp/claude-0/-home-user-MehrdadKhani-com/2c87d99a-5833-5f75-988a-c3d828682ea5/scratchpad/out/final/build/narration/41_end.mp3",
+   "tts_dur": 13.32,
+   "tts_lead": 0.6,
+   "dur": 15.32
+  }
+ ],
+ "notes_fa": "ژانر: درام زندگی‌نامه‌ای. قاب: تو خوابیدی و من ده سالت رو زندگی کردم. پنج فصل. اعداد فقط از خط زمانی اصلی.",
+ "fps": 30
+}

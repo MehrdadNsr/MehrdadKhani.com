@@ -42,8 +42,8 @@ PROG_TRIUMPH = ["F", "C", "Dm", "Bb"]     # III - VII - i - VI (major lift)
 PROG_SPARSE = ["Dm", "Bb"]                # i - VI
 
 # Relative layer levels (pre-master; the master normalises the integrated RMS afterwards)
-LEVEL = dict(pad=0.05, bass=0.045, pluck=0.10, shimmer=0.012, kick=0.17, boom=0.22,
-             hat=0.05, riser=0.06, swell=0.14, wet=0.30)
+LEVEL = dict(pad=0.06, bass=0.045, pluck=0.11, shimmer=0.014, kick=0.08, boom=0.14,
+             hat=0.015, riser=0.05, swell=0.10, wet=0.34)
 
 ARP_A = [0, 2, 3, 2, 1, 2, 4, 3]
 ARP_B = [0, 2, 3, 2, 1, 3, 4, 3]
