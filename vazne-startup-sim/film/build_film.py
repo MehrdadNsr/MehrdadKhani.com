@@ -83,7 +83,23 @@ if '--stills-only' in a:
 if '--skip-render' in a: sys.exit(0)
 # 3) render silent master
 silent = os.path.join(out, 'vazne-10-years-SILENT-1080x1920.mp4')
-subprocess.check_call(['node', os.path.join(HERE,'render.js'), timed, silent, '--fps', str(FPS), '--jpegq', str(JQ)], env=ENV)
+PAR = int(opt('--parallel', '3')); fps_i = int(FPS)
+if PAR <= 1:
+    subprocess.check_call(['node', os.path.join(HERE,'render.js'), timed, silent, '--fps', str(FPS), '--jpegq', str(JQ)], env=ENV)
+else:
+    # split on exact frame boundaries, render segments concurrently, concat losslessly
+    nframes = round(total * fps_i); bounds = [round(i * nframes / PAR) for i in range(PAR + 1)]
+    segs = []; procs = []
+    for i in range(PAR):
+        f0, f1 = bounds[i], bounds[i+1]; seg = os.path.join(out, f'seg_{i}.mp4'); segs.append(seg)
+        logf = open(os.path.join(out, f'seg_{i}.log'), 'w')
+        procs.append(subprocess.Popen(['node', os.path.join(HERE,'render.js'), timed, seg, '--fps', str(FPS), '--jpegq', str(JQ), '--from', repr(f0 / fps_i), '--to', repr(f1 / fps_i)], env=ENV, stdout=logf, stderr=subprocess.STDOUT))
+    rc = [p.wait() for p in procs]
+    print('segment exit codes', rc)
+    if any(rc): sys.exit('segment render failed')
+    lst = os.path.join(out, 'segs.txt'); open(lst, 'w').write(''.join(f"file '{s}'\n" for s in segs))
+    subprocess.check_call([FF, '-y', '-hide_banner', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', '-movflags', '+faststart', silent])
+    print('concatenated', PAR, 'segments →', silent)
 # 4) mux narration + music
 full = os.path.join(out, 'vazne-10-years-NARRATED-1080x1920.mp4')
 subprocess.check_call(['python3', os.path.join(HERE,'mux.py'), timed, silent, music if os.path.exists(music) else 'none', full])

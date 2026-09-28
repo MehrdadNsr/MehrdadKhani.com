@@ -2,7 +2,8 @@
 <html dir="rtl" lang="fa">
 <head>
 <meta charset="utf-8">
-<title>Vazne — 10 Year Simulation</title>
+<title>وزنه — فیلم مسیر ده‌ساله</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <style>
 @font-face{font-family:'Vazir';src:url('fonts/Vazirmatn-Regular.ttf');font-weight:400}
 @font-face{font-family:'Vazir';src:url('fonts/Vazirmatn-Medium.ttf');font-weight:500}
@@ -17,8 +18,8 @@
   --amber:#FFB020; --mint:#2FD58F; --red:#FF4D5E; --blue:#4DA3FF; --violet:#A78BFA;
   --card:#121720; --card2:#171d28; --line:#232b38;
 }
-html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:var(--fg);font-family:'Vazir',sans-serif;direction:rtl}
-#stage{position:absolute;inset:0;overflow:hidden}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--fg);font-family:'Vazir',sans-serif;direction:rtl}
+#stage{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:hidden;transform-origin:top left}
 #bg{position:absolute;inset:0;background:var(--bg)}
 #blobA,#blobB{position:absolute;width:1800px;height:1800px;border-radius:50%;opacity:.7;will-change:transform;background:radial-gradient(circle at center,var(--blob,#1b2a44) 0%,rgba(0,0,0,0) 62%)}
 #grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:120px 120px;mask-image:radial-gradient(ellipse at center,rgba(0,0,0,.9),rgba(0,0,0,0) 75%);-webkit-mask-image:radial-gradient(ellipse at center,rgba(0,0,0,.9),rgba(0,0,0,0) 75%)}
@@ -254,5 +255,6 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:
 </div>
 <script src="engine.js"></script>
 <script src="templates.js"></script>
+<script src="player.js"></script>
 </body>
 </html>
