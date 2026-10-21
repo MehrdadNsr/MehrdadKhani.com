@@ -165,7 +165,7 @@ async function antibody(host) {
   return ({ t, progress, pointer, drag }) => {
     // wide screens: keep the molecule in the right third, clear of the copy;
     // narrow screens: centre it behind the stacked layout
-    const targetX = host.camera.aspect < 0.9 ? 0.2 : host.camera.aspect < 1.25 ? 1.3 : 2.7;
+    const targetX = host.camera.aspect < 0.9 ? 1.3 : host.camera.aspect < 1.25 ? 1.3 : 2.7;
     mol.position.x = lerp(mol.position.x, targetX, 0.08);
     mol.rotation.y = -0.35 + t * 0.12 + progress * 1.6 + drag;
     mol.rotation.x = lerp(mol.rotation.x, base.x + pointer.y * 0.18, 0.05);

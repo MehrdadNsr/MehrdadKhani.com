@@ -147,9 +147,10 @@ body > * { position: relative; z-index: 1; }
 .nav-links a { font-size: 0.9rem; color: var(--text-2); padding: 0.3rem 0; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
 .nav-links a:hover, .nav-links a.active { color: var(--text); border-color: var(--red); }
 .nav-cta { display: flex; align-items: center; gap: 0.6rem; }
-.nav-toggle { display: none; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line-strong); background: transparent; color: var(--text); cursor: pointer; }
+.nav-toggle { display: none; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line-strong); background: rgba(11, 14, 16, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--text); cursor: pointer; }
 .nav-toggle svg { width: 20px; height: 20px; }
-.icon-btn { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; border: 1px solid var(--line-strong); color: var(--text-2); transition: color 0.3s, border-color 0.3s, transform 0.3s; }
+/* solid enough to read when the hero molecule drifts behind the nav */
+.icon-btn { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; border: 1px solid var(--line-strong); background: rgba(11, 14, 16, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--text-2); transition: color 0.3s, border-color 0.3s, transform 0.3s; }
 .icon-btn:hover { color: var(--text); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
 .icon-btn svg { width: 18px; height: 18px; }
 
@@ -210,7 +211,7 @@ body > * { position: relative; z-index: 1; }
 
 .photo-card { position: relative; border-radius: var(--radius-lg); padding: 0.6rem; background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)); border: 1px solid var(--line-strong); box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(224, 30, 60, 0.08); transform: rotate(-1.5deg); transition: transform 0.6s var(--ease); }
 .photo-card:hover { transform: rotate(0deg) translateY(-4px); }
-.photo-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: calc(var(--radius-lg) - 6px); }
+.photo-card img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: calc(var(--radius-lg) - 6px); }
 .photo-card::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; background: linear-gradient(135deg, rgba(224, 30, 60, 0.6), transparent 40%, transparent 60%, rgba(255, 255, 255, 0.25)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 .photo-badge { position: absolute; left: 1rem; bottom: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.7rem; border-radius: 999px; background: rgba(11, 14, 16, 0.78); border: 1px solid var(--line-strong); backdrop-filter: blur(10px); font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); }
 .photo-badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: #35d07f; box-shadow: 0 0 0 0 rgba(53, 208, 127, 0.6); animation: pulse 2.2s infinite; }
@@ -222,9 +223,17 @@ body > * { position: relative; z-index: 1; }
 
 @media (max-width: 900px) {
   .hero { padding-top: 6.5rem; }
-  .hero-inner { grid-template-columns: 1fr; }
-  .photo-card { max-width: 260px; }
-  .hero-scene::after { background: linear-gradient(180deg, rgba(11, 14, 16, 0.75) 0%, rgba(11, 14, 16, 0.45) 40%, var(--bg-0) 100%); }
+  .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  /* On phones the portrait becomes a compact pill: a 96px avatar beside the
+     status, so the name and the first call to action stay above the fold. */
+  .photo-card { display: flex; align-items: center; gap: 0.9rem; width: fit-content; max-width: 100%; padding: 0.4rem 1.1rem 0.4rem 0.4rem; border-radius: 999px; transform: none; }
+  .photo-card:hover { transform: none; }
+  .photo-card img { width: 96px; height: 96px; flex: none; border-radius: 50%; }
+  .photo-badge { position: static; padding: 0; border: 0; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; font-size: 0.7rem; }
+  .hero-copy h1 { font-size: clamp(2.9rem, 15vw, 4.2rem); }
+  .hero-scene::after { background: linear-gradient(180deg, rgba(11, 14, 16, 0.82) 0%, rgba(11, 14, 16, 0.7) 50%, var(--bg-0) 100%); }
+  /* phones: the molecule is a backdrop, not a co-star; keep the copy readable */
+  .hero-scene.is-rendered canvas { opacity: 0.55; }
   .hero-scene .scene-hint { display: none; }
   .hero-watermark { display: none; }
 }
