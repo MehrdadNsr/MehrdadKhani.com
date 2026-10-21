@@ -1,0 +1,12 @@
+{
+  "name": "mehrdadkhani.com",
+  "private": true,
+  "description": "Static site. The only build step bundles the three.js scenes into assets/scene.js.",
+  "scripts": {
+    "build:scene": "esbuild assets/scene-src.js --bundle --minify --format=esm --target=es2020 --outfile=assets/scene.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.24.0",
+    "three": "0.170.0"
+  }
+}

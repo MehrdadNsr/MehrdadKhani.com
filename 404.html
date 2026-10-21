@@ -1,86 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://challenges.cloudflare.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
-  <!-- Applied before first paint: prevents a theme flash and un-hides content when JS runs. -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E50PFBPNTZ"></script>
   <script>
-    (function () {
-      var root = document.documentElement;
-      root.classList.add('js');
-      try {
-        var saved = localStorage.getItem('theme');
-        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        if (saved === 'light' || (!saved && prefersLight)) {
-          root.setAttribute('data-theme', 'light');
-        }
-      } catch (e) {}
-    })();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E50PFBPNTZ');
   </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://challenges.cloudflare.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0e10">
+  <script>document.documentElement.classList.add('js');</script>
   <title>Page Not Found | Mehrdad Khani</title>
   <link rel="icon" type="image/png" href="images/favicon.png?v=4">
   <link rel="apple-touch-icon" href="images/favicon.png?v=4">
   <meta name="description" content="The page you were looking for could not be found on mehrdadkhani.com.">
-  <meta name="robots" content="noindex, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Page Not Found | Mehrdad Khani">
+  <meta property="og:description" content="The page you were looking for could not be found on mehrdadkhani.com.">
+  <meta property="og:image" content="https://mehrdadkhani.com/images/og-home.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://mehrdadkhani.com/404.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mehrdad Khani">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page Not Found | Mehrdad Khani">
+  <meta name="twitter:description" content="The page you were looking for could not be found on mehrdadkhani.com.">
+  <meta name="twitter:image" content="https://mehrdadkhani.com/images/og-home.png?v=1">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <meta name="robots" content="noindex, follow">
 </head>
 <body>
 
-  <nav class="navbar" id="navbar">
-    <a href="/" class="nav-brand" style="text-decoration: none; color: inherit;">Mer Khani</a>
-    <ul class="nav-links">
-      <li><a href="/#about">About</a></li>
-      <li><a href="/#experience">Experience</a></li>
-      <li><a href="/#skills">Skills</a></li>
-      <li><a href="/blog.html">Blog</a></li>
-      <li><a href="/#contact">Contact</a></li>
-      <li>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-      </li>
-    </ul>
-  </nav>
+  <header class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Mehrdad Khani, home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v8M12 13 6 5M12 13l6-8M6 5l-2 2M18 5l2 2"/></svg></span>Mer Khani <small>Bioprocess</small></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a class="icon-btn" href="https://www.linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a class="btn btn-primary" href="Mehrdad_Khani_Resume.pdf" download>Resume</a>
+        <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
 
-  <main class="section" style="min-height: 72vh; display: flex; align-items: center; justify-content: center; padding-top: 8rem;">
-    <div class="glass-card" style="max-width: 620px; text-align: center; padding: 3rem 2rem;">
-      <p style="font-family: 'Outfit', sans-serif; font-size: var(--step-5); font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 0.5rem;">404</p>
-      <h1 class="section-title" style="margin-bottom: 1rem;">Page Not Found</h1>
-      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-        This page has moved or never existed. The links below will get you back on track.
-      </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="/" class="btn-primary">Back to Home</a>
-        <a href="/blog.html" class="btn-primary">Read the Blog</a>
+  <main class="page">
+    <div class="container notfound">
+      <div>
+        <p class="big">404</p>
+        <h1>Page not found</h1>
+        <p style="color:var(--text-2);margin-top:.8rem">This page has moved or never existed. The links below will get you back on track.</p>
+        <div class="actions"><a class="btn btn-primary" href="index.html">Back to home</a><a class="btn" href="blog.html">Read the blog</a></div>
       </div>
     </div>
   </main>
 
-  <footer>
-    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-      <div class="footer-links">
-        <a href="mailto:M.NasrollahKhani@gmail.com" class="footer-link" aria-label="Email">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          <span class="link-text">Email Me</span>
-        </a>
-        <a href="https://linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-          <span class="link-text">LinkedIn</span>
-        </a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v8M12 13 6 5M12 13l6-8M6 5l-2 2M18 5l2 2"/></svg></span>Mer Khani</a>
+          <p>Biotechnologist and downstream purification specialist in Mississauga, Ontario. GMP biomanufacturing, validation and a bit of software.</p>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul><li><a href="index.html#about">About</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="index.html#skills">Skills</a></li><li><a href="blog.html">Blog</a></li><li><a href="index.html#contact">Contact</a></li></ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <ul><li><a href="https://www.linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://github.com/MehrdadNsr" target="_blank" rel="noopener noreferrer">GitHub</a></li><li><a href="https://trafactor.com/" target="_blank" rel="noopener">Trafactor</a></li><li><a href="https://vazne.app/" target="_blank" rel="noopener">Vazne</a></li></ul>
+        </div>
+        <div>
+          <h4>Tools</h4>
+          <ul><li><a href="Mehrdad_Khani_Resume.pdf" download>Resume (PDF)</a></li><li><a href="BioReady-Certificate.pdf" target="_blank" rel="noopener noreferrer">BioReady certificate</a></li><li><a href="pte-email-trainer.html">PTE Email Trainer</a></li></ul>
+        </div>
       </div>
-      <p>&copy; 2026 Mehrdad Khani. All rights reserved.</p>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Mehrdad Khani. All rights reserved.</span>
+        <span class="mono">mehrdadkhani.com</span>
+      </div>
     </div>
   </footer>
-
-  <script src="script.js"></script>
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></button>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

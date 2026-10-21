@@ -7,48 +7,27 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-E50PFBPNTZ');
   </script>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://challenges.cloudflare.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
-  <!-- Applied before first paint: prevents a theme flash and un-hides content when JS runs. -->
-  <script>
-    (function () {
-      var root = document.documentElement;
-      root.classList.add('js');
-      try {
-        var saved = localStorage.getItem('theme');
-        var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-        if (saved === 'light' || (!saved && prefersLight)) {
-          root.setAttribute('data-theme', 'light');
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://challenges.cloudflare.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0e10">
+  <script>document.documentElement.classList.add('js');</script>
   <title>Blog | Mehrdad Khani</title>
   <link rel="icon" type="image/png" href="images/favicon.png?v=4">
   <link rel="apple-touch-icon" href="images/favicon.png?v=4">
-  <meta name="description" content="Articles and insights on Biotechnology, Purification, and Downstream Processing by Mehrdad Khani.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta name="description" content="Technical articles on downstream processing, protein purification, GMP validation and biomanufacturing by Mehrdad Khani.">
   <link rel="canonical" href="https://mehrdadkhani.com/blog.html">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:title" content="Blog | Mehrdad Khani">
-  <meta property="og:description" content="Articles and insights on Biotechnology, Purification, and Downstream Processing by Mehrdad Khani.">
-  <meta property="og:image" content="https://mehrdadkhani.com/images/profile-pic.webp?v=3">
+  <meta property="og:description" content="Technical articles on downstream processing, protein purification, GMP validation and biomanufacturing by Mehrdad Khani.">
+  <meta property="og:image" content="https://mehrdadkhani.com/images/og-home.png?v=1">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://mehrdadkhani.com/blog.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Mehrdad Khani">
@@ -56,16 +35,19 @@
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog | Mehrdad Khani">
-  <meta name="twitter:description" content="Articles and insights on Biotechnology, Purification, and Downstream Processing by Mehrdad Khani.">
-  <meta name="twitter:image" content="https://mehrdadkhani.com/images/profile-pic.webp?v=3">
-  <link rel="stylesheet" href="styles.css">
-  <!-- JSON-LD Structured Data -->
+  <meta name="twitter:description" content="Technical articles on downstream processing, protein purification, GMP validation and biomanufacturing by Mehrdad Khani.">
+  <meta name="twitter:image" content="https://mehrdadkhani.com/images/og-home.png?v=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Blog",
     "@id": "https://mehrdadkhani.com/blog.html",
-    "name": "Mehrdad Khani — Bioprocess & Downstream Blog",
+    "name": "Mehrdad Khani, Bioprocess and Downstream Blog",
     "description": "Technical articles on downstream processing, protein purification, GMP validation and biomanufacturing.",
     "url": "https://mehrdadkhani.com/blog.html",
     "inLanguage": "en",
@@ -81,7 +63,7 @@
         "url": "https://mehrdadkhani.com/post-ai-downstream-mab.html",
         "datePublished": "2026-08-10",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_ai_downstream.webp",
+        "image": "https://mehrdadkhani.com/images/og-ai-downstream-mab.png",
         "articleSection": "Digital Biomanufacturing & AI",
         "author": {
           "@type": "Person",
@@ -94,7 +76,7 @@
         "url": "https://mehrdadkhani.com/post-continuous-chromatography-pat.html",
         "datePublished": "2026-06-18",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_continuous.webp",
+        "image": "https://mehrdadkhani.com/images/og-continuous-chromatography-pat.png",
         "articleSection": "Process Intensification",
         "author": {
           "@type": "Person",
@@ -107,7 +89,7 @@
         "url": "https://mehrdadkhani.com/post-hcp-clearance-biosimilars.html",
         "datePublished": "2026-04-22",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_hcp.webp",
+        "image": "https://mehrdadkhani.com/images/og-hcp-clearance-biosimilars.png",
         "articleSection": "Downstream Purification",
         "author": {
           "@type": "Person",
@@ -120,7 +102,7 @@
         "url": "https://mehrdadkhani.com/post-cleaning-validation-maco.html",
         "datePublished": "2026-02-14",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_cleaning.webp",
+        "image": "https://mehrdadkhani.com/images/og-cleaning-validation-maco.png",
         "articleSection": "GMP & Validation",
         "author": {
           "@type": "Person",
@@ -133,7 +115,7 @@
         "url": "https://mehrdadkhani.com/post-bispecific-antibodies.html",
         "datePublished": "2025-12-04",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_bispecific.webp",
+        "image": "https://mehrdadkhani.com/images/og-bispecific-antibodies.png",
         "articleSection": "Complex Biologics",
         "author": {
           "@type": "Person",
@@ -146,7 +128,7 @@
         "url": "https://mehrdadkhani.com/post-mab-future.html",
         "datePublished": "2025-10-12",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_mab.webp",
+        "image": "https://mehrdadkhani.com/images/og-mab-future.png",
         "articleSection": "Biomanufacturing Trends",
         "author": {
           "@type": "Person",
@@ -159,7 +141,7 @@
         "url": "https://mehrdadkhani.com/post-qbd-biomanufacturing.html",
         "datePublished": "2025-08-18",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_qbd.webp",
+        "image": "https://mehrdadkhani.com/images/og-qbd-biomanufacturing.png",
         "articleSection": "Quality by Design",
         "author": {
           "@type": "Person",
@@ -172,7 +154,7 @@
         "url": "https://mehrdadkhani.com/post-viral-clearance.html",
         "datePublished": "2025-06-05",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_viral.webp",
+        "image": "https://mehrdadkhani.com/images/og-viral-clearance.png",
         "articleSection": "Viral Safety & Filtration",
         "author": {
           "@type": "Person",
@@ -185,7 +167,7 @@
         "url": "https://mehrdadkhani.com/post-tff-scaleup.html",
         "datePublished": "2025-04-10",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_tff.webp",
+        "image": "https://mehrdadkhani.com/images/og-tff-scaleup.png",
         "articleSection": "Filtration & Scale-Up",
         "author": {
           "@type": "Person",
@@ -198,7 +180,7 @@
         "url": "https://mehrdadkhani.com/post-proteina-troubleshooting.html",
         "datePublished": "2025-02-20",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_proteina.webp",
+        "image": "https://mehrdadkhani.com/images/og-proteina-troubleshooting.png",
         "articleSection": "Chromatography & Affinity",
         "author": {
           "@type": "Person",
@@ -211,7 +193,7 @@
         "url": "https://mehrdadkhani.com/post-iex-optimization.html",
         "datePublished": "2025-01-15",
         "dateModified": "2026-08-15",
-        "image": "https://mehrdadkhani.com/images/blog_iex.webp",
+        "image": "https://mehrdadkhani.com/images/og-iex-optimization.png",
         "articleSection": "Downstream Processing",
         "author": {
           "@type": "Person",
@@ -241,177 +223,113 @@
     ]
   }
   </script>
-
-  <style>
-    /* Specific adjustments for the blog page */
-    body {
-      padding-top: 100px; /* Offset for fixed navbar */
-    }
-    .blog-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding: 2rem 1rem;
-    }
-  </style>
 </head>
 <body>
-  
-  <nav class="navbar" id="navbar">
-    <a href="index.html" class="nav-brand" style="text-decoration: none; color: inherit;">Mer Khani</a>
-    <ul class="nav-links">
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#experience">Experience</a></li>
-      <li><a href="index.html#skills">Skills</a></li>
-      <li><a href="blog.html" class="active">Blog</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-      </li>
-    </ul>
-  </nav>
 
-  <main>
-    <div class="container scroll-reveal">
-      <div class="blog-header">
-        <h1 class="section-title">Biotech Blog</h1>
-        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem;">
-          Thoughts, insights, and research on modern biotechnology, purification scale-up, and downstream processing.
-        </p>
+  <header class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Mehrdad Khani, home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v8M12 13 6 5M12 13l6-8M6 5l-2 2M18 5l2 2"/></svg></span>Mer Khani <small>Bioprocess</small></a>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#skills">Skills</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a class="icon-btn" href="https://www.linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
+        <a class="btn btn-primary" href="Mehrdad_Khani_Resume.pdf" download>Resume</a>
+        <button class="nav-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       </div>
-      
-      <div class="blog-grid" style="margin-bottom: 5rem;">
-        <!-- Article -->
-        <a href="post-ai-downstream-mab.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_ai_downstream.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">August 10, 2026</span>
-            <h3 class="blog-title">The Potential of AI in mAb Downstream Processing</h3>
-            <p class="blog-excerpt">Unlocking hybrid mechanistic-neural modeling, real-time peak cutting, and digital twins in biomanufacturing.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-continuous-chromatography-pat.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_continuous.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">June 18, 2026</span>
-            <h3 class="blog-title">Continuous Chromatography & PAT in Biomanufacturing</h3>
-            <p class="blog-excerpt">Exploring multi-column countercurrent chromatography and real-time PAT for process intensification in modern biomanufacturing.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-hcp-clearance-biosimilars.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_hcp.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">April 22, 2026</span>
-            <h3 class="blog-title">Host Cell Protein (HCP) Clearance Bottlenecks</h3>
-            <p class="blog-excerpt">Overcoming hitchhiker HCP impurities and implementing multimodal chromatography in biosimilar workflows.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-cleaning-validation-maco.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_cleaning.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">February 14, 2026</span>
-            <h3 class="blog-title">Cleaning Validation in Multi-Product Facilities</h3>
-            <p class="blog-excerpt">Calculating MACO limits and executing TOC swab/rinse recovery verification in multi-product GMP bioprocess suites.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-bispecific-antibodies.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_bispecific.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">December 04, 2025</span>
-            <h3 class="blog-title">The Rise of Bispecific Antibodies</h3>
-            <p class="blog-excerpt">Modifying downstream purification workflows and multimodal resins to separate complex bispecific homodimer impurities.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-mab-future.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_mab.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">October 12, 2025</span>
-            <h3 class="blog-title">The Future of Monoclonal Antibodies in Canada</h3>
-            <p class="blog-excerpt">Exploring downstream advancements and purification scale-up supporting Canada's expanding biomanufacturing infrastructure.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-qbd-biomanufacturing.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_qbd.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">August 18, 2025</span>
-            <h3 class="blog-title">Implementing Quality by Design (QbD) in Biomanufacturing</h3>
-            <p class="blog-excerpt">Discussing the paradigm shift from empirical testing to designed quality space and critical process parameters in bioprocessing.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-viral-clearance.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_viral.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">June 05, 2025</span>
-            <h3 class="blog-title">Viral Clearance Strategies in Downstream Processing</h3>
-            <p class="blog-excerpt">The importance of orthogonal methods, low pH inactivation, and nanofiltration for viral safety in biomanufacturing.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-tff-scaleup.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_tff.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">April 10, 2025</span>
-            <h3 class="blog-title">Scaling Up Tangential Flow Filtration</h3>
-            <p class="blog-excerpt">Key engineering considerations when transitioning ultrafiltration and diafiltration (UF/DF) from pilot scale to commercial manufacturing.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-proteina-troubleshooting.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_proteina.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">February 20, 2025</span>
-            <h3 class="blog-title">Troubleshooting Protein A Chromatography</h3>
-            <p class="blog-excerpt">A practical guide to identifying and resolving common binding, elution, and resin fouling issues in Protein A capture steps.</p>
-          </div>
-        </a>
-        <!-- Article -->
-        <a href="post-iex-optimization.html" class="blog-card glass-card">
-          <div class="blog-thumbnail" style="background-image: url('images/blog_iex.webp');"></div>
-          <div class="blog-content">
-            <span class="blog-date">January 15, 2025</span>
-            <h3 class="blog-title">Optimizing Ion Exchange (IEX) Chromatography</h3>
-            <p class="blog-excerpt">Strategies for effective aggregate removal, charge variant resolution, and scale-up in IEX chromatography.</p>
-          </div>
-        </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="page-head reveal">
+        <p class="eyebrow"><span class="dot"></span>Writing</p>
+        <h1>Notes from downstream.</h1>
+        <p>Short technical articles on purification, validation and where biomanufacturing is heading. Written from the floor, not the brochure.</p>
+      </div>
+      <div class="posts-grid">
+          <a class="card post-card reveal" href="post-ai-downstream-mab.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g0" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g0)"/><path d="M0 180C60 170 80 60 120 70s60 120 100 110 50-150 90-140 50 90 90 85" fill="none" stroke="#e01e3c" stroke-width="2.5"/><path d="M0 190C70 185 90 120 130 125s60 70 100 65 50-90 90-85 50 60 80 58" fill="none" stroke="#e9e8ea" stroke-width="1.5" opacity=".6"/></svg><span class="mono">Digital Biomanufacturing &amp; AI</span></div>
+            <div class="post-body"><time datetime="2026-08-10">Aug 10, 2026</time><h3>The Potential of Artificial Intelligence in mAb Downstream Processing</h3><p>How Artificial Intelligence and Machine Learning are transforming downstream purification of monoclonal antibodies (mAbs). Mechanistic hybrid modeling, digital twins, and predictive PAT by Mehrdad Khani.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-continuous-chromatography-pat.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g3" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g3)"/><path d="M40 200 200 40l160 160" fill="none" stroke="#e01e3c" stroke-width="2.5"/><path d="M80 200 200 80l120 120" fill="none" stroke="#e9e8ea" stroke-width="1.5" opacity=".5"/><circle cx="200" cy="40" r="6" fill="#e01e3c"/></svg><span class="mono">Process Intensification</span></div>
+            <div class="post-body"><time datetime="2026-06-18">Jun 18, 2026</time><h3>Continuous Chromatography &amp; PAT in Modern Biomanufacturing</h3><p>Explore multi-column continuous chromatography (MCC) and real-time PAT in modern biomanufacturing. Downstream process intensification insights from Mehrdad Khani.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-hcp-clearance-biosimilars.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g4" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g4)"/><g fill="none" stroke="#e9e8ea" stroke-width="1" opacity=".35"><path d="M0 45h400M0 90h400M0 135h400M0 180h400"/></g><path d="M0 150Q100 40 200 150t200 0" fill="none" stroke="#e01e3c" stroke-width="3"/></svg><span class="mono">Downstream Purification</span></div>
+            <div class="post-body"><time datetime="2026-04-22">Apr 22, 2026</time><h3>Overcoming Host Cell Protein (HCP) Clearance Bottlenecks in Biosimilar Processing</h3><p>Advanced strategies for Host Cell Protein (HCP) clearance and residual impurity reduction in biosimilar downstream manufacturing. Insights by Mehrdad Khani.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-cleaning-validation-maco.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g2)"/><g fill="#e9e8ea" opacity=".7"><circle cx="60" cy="80" r="4"/><circle cx="130" cy="150" r="3"/><circle cx="210" cy="60" r="5"/><circle cx="300" cy="120" r="3"/><circle cx="350" cy="50" r="4"/><circle cx="90" cy="190" r="3"/></g><circle cx="200" cy="120" r="34" fill="none" stroke="#e01e3c" stroke-width="3"/><circle cx="200" cy="120" r="12" fill="#e01e3c"/></svg><span class="mono">GMP &amp; Validation</span></div>
+            <div class="post-body"><time datetime="2026-02-14">Feb 14, 2026</time><h3>Cleaning Validation in Multi-Product Biomanufacturing: Calculating MACO &amp; CIP Verification</h3><p>Mastering Cleaning Validation in multi-product biomanufacturing suites. Maximum Allowable Carryover (MACO), TOC recovery studies, and CIP verification by Mehrdad Khani.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-bispecific-antibodies.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g1)"/><g stroke="#e01e3c" stroke-width="2.5" fill="none"><path d="M20 170v-90M60 170v-60M100 170v-110M140 170v-40M180 170v-95M220 170v-70M260 170v-120M300 170v-55M340 170v-85M380 170v-30"/></g><path d="M0 60h400" stroke="#e9e8ea" stroke-width="1" opacity=".35" stroke-dasharray="4 6"/></svg><span class="mono">Complex Biologics</span></div>
+            <div class="post-body"><time datetime="2025-12-04">Dec 04, 2025</time><h3>The Rise of Bispecific Antibodies</h3><p>Overcome downstream purification challenges for bispecific antibodies. Advanced chromatography and filtration techniques by Mehrdad Khani.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-mab-future.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g6" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g6)"/><g stroke="#e01e3c" stroke-width="2.5" fill="none"><path d="M20 170v-90M60 170v-60M100 170v-110M140 170v-40M180 170v-95M220 170v-70M260 170v-120M300 170v-55M340 170v-85M380 170v-30"/></g><path d="M0 60h400" stroke="#e9e8ea" stroke-width="1" opacity=".35" stroke-dasharray="4 6"/></svg><span class="mono">Biomanufacturing Trends</span></div>
+            <div class="post-body"><time datetime="2025-10-12">Oct 12, 2025</time><h3>The Future of Monoclonal Antibodies</h3><p>Explore the future of Monoclonal Antibodies (mAbs) and their impact on Canada&#x27;s biomanufacturing sector. Insights from Mehrdad Khani, Bioprocess Engineer.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-qbd-biomanufacturing.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g8" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g8)"/><path d="M40 200 200 40l160 160" fill="none" stroke="#e01e3c" stroke-width="2.5"/><path d="M80 200 200 80l120 120" fill="none" stroke="#e9e8ea" stroke-width="1.5" opacity=".5"/><circle cx="200" cy="40" r="6" fill="#e01e3c"/></svg><span class="mono">Quality by Design</span></div>
+            <div class="post-body"><time datetime="2025-08-18">Aug 18, 2025</time><h3>Implementing Quality by Design (QbD) in Biomanufacturing</h3><p>A comprehensive guide to implementing Quality by Design (QbD) in biopharmaceutical manufacturing. Ensure consistent quality for Health Canada approvals.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-viral-clearance.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g10" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g10)"/><path d="M0 180C60 170 80 60 120 70s60 120 100 110 50-150 90-140 50 90 90 85" fill="none" stroke="#e01e3c" stroke-width="2.5"/><path d="M0 190C70 185 90 120 130 125s60 70 100 65 50-90 90-85 50 60 80 58" fill="none" stroke="#e9e8ea" stroke-width="1.5" opacity=".6"/></svg><span class="mono">Viral Safety &amp; Filtration</span></div>
+            <div class="post-body"><time datetime="2025-06-05">Jun 05, 2025</time><h3>Viral Clearance Strategies in Downstream Processing</h3><p>Robust viral clearance and inactivation strategies for biopharmaceuticals. Meet regulatory requirements for Health Canada and FDA with effective downstream processing.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-tff-scaleup.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g9" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g9)"/><g fill="none" stroke="#e9e8ea" stroke-width="1" opacity=".35"><path d="M0 45h400M0 90h400M0 135h400M0 180h400"/></g><path d="M0 150Q100 40 200 150t200 0" fill="none" stroke="#e01e3c" stroke-width="3"/></svg><span class="mono">Filtration &amp; Scale-Up</span></div>
+            <div class="post-body"><time datetime="2025-04-10">Apr 10, 2025</time><h3>Scaling Up Tangential Flow Filtration</h3><p>Learn best practices for scaling up Tangential Flow Filtration (TFF) in biomanufacturing. Essential downstream strategies for CDMOs in Canada and North America.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-proteina-troubleshooting.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g7" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g7)"/><g fill="#e9e8ea" opacity=".7"><circle cx="60" cy="80" r="4"/><circle cx="130" cy="150" r="3"/><circle cx="210" cy="60" r="5"/><circle cx="300" cy="120" r="3"/><circle cx="350" cy="50" r="4"/><circle cx="90" cy="190" r="3"/></g><circle cx="200" cy="120" r="34" fill="none" stroke="#e01e3c" stroke-width="3"/><circle cx="200" cy="120" r="12" fill="#e01e3c"/></svg><span class="mono">Chromatography &amp; Affinity</span></div>
+            <div class="post-body"><time datetime="2025-02-20">Feb 20, 2025</time><h3>Troubleshooting Protein A Chromatography</h3><p>Discover key troubleshooting techniques for Protein A Chromatography in downstream bioprocessing to ensure high yield and GMP compliance in Canada.</p><span class="more">Read article &rarr;</span></div>
+          </a>
+          <a class="card post-card reveal" href="post-iex-optimization.html">
+            <div class="cover"><svg viewBox="0 0 400 225" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g5" x1="0" x2="1"><stop offset="0" stop-color="#1e2227"/><stop offset="1" stop-color="#2a1218"/></linearGradient></defs><rect width="400" height="225" fill="url(#g5)"/><path d="M0 180C60 170 80 60 120 70s60 120 100 110 50-150 90-140 50 90 90 85" fill="none" stroke="#e01e3c" stroke-width="2.5"/><path d="M0 190C70 185 90 120 130 125s60 70 100 65 50-90 90-85 50 60 80 58" fill="none" stroke="#e9e8ea" stroke-width="1.5" opacity=".6"/></svg><span class="mono">Downstream Processing</span></div>
+            <div class="post-body"><time datetime="2025-01-15">Jan 15, 2025</time><h3>Optimizing Ion Exchange (IEX) Chromatography</h3><p>Maximize API production yields by optimizing Ion Exchange (IEX) chromatography. Advanced purification strategies for GMP biomanufacturing.</p><span class="more">Read article &rarr;</span></div>
+          </a>
       </div>
     </div>
   </main>
 
-  <footer>
-    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-      <div class="footer-links">
-        <a href="mailto:M.NasrollahKhani@gmail.com" class="footer-link" aria-label="Email">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          <span class="link-text">Email Me</span>
-        </a>
-        <a href="Mehrdad_Khani_Resume.pdf" download class="footer-link" aria-label="Download Resume">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          <span class="link-text">Resume</span>
-        </a>
-        <a href="https://linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-          <span class="link-text">LinkedIn</span>
-        </a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v8M12 13 6 5M12 13l6-8M6 5l-2 2M18 5l2 2"/></svg></span>Mer Khani</a>
+          <p>Biotechnologist and downstream purification specialist in Mississauga, Ontario. GMP biomanufacturing, validation and a bit of software.</p>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <ul><li><a href="index.html#about">About</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="index.html#skills">Skills</a></li><li><a href="blog.html">Blog</a></li><li><a href="index.html#contact">Contact</a></li></ul>
+        </div>
+        <div>
+          <h4>Elsewhere</h4>
+          <ul><li><a href="https://www.linkedin.com/in/Mehrdad-Khani" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://github.com/MehrdadNsr" target="_blank" rel="noopener noreferrer">GitHub</a></li><li><a href="https://trafactor.com/" target="_blank" rel="noopener">Trafactor</a></li><li><a href="https://vazne.app/" target="_blank" rel="noopener">Vazne</a></li></ul>
+        </div>
+        <div>
+          <h4>Tools</h4>
+          <ul><li><a href="Mehrdad_Khani_Resume.pdf" download>Resume (PDF)</a></li><li><a href="BioReady-Certificate.pdf" target="_blank" rel="noopener noreferrer">BioReady certificate</a></li><li><a href="pte-email-trainer.html">PTE Email Trainer</a></li></ul>
+        </div>
       </div>
-      <p>&copy; 2026 Mehrdad Khani. All rights reserved.</p>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Mehrdad Khani. All rights reserved.</span>
+        <span class="mono">mehrdadkhani.com</span>
+      </div>
     </div>
   </footer>
-
-  <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 19V5M5 12l7-7 7 7"/>
-    </svg>
-  </button>
-
-  <script src="script.js"></script>
+  <button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg></button>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

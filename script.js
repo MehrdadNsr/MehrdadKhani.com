@@ -1,122 +1,78 @@
+/* mehrdadkhani.com - page behaviour (nav, reveals, counters). The 3D scenes
+   live in assets/scene.js and load as a module after this. */
 document.addEventListener('DOMContentLoaded', () => {
-  // Intersection Observer for scroll animations
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-  };
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Only animate once
-      }
+  /* nav: solid once scrolled, mobile toggle, active section */
+  const nav = document.getElementById('navbar');
+  const links = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.nav-toggle');
+  const onScroll = () => nav && nav.classList.toggle('scrolled', scrollY > 24);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
-  }, observerOptions);
-
-  const revealElements = document.querySelectorAll('.scroll-reveal');
-  revealElements.forEach(el => {
-    observer.observe(el);
-  });
-
-  // Shrink navbar on scroll
-  const navbar = document.getElementById('navbar');
-  if (navbar) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }, { passive: true });
+    links.addEventListener('click', (e) => { if (e.target.closest('a')) { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); } });
   }
-
-  // Scroll to Top Button Logic
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-  
-  if (scrollTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        scrollTopBtn.classList.add('show');
-      } else {
-        scrollTopBtn.classList.remove('show');
-      }
-    }, { passive: true });
-
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+  const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const sections = navAnchors.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if (sections.length && 'IntersectionObserver' in window) {
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        navAnchors.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
       });
-    });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach((s) => spy.observe(s));
   }
 
-  // Theme Toggle Logic
-  // The theme itself is applied by the inline <head> script before first paint,
-  // so this only keeps the icons in sync and handles the toggle click.
-  const themeToggle = document.getElementById('theme-toggle');
-  const sunIcon = document.querySelector('.sun-icon');
-  const moonIcon = document.querySelector('.moon-icon');
+  /* reveal on scroll */
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    reveals.forEach((el) => el.classList.add('visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    reveals.forEach((el) => io.observe(el));
+    // Safety net: when the 3D scenes keep a slow device busy, observer callbacks
+    // can lag behind the scroll. Anything that has entered the viewport is shown.
+    let pending = false;
+    const sweep = () => {
+      pending = false;
+      const limit = innerHeight * 1.05;
+      reveals.forEach((el) => { if (!el.classList.contains('visible') && el.getBoundingClientRect().top < limit) { el.classList.add('visible'); io.unobserve(el); } });
+    };
+    addEventListener('scroll', () => { if (!pending) { pending = true; requestAnimationFrame(sweep); } }, { passive: true });
+    setTimeout(sweep, 800);
+  }
 
-  const syncThemeIcons = () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (sunIcon) sunIcon.style.display = isLight ? 'none' : 'block';
-    if (moonIcon) moonIcon.style.display = isLight ? 'block' : 'none';
-    if (themeToggle) {
-      themeToggle.setAttribute('aria-pressed', String(isLight));
-      themeToggle.setAttribute(
-        'aria-label',
-        isLight ? 'Switch to dark theme' : 'Switch to light theme'
-      );
-    }
+  /* metric counters: count up once when they scroll into view */
+  const counters = document.querySelectorAll('[data-count]');
+  const run = (el) => {
+    const target = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '', dur = 1400, start = performance.now();
+    const step = (now) => {
+      const t = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - t, 3);
+      el.firstChild.nodeValue = Math.round(target * e).toLocaleString('en-US') + (t < 1 ? '' : suffix);
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   };
-
-  syncThemeIcons();
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-      try {
-        localStorage.setItem('theme', isLight ? 'dark' : 'light');
-      } catch (e) {}
-      syncThemeIcons();
-    });
+  if (reduced) counters.forEach((el) => { el.firstChild.nodeValue = parseFloat(el.dataset.count).toLocaleString('en-US') + (el.dataset.suffix || ''); });
+  else {
+    const io = new IntersectionObserver((entries) => { entries.forEach((en) => { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } }); }, { threshold: 0.5 });
+    counters.forEach((el) => io.observe(el));
   }
 
-  // ScrollSpy Logic for Navbar
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  /* scroll to top */
+  const top = document.getElementById('scrollTopBtn');
+  if (top) {
+    addEventListener('scroll', () => top.classList.toggle('show', scrollY > 600), { passive: true });
+    top.addEventListener('click', () => scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
+  }
 
-  const scrollSpyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        let currentId = entry.target.id;
-        // Keep 'Experience' highlighted even when scrolling through 'Earlier Experience'
-        if (currentId === 'earlier-experience') {
-          currentId = 'experience';
-        }
-        
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${currentId}`) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '-20% 0px -70% 0px',
-    threshold: 0
-  });
-
-  sections.forEach(section => {
-    scrollSpyObserver.observe(section);
-  });
+  /* footer year */
+  document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 });
