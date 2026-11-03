@@ -2,7 +2,6 @@
 
 Logos identify employment and education history; they do not imply endorsement.
 
-- Apotex: https://seeklogo.com/vector-logo/250121/apotex (PNG; white background blended out in CSS)
 - CinnaGen: https://link.cinnagen.com/icon/Cinnagen_Logo_Color.png (transparent PNG)
 - Eurofins: https://commons.wikimedia.org/wiki/File:Eurofins_Scientific_Logo.svg (SVG rendered to transparent PNG; PD-textlogo)
 - Amol University: https://ausmt.ac.ir/Template/assets/images/Logo/LogoStickyMenu.svg (university website SVG rendered to transparent PNG)
