@@ -9,3 +9,18 @@
 .university-logo{filter:brightness(0);opacity:.75}
 /* Company and university marks sit at the right edge of their heading; the name stays the title. */
 .company-heading{justify-content:space-between}.company-logo{order:2;margin-left:auto;width:96px;height:36px}.education-item{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.university-logo{order:2;width:140px;margin:4px 0 0;flex:none}@media(max-width:760px){.company-logo{width:80px;height:32px}.university-logo{width:110px}}
+
+/* Personal portfolio: warm editorial canvas with a single illustrated landmark. */
+:root{--bg:#f8f5ed;--ink:#202c28;--muted:#525d55;--line:#203b3026;--lime:#335849;--panel:#f1eee5;--bridge:#a13d30}
+header{height:78px}nav{gap:25px}
+.hero-grid{min-height:0;grid-template-columns:minmax(0,.91fr) minmax(0,1.09fr);gap:clamp(28px,5vw,78px);padding:clamp(52px,7vw,106px) 0 clamp(50px,7vw,92px)}
+.hero-copy{padding:0}.hero-kicker{display:flex;align-items:center;gap:12px;letter-spacing:1.25px}.hero-kicker span{width:23px;height:1px;background:var(--bridge);flex:none}
+.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(47px,5.7vw,92px);line-height:.99;letter-spacing:-.063em;margin:24px 0 23px;max-width:11ch}
+.hero h1 em{font-weight:400;color:var(--bridge)}.hero .intro{max-width:39ch;font-size:clamp(14px,1.25vw,16px);line-height:1.7;margin-bottom:26px}
+.hero .button,.contact .button,.contact-form button{background:#304f42;border-color:#304f42;color:#fff;border-radius:4px}.hero .button:hover,.contact .button:hover,.contact-form button:hover{background:#253f35;color:#fff}
+.career-map{margin:0;min-width:0}.career-map img{display:block;width:100%;height:auto}.career-map figcaption{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid var(--line);padding:13px 0 0}
+.career-map figcaption a{display:flex;align-items:center;gap:9px;font-size:12px;line-height:1.5}.map-index{font:10px monospace;color:var(--bridge)}
+.section{padding-top:clamp(47px,6vw,84px);padding-bottom:clamp(47px,6vw,84px)}
+#work{border-top:1px solid var(--line)}.section-head{margin-bottom:34px}.section-head p:not(.eyebrow){margin-top:13px}.section-head h2{font:400 clamp(34px,4vw,58px)/1.04 Georgia,serif;letter-spacing:-.055em}
+.approach,.background{background:#efeee5}.project-grid{gap:20px}.project-art{height:clamp(215px,23vw,305px)}.project-info{padding:24px}.project-info dl{margin:16px 0}.role{padding:27px 0}
+@media(max-width:760px){header{height:67px}nav{top:66px;background:var(--bg)}.hero-grid{display:grid;grid-template-columns:1fr;gap:28px;padding:42px 0 40px}.hero h1{font-size:clamp(46px,10vw,70px);max-width:13ch;margin:19px 0}.hero .intro{margin-bottom:19px}.career-map figcaption{gap:9px;padding-top:10px}.career-map figcaption a{font-size:11px}.section-head{margin-bottom:24px}.section-head .eyebrow{margin-bottom:12px}.project-info{padding:19px}.project-art{height:255px}}
