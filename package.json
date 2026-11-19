@@ -6,7 +6,7 @@
     "build:scene": "esbuild assets/scene-src.js --bundle --minify --format=esm --target=es2020 --outfile=assets/scene.js"
   },
   "devDependencies": {
-    "esbuild": "0.24.0",
+    "esbuild": "0.28.1",
     "three": "0.170.0"
   }
 }
